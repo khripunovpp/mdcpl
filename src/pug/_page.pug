@@ -1,0 +1,15 @@
+html(lang="ru")
+  head
+    base(href='./../')
+    include ./_meta
+    block scripts
+      include _head-scripts
+
+  body
+    div.overflow
+      include _header
+      block page
+      include _footer
+    include ./_dialogs
+    script(defer,src='./js/main.js')
+    block scripts-page
