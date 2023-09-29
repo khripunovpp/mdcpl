@@ -1,9 +1,4 @@
-
-<header class="header js-sticky-header">
-  <div class="header__mobileBg" aria-hidden="true"></div>
-  <div class="container">
-    <div class="header__inner">
-      <div class="header__logo"><a class="header-logo" href="./"><svg width="242" height="34" viewBox="0 0 242 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="242" height="34" viewBox="0 0 242 34" fill="none" xmlns="http://www.w3.org/2000/svg">
     <g id="logo-left">
         <path d="M0 29.3049H2.74665V16.0016L7.72589 23.3421H9.27512L14.2543 16.0016V29.3049H16.9739V10.4167H14.7978L8.51515 19.5914L2.2303 10.4167H0V29.3049Z"
               fill="#14373C"/>
@@ -42,59 +37,3 @@
               fill="#E5A697"/>
     </g>
 </svg>
-</a></div>
-      <section class="header__nav">
-        <nav class="nav">
-          <ul class="nav__list js-navigation">
-            <li><a href="./about/index.html">О нас</a></li>
-            <li><a href="./services/index.html">Услуги</a></li>
-            <li><a href="./doctors/index.html">Специалисты</a></li>
-            <li><a href="./feedbacks/index.html">Отзывы</a></li>
-            <li><a href="./faq/index.html">FAQ</a></li>
-            <li><a href="./contacts/index.html">Контакты</a></li>
-          </ul>
-          <div class="nav__bottom">
-            <div class="nav__bottom-element">
-              <div class="contact-link"><i class="icon"><svg width="15" height="13" viewBox="0 0 15 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M14.6206 1.77661L12.5269 11.7454C12.3706 12.4329 11.9331 12.6204 11.3394 12.2766L8.12061 9.90161L6.58936 11.4016C6.40186 11.5891 6.27686 11.7141 5.93311 11.7141L6.15186 8.43286L12.1206 3.05786C12.4019 2.83911 12.0581 2.68286 11.7144 2.93286L4.33936 7.55786L1.18311 6.58911C0.495605 6.37036 0.464355 5.90161 1.30811 5.55786L13.7456 0.776611C14.3081 0.557861 14.8081 0.901611 14.6206 1.77661Z" fill="#000000"/>
-</svg>
-</i><a href="#">Telegram-бот</a></div>
-            </div>
-            <div class="nav__bottom-element">
-              <div class="contact-link"><i class="icon"><svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M1 4L8.8906 9.2604C9.5624 9.70827 10.4376 9.70827 11.1094 9.2604L19 4M3 15H17C18.1046 15 19 14.1046 19 13V3C19 1.89543 18.1046 1 17 1H3C1.89543 1 1 1.89543 1 3V13C1 14.1046 1.89543 15 3 15Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-</i><a href="mailto:example@mail.com">example@mail.com</a></div>
-            </div>
-            <div class="nav__bottom-element">
-              <button class="button button--outlined" type="button"><span>Записаться на прием</span></button>
-            </div>
-            <div class="nav__bottom-element">
-              <button class="button button--outlined button--accent" type="button"><span>Выезд на дом</span></button>
-            </div>
-          </div>
-        </nav>
-      </section>
-      <section class="header__phone">
-        <div class="contact-link"><i class="icon"><svg width="15" height="13" viewBox="0 0 15 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M14.6206 1.77661L12.5269 11.7454C12.3706 12.4329 11.9331 12.6204 11.3394 12.2766L8.12061 9.90161L6.58936 11.4016C6.40186 11.5891 6.27686 11.7141 5.93311 11.7141L6.15186 8.43286L12.1206 3.05786C12.4019 2.83911 12.0581 2.68286 11.7144 2.93286L4.33936 7.55786L1.18311 6.58911C0.495605 6.37036 0.464355 5.90161 1.30811 5.55786L13.7456 0.776611C14.3081 0.557861 14.8081 0.901611 14.6206 1.77661Z" fill="#000000"/>
-</svg>
-</i><a href="#">Telegram-бот</a></div>
-      </section>
-      <section class="header__splitButton">
-        <div class="split-button">
-          <button type="button"><span>Записаться</span></button>
-          <button type="button"><i class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g id="Icon/Outline/plus-sm">
-<path id="Icon" d="M12 6V12M12 12V18M12 12H18M12 12L6 12" stroke="#D56A5D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</g>
-</svg>
-</i><span>Выезд на дом</span></button>
-        </div>
-      </section>
-      <button class="header__burger burger" type="button" aria-label="Открыть меню">
-        <div class="burger__icon"><span></span><span></span><span></span><span></span></div>
-      </button>
-    </div>
-  </div>
-</header>

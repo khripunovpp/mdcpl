@@ -1,0 +1,40 @@
+@use 'vars' as *;
+
+.button {
+  appearance: none;
+  background-color: transparent;
+  border-radius: 50px;
+  font-family: inherit;
+  font-size: inherit;
+  border: 2px solid;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  color: $font-color;
+  cursor: pointer;
+  padding: 10px 20px;
+  font-weight: 600;
+
+  &--outlined {
+    background-color: transparent;
+    border-color: $light-green;
+
+    &:hover {
+      background-color: $light-green;
+    }
+  }
+
+  &--accent:not(&--outlined) {
+    background-color: $accent-color;
+    color: #fff;
+    border-color: $accent-color;
+  }
+
+  &--accent.button--outlined {
+    color: $accent-color;
+    border-color: $accent-color;
+
+    &:hover {
+      background-color: $accent-color;
+      color: #fff;
+    }
+  }
+}

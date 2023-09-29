@@ -1,7 +1,9 @@
+@use "vars" as *;
+
 body {
   background-color: #fff;
-  color: #fff;
-  font-family: Montserrat;
+  color: $font-color;
+  font-family: "Montserrat";
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -19,6 +21,54 @@ body {
 
 .container {
   margin: 0 auto;
-  max-width: 1600px;
-  padding: 0 15px;
+  max-width: 670px;
+  padding: 0 20px;
 }
+
+.icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+
+  svg {
+    width: 100%;
+    height: 100%;
+
+    path[fill="#000000"] {
+      fill: currentColor;
+    }
+
+    path[stroke="#000000"] {
+      stroke: currentColor;
+    }
+  }
+}
+
+.contact-link {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: inherit;
+  color: inherit;
+  display: flex;
+  align-items: center;
+
+  .icon {
+    margin-right: 10px;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+@media screen and (min-width: 991px) {
+  .container {
+    max-width: 1600px;
+    padding: 0 30px;
+  }
+}
+
+@import "header";
+@import "hero";
+@import "buttons";
