@@ -1,0 +1,40 @@
+- var services=[{title: 'Педиатрия', color: '#F3D6C6'},{title: 'Рецепты / Вакцинация', color: '#EBE2DD'},{title: 'Справки', color: '#C1D3C8'},{title: 'Ассистанс', color: '#F3D6C6'},{title: 'Справки', color: '#F4D8D5'},{title: 'Организация скринингов', color: '#F0C7AE'},{title: 'Педиатрия', color: '#E2E6ED'},{title: 'Рецепты / Вакцинация', color: '#AECDBE'},{title: 'Справки', color: '#E8BFAF'},{title: 'Организация скринингов', color: '#c9dadf'},];
+section.services-widget
+    .services-widget__inner
+        .services-widget__servicesListContainer
+            .services-widget__servicesListContainer-inner
+                h2.services-widget__title Наши услуги
+                ul.services-widget__list
+                    each service,index in services
+                        li.services-widget__item.service-card(data-color=service.color)
+                            .service-card__dot.dot(style=`background-color: ${service.color}`)
+                            h3.service-card__title=service.title
+                            section.service-card__tail
+                                footer.service-card__actions
+                                    .service-card__actionButtonWrap.service-card__actionButtonWrap--appointement
+                                        button.service-card__appointement.button.button--accent(type='button')
+                                            span Записаться на прием
+                                    .service-card__actionButtonWrap.service-card__actionButtonWrap--details
+                                        button.service-card__details.button.button--outlined(type='button')
+                                            span Подробнее
+                                    .service-card__actionButtonWrap.service-card__actionButtonWrap--contact
+                                        button.service-card__contact.button.button--outlined.button--telegram.button--icon(type='button')
+                                            i.icon
+                                                include ../img/telegram-icon.svg
+                                    .service-card__actionButtonWrap.service-card__actionButtonWrap--contact
+                                        button.service-card__contact.button.button--outlined.button--whatsapp.button--icon(type='button')
+                                            i.icon
+                                                include ../img/whatsapp-icon.svg
+                                section.service-card__services
+                                    ul.service-card__list
+                                        li
+                                            a(href='#') Организация вакцинации  в клиниках Португалии
+                                        li
+                                            a(href='#') Программы годового сопровождения семей с детьми
+                                        li
+                                            a(href='#') Программы годового сопровождения семей с детьми
+                                        li
+                                            a(href='#') Программы годового сопровождения семей с детьми
+        .services-widget__desktopScrollerListContainer
+            .services-widget__desktopScrollerListContainer-inner
+                ul.services-widget__desktopScrollerListContainer-list

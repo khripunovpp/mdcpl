@@ -7,7 +7,6 @@ body {
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
-  line-height: 30px;
   margin: 0;
   padding: 0;
   -webkit-tap-highlight-color: transparent;
@@ -21,7 +20,7 @@ body {
 
 .container {
   margin: 0 auto;
-  max-width: 670px;
+  max-width: $desktop-container-width-mob + 40px;
   padding: 0 20px;
 }
 
@@ -64,11 +63,22 @@ body {
 
 @media screen and (min-width: 991px) {
   .container {
-    max-width: 1600px;
+    max-width: $desktop-container-width + 60px;
     padding: 0 30px;
+  }
+}
+
+.dot {
+  width: 100%;
+  height: 100%;
+  clip-path: circle(7.5px at 7.5px 26px);
+  transition: clip-path 0.4s ease-in-out;
+  @media screen and (min-width: 991px) {
+    clip-path: circle(10px at 10px 48px);
   }
 }
 
 @import "header";
 @import "hero";
 @import "buttons";
+@import "services-widget";

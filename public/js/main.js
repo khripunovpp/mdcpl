@@ -142,7 +142,7 @@
 
     items.forEach(function (item, index) {
       $(item).css({
-        transitionDelay: window.isMobile() ? index * 50 + "ms" : '0ms',
+        transitionDelay: window.isMobile() ? index * 50 + 100 + "ms" : '0ms',
       });
     });
 

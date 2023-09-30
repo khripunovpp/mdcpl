@@ -7,7 +7,7 @@
   font-family: inherit;
   font-size: inherit;
   border: 2px solid;
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
   color: $font-color;
   cursor: pointer;
   padding: 10px 20px;
@@ -26,6 +26,11 @@
     background-color: $accent-color;
     color: #fff;
     border-color: $accent-color;
+
+    &:hover {
+      background-color: darken($accent-color, 10%);
+      border-color: darken($accent-color, 10%);
+    }
   }
 
   &--accent.button--outlined {
@@ -36,5 +41,19 @@
       background-color: $accent-color;
       color: #fff;
     }
+  }
+
+  &--icon {
+    padding: 10px;
+  }
+
+  &--telegram {
+    padding-left: 9px;
+    padding-right: 11px;
+  }
+
+  &--whatsapp {
+    padding-left: 11px;
+    padding-right: 9px;
   }
 }

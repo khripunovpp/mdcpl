@@ -1,0 +1,312 @@
+@use 'vars' as *;
+@use 'sass:math';
+
+.services-widget {
+  &__title {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0 0 20px;
+    text-transform: uppercase;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__item {
+    overflow: hidden;
+  }
+
+  &__desktopScrollerListContainer {
+    display: none;
+  }
+
+  &__inner {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  &__servicesListContainer {
+    max-width: $desktop-container-width-mob;
+    margin: 0 auto;
+  }
+
+
+  @media screen and (min-width: 991px) {
+
+    &__title {
+      font-size: 60px;
+      margin-bottom: 20px;
+    }
+    &__inner {
+      display: flex;
+      justify-content: center;
+      margin: 0;
+    }
+    &__servicesListContainer,
+    &__desktopScrollerListContainer {
+      width: 50%;
+      display: flex;
+      padding-top: 100px;
+      padding-bottom: 100px;
+
+      &-inner {
+        width: math.div($desktop-container-width, 2);
+      }
+    }
+    &__servicesListContainer {
+      justify-content: flex-end;
+      padding-left: 30px;
+      max-width: none;
+      margin: 0;
+
+      &-inner {
+        padding-right: 60px;
+      }
+    }
+    &__desktopScrollerListContainer {
+      padding-right: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      transition: background-color 0.2s ease-in-out;
+
+      &-inner {
+        padding-left: 60px;
+      }
+
+      &-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+          font-size: 40px;
+          font-weight: 600;
+          opacity: 0;
+          transform: translateX(15px);
+          transition: opacity 0.2s ease-in, transform 0.2s ease-in;
+
+          &.animate {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        li + li {
+          margin-top: 40px;
+        }
+
+        a {
+          text-decoration: none;
+          opacity: 0.5;
+          transition: opacity 0.2s ease-in;
+          color: inherit;
+
+          &:hover {
+            opacity: 1;
+          }
+        }
+
+      }
+    }
+  }
+}
+
+.service-card {
+  border-radius: 20px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: padding 0.2s ease-in-out, margin 0.2s ease-in-out;
+  margin-bottom: -10px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &:first-child {
+    margin-top: -10px;
+  }
+
+  .dot {
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    top: 0;
+  }
+
+  &__tail {
+    display: none;
+    padding-top: 15px;
+
+    &.opened {
+      display: block;
+
+      .service-card {
+        &__actionButtonWrap {
+          opacity: 1;
+          transform: translateX(0);
+        }
+
+        &__list {
+          li {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+      }
+    }
+  }
+
+  &__title {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+    transition: transform 0.2s linear;
+    transform: translateX(15px);
+    cursor: pointer;
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+
+    .button--outlined {
+      border-color: #fff;
+
+      &:hover {
+        background-color: #fff;
+      }
+    }
+  }
+
+  &__actionButtonWrap {
+    opacity: 0;
+    transform: translateX(15px);
+    transition: opacity 0.2s ease-in, transform 0.2s ease-in;
+
+    &--appointement {
+      flex: 100%;
+      margin-bottom: 10px;
+    }
+
+    &--contact {
+      flex-grow: 0;
+      margin-left: 10px;
+    }
+
+    &--details {
+      flex-grow: 1;
+    }
+
+    .button {
+      width: 100%;
+    }
+  }
+
+  &__services {
+    margin-top: 10px;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      font-size: 18px;
+      font-weight: 600;
+      opacity: 0;
+      transform: translateX(15px);
+      transition: opacity 0.2s ease-in, transform 0.2s ease-in;
+    }
+
+    li + li {
+      margin-top: 10px;
+    }
+
+    a {
+      text-decoration: none;
+      opacity: 0.5;
+      transition: opacity 0.2s ease-in;
+      color: inherit;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  &.opened {
+    margin-bottom: 0;
+
+    &:last-child {
+      margin-bottom: 10px;
+    }
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    & + .service-card {
+      //margin-top: 20px;
+    }
+
+    .service-card + & {
+      margin-top: 10px;
+    }
+
+    .service-card {
+      &__title {
+        transform: translateX(0);
+      }
+    }
+
+    .dot {
+      width: 100%;
+      height: 100%;
+      clip-path: circle(150% at 0% 0%);
+    }
+  }
+
+  @media screen and (min-width: 991px) {
+    margin-bottom: -20px;
+    padding: 30px;
+    &:first-child {
+      margin-top: -20px;
+    }
+    &__services {
+      display: none;
+    }
+    &__title {
+      font-size: 30px;
+    }
+    &__actionButtonWrap {
+      &--appointement {
+        flex: auto;
+        margin: 0;
+      }
+
+      &--contact {
+        margin-left: 30px;
+      }
+
+      &--details {
+        margin-left: 30px;
+      }
+    }
+    &.opened {
+      &:last-child {
+        margin-bottom: 20px;
+      }
+
+      .service-card + & {
+        margin-top: 20px;
+      }
+    }
+  }
+}
