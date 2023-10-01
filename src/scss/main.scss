@@ -6,7 +6,7 @@ body {
   font-family: "Montserrat";
   font-size: 18px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 600;
   margin: 0;
   padding: 0;
   -webkit-tap-highlight-color: transparent;
@@ -16,6 +16,10 @@ body {
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
 }
 
 .container {
@@ -76,6 +80,20 @@ body {
   @media screen and (min-width: 991px) {
     clip-path: circle(10px at 10px 48px);
   }
+}
+
+.only-desktop {
+    display: none;
+    @media screen and (min-width: 991px) {
+        display: block;
+    }
+}
+
+.only-mobile {
+    display: block;
+    @media screen and (min-width: 991px) {
+        display: none;
+    }
 }
 
 @import "header";

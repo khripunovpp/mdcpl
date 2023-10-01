@@ -16,7 +16,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 18px 0;
+    padding: 15px 0;
     position: relative;
   }
 
@@ -93,7 +93,12 @@
   .header-logo {
     display: block;
     opacity: 0;
-    max-width: 188px;
+
+    svg {
+
+      max-width: 188px;
+      max-height: 26px;
+    }
 
     #logo-right,
     #logo-left path {
@@ -106,7 +111,9 @@
 
 @media screen and (min-width: 991px) {
   .header-logo {
-    max-width: 240px;
+    svg {
+      max-width: 240px;
+    }
 
     #logo-icon {
       transform: translate3d(0, 0, 0) !important;
@@ -119,7 +126,7 @@
   cursor: pointer;
   line-height: 1;
   border: none;
-  padding: 8px;
+  padding: 3px 8px;
   appearance: none;
   background-color: transparent;
 

@@ -2,5 +2,96 @@
 
 .hero {
   background-color: $green;
-  min-height: 2000px;
+  padding: 20px 0 50px;
+
+  &__title {
+    margin: 0;
+    font-size: 35px;
+  }
+
+  &__leadText {
+    font-size: 12px;
+
+    p {
+      margin: 0;
+    }
+
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  &__picture {
+    margin-bottom: 10px;
+    display: flex;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  &__title {
+    text-transform: uppercase;
+    font-size: clamp(30px, 8vw, 35px);
+    line-height: clamp(35px, 8vw, 43px);
+    margin: 0 0 10px;
+  }
+
+  &__footer {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+
+    .button + .button {
+      margin-top: 15px;
+    }
+  }
+
+  &__leadText {
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  @media screen and (min-width: 991px) {
+    padding: 40px 0 150px;
+
+    &__inner {
+      flex-direction: row;
+      align-items: center;
+    }
+
+    &__picture {
+      width: 50%;
+      max-width: 785px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: auto;
+    }
+    &__content {
+      padding-right: 95px;
+      max-width: 50%;
+    }
+
+    &__title {
+      font-size: clamp(60px, 7vw, 80px);
+      line-height: clamp(80px, 7vw, 98px);
+      margin-bottom: 20px;
+    }
+
+    &__leadText {
+      font-size: 18px;
+      line-height: 30px;
+    }
+
+    &__footer {
+      margin-top: 40px;
+      flex-direction: row;
+
+      .button + .button {
+        margin-top: 0;
+        margin-left: 30px;
+      }
+    }
+  }
 }
