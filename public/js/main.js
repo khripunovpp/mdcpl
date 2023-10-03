@@ -44,15 +44,6 @@
     that.setHeaderHeight.call(that);
     that.setNavHeight.call(that);
     that.setAnimationProps.call(that);
-    console.log({
-      logoIconInitPosition: that.logoIconInitPosition,
-      logoSVGInitPosition: that.logoSVGInitPosition,
-      getBbox: that.logoIcon[0].getBBox(),
-    });
-
-
-    console.log(that.logoIconInitPosition);
-
 
     var currentScrollPosition = $(window).scrollTop();
 
@@ -163,9 +154,6 @@
       that.logo$.css({
         opacity: 1
       });
-      console.log({
-        icon: that.logoIcon.innerWidth(),
-      });
       if (window.isMobile()) {
         that.logo$.css({
           maxWidth: logoIconBox.width + "px",
@@ -194,13 +182,11 @@
     this.burger$.toggleClass(openClass, show);
     $('body').toggleClass(openClass, show);
     var showCurrent = this.burger$.hasClass(openClass);
-    console.log({showCurrent});
     this.runLogoAnimation(showCurrent, that.delayStep);
   };
 
   HeaderComponent.prototype.runLogoAnimation = function (show, step) {
     this.logoItems.forEach(function (item, index) {
-      console.log({item});
       $(item).css({
         transitionDelay: show ? index * step + "s" : "0s",
       });
@@ -218,6 +204,9 @@
       return window.matchMedia("only screen and (max-width: 991px)").matches;
     };
     new HeaderComponent().init();
+
+    var debugInUrl = window.location.href.indexOf('debug') > -1;
+    $('body').toggleClass('debug', debugInUrl);
   });
 
 }));

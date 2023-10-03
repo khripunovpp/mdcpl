@@ -3,10 +3,6 @@
 
 .services-widget {
   &__title {
-    font-size: 24px;
-    font-weight: 600;
-    margin: 0 0 20px;
-    text-transform: uppercase;
   }
 
   &__list {
@@ -38,7 +34,6 @@
   @media screen and (min-width: 991px) {
 
     &__title {
-      font-size: 60px;
       margin-bottom: 20px;
     }
     &__inner {

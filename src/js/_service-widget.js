@@ -45,6 +45,6 @@ ServicesWidget.prototype.openByIndex = function (index) {
   }
   const $serviceCardTail = $serviceCard.find('.service-card__tail');
   $serviceCard.addClass('opened');
-  $serviceCardTail.slideDown();
+  $serviceCardTail.slideDown(300);
   $serviceCardTail.addClass('opened');
 }

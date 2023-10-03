@@ -2,11 +2,12 @@
 
 .button {
   appearance: none;
-  background-color: transparent;
+  background-color: $light-green;
   border-radius: 50px;
   font-family: inherit;
   font-size: inherit;
-  border: 2px solid;
+  line-height: 1;
+  border: 2px solid $light-green;
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
   color: $font-color;
   cursor: pointer;
@@ -14,7 +15,15 @@
   font-weight: 600;
   text-decoration: none;
   text-align: center;
+  &:not(&--outlined)  {
 
+  &:hover {
+    background-color: $font-color;
+    border-color: $font-color;
+    color: #fff;
+  }
+
+  }
   &--outlined {
     background-color: transparent;
     border-color: $light-green;
@@ -30,8 +39,8 @@
     border-color: $accent-color;
 
     &:hover {
-      background-color: darken($accent-color, 10%);
-      border-color: darken($accent-color, 10%);
+      background-color: $accent-color-darken;
+      border-color: $accent-color-darken;
     }
   }
 
@@ -58,4 +67,25 @@
     padding-left: 11px;
     padding-right: 9px;
   }
+
+  @media screen and (min-width: 991px) {
+    font-size: 20px;
+    padding: 18px 20px;
+    &--icon {
+      padding: 16px;
+    }
+
+    &--telegram {
+      padding-left: 15px;
+      padding-right: 17px;
+    }
+
+    &--whatsapp {
+      padding-left: 17px;
+      padding-right: 15px;
+    }
+
+
+  }
+
 }

@@ -20,12 +20,22 @@ body {
 
 img {
   max-width: 100%;
+  display: block;
+}
+
+.debug {
+  *,
+  *::before,
+  *::after {
+    box-shadow: 0 0 0 1px  rgba(255, 0, 0, 0.1) !important;
+  }
 }
 
 .container {
   margin: 0 auto;
   max-width: $desktop-container-width-mob + 40px;
   padding: 0 20px;
+
 }
 
 .icon {
@@ -83,20 +93,33 @@ img {
 }
 
 .only-desktop {
-    display: none;
-    @media screen and (min-width: 991px) {
-        display: block;
-    }
+  display: none;
+  @media screen and (min-width: 991px) {
+    display: block;
+  }
 }
 
 .only-mobile {
-    display: block;
-    @media screen and (min-width: 991px) {
-        display: none;
-    }
+  display: block;
+  @media screen and (min-width: 991px) {
+    display: none;
+  }
+}
+
+.title {
+  font-size: 24px;
+  line-height: 31px;
+  margin: 0 0 30px;
+  text-transform: uppercase;
+  @media screen and (min-width: 991px) {
+    font-size: 60px;
+    margin-bottom: 50px;
+    line-height: 91px;
+  }
 }
 
 @import "header";
 @import "hero";
 @import "buttons";
 @import "services-widget";
+@import "team-slider";

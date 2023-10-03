@@ -39,15 +39,6 @@ HeaderComponent.prototype.init = function () {
   that.setHeaderHeight.call(that);
   that.setNavHeight.call(that);
   that.setAnimationProps.call(that);
-  console.log({
-    logoIconInitPosition: that.logoIconInitPosition,
-    logoSVGInitPosition: that.logoSVGInitPosition,
-    getBbox: that.logoIcon[0].getBBox(),
-  })
-
-
-  console.log(that.logoIconInitPosition);
-
 
   var currentScrollPosition = $(window).scrollTop();
 
@@ -160,9 +151,6 @@ HeaderComponent.prototype.setAnimationProps = function () {
     that.logo$.css({
       opacity: 1
     });
-    console.log({
-      icon: that.logoIcon.innerWidth(),
-    })
     if (window.isMobile()) {
       that.logo$.css({
         maxWidth: logoIconBox.width + "px",
@@ -191,13 +179,11 @@ HeaderComponent.prototype.toggleMenu = function (show) {
   this.burger$.toggleClass(openClass, show);
   $('body').toggleClass(openClass, show);
   var showCurrent = this.burger$.hasClass(openClass);
-  console.log({showCurrent})
   this.runLogoAnimation(showCurrent, that.delayStep);
 }
 
 HeaderComponent.prototype.runLogoAnimation = function (show, step) {
   this.logoItems.forEach(function (item, index) {
-    console.log({item})
     $(item).css({
       transitionDelay: show ? index * step + "s" : "0s",
     });
