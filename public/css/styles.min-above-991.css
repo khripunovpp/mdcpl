@@ -28,6 +28,25 @@
   line-height: 91px;
 }
 
+.splide__arrows--widget .splide__arrow {
+  padding: 20px;
+}
+
+.splide__arrows--widget .splide__arrow .icon {
+  width: 16px;
+  height: 16px;
+}
+
+.splide__arrows--widget .splide__arrow--prev {
+  padding-left: 19px;
+  padding-right: 21px;
+}
+
+.splide__arrows--widget .splide__arrow--next {
+  padding-left: 21px;
+  padding-right: 19px;
+}
+
 .header-logo svg {
   max-width: 240px;
 }
@@ -376,6 +395,51 @@
 
 .advantages__footer {
   margin-top: 50px;
+}
+
+.reviews-widget {
+  padding: 150px 0;
+}
+
+.reviews-widget__item+.reviews-widget__item {
+  margin-top: 0;
+}
+
+.reviews-widget__footer {
+  margin-top: 50px;
+}
+
+.review-card {
+  padding: 30px;
+  border-radius: 40px;
+}
+
+.review-card__ava {
+  margin-right: 20px;
+  width: 80px;
+  height: 80px;
+  font-size: 30px;
+  line-height: 80px;
+}
+
+.review-card__name {
+  font-size: 30px;
+  line-height: 37px;
+}
+
+.review-card__location {
+  font-size: 18px;
+  line-height: 27px;
+}
+
+.review-card__location .icon {
+  margin-right: 5px;
+}
+
+.review-card__tail {
+  font-size: 18px;
+  line-height: 27px;
+  margin-bottom: 20px;
 }
 
 .companies__list {

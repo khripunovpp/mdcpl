@@ -1,4 +1,44 @@
-section.reviews-widget
+section.reviews-widget.splide#reviews-slider
     .container
         .reviews-widget__inner
             h2.reviews-widget__title.title Отзывы пациентов
+            section(aria-label="Карусель отзывов")
+                .splide__track
+                    ul.reviews-widget__list.splide__list
+                        li.reviews-widget__item.splide__slide
+                            section.review-card.expandable
+                                header.review-card__header
+                                    p.review-card__ava FH
+                                    section.review-card__description
+                                        p.review-card__name Имя Фамилия
+                                        p.review-card__location
+                                            i.icon
+                                                include ../img/location-icon.svg
+                                            | Сетубал, Лиссабон
+                                section.review-card__tail.expandable__content
+                                    p Сегодня к нам с визитом на дом приходил доктор Иван Проценко.  Вызов был для ребёнка 12 лет. Пунктуальный, доброжелательный, компетентный и сразу расположил к себе.Внимательно выслушал  наши симптомы, осмотрел, вежливо прокомментировал наши самостоятельные попытки лечения и по совокупности, доктор дал  все необходимые рекомендации и назначил лечение. туальный, доброжелательный, компетентный се необходимые рекомендации и назначил лечение. туальный, доброжелательный, компетентный се необходимые рекомендации и назначил лечение. туальный, доброжелательный, компетентный и сразу расположил к себе.Вни
+                                button.review-card__expandBtn.expandable__button.button.button--outlined(type='button')
+                        - for (let i = 0; i < 5; i++)
+                            li.reviews-widget__item.splide__slide
+                                section.review-card.expandable
+                                    header.review-card__header
+                                        p.review-card__ava FH
+                                        section.review-card__description
+                                            p.review-card__name Имя Фамилия
+                                            p.review-card__location
+                                                i.icon
+                                                    include ../img/location-icon.svg
+                                                | Сетубал, Лиссабон
+                                    section.review-card__tail.expandable__content
+                                        p Сегодня к нам с визитом на дом приходил доктор Иван Проценко.  Вызов был для ребёнка 12 лет. Пунктуальный, доброжелательный, компетентный и сразу расположил к себе.Внимательно выслушал  наши симптомы, осмотрел, вежливо прокомментировал наши самостоятельные попытки лечения и по совокупности, доктор дал  все необходимые рекомендации и назначил лечение.
+                                    button.review-card__expandBtn.expandable__button.button.button--outlined(type='button')
+
+            footer.reviews-widget__footer.splide__arrows.splide__arrows--widget
+                button.reviews-widget__prevBtn.reviews-widget__navBtn.splide__arrow.splide__arrow--prev.button.button--outlined.button--icon(type='button', aria-label='Предыдущий слайд')
+                    i.icon
+                        include ../img/caret-left-icon.svg
+                button.reviews-widget__allBtn.button.button--big(type='button', aria-label='Все отзывы')
+                    span Все отзывы
+                button.reviews-widget__nextBtn.reviews-widget__navBtn.splide__arrow.splide__arrow--next.button.button--outlined.button--icon(type='button', aria-label='Следующий слайд')
+                    i.icon
+                        include ../img/caret-left-icon.svg

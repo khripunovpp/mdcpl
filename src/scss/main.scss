@@ -131,6 +131,118 @@ img:not([src]) {
   }
 }
 
+.splide__list {
+  height: auto !important;
+}
+
+.splide__arrows--widget {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .splide__arrow {
+    padding: 13px;
+    position: relative;
+    top: auto;
+    transform: translateY(0);
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    border: 2px solid $light-green;
+
+    &:hover {
+      background-color: $light-green;
+    }
+
+    .icon {
+      width: 10px;
+      height: 10px;
+    }
+
+    svg {
+      fill: none;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .splide__arrow--prev {
+    left: auto;
+    padding-left: 12px;
+    padding-right: 14px;
+  }
+
+  .splide__arrow--next {
+    right: auto;
+    padding-left: 14px;
+    padding-right: 12px;
+  }
+
+  @media screen and (min-width: 991px) {
+    .splide__arrow {
+      padding: 20px;
+
+      .icon {
+        width: 16px;
+        height: 16px;
+      }
+
+    }
+
+    .splide__arrow--prev {
+      padding-left: 19px;
+      padding-right: 21px;
+    }
+
+    .splide__arrow--next {
+      padding-left: 21px;
+      padding-right: 19px;
+    }
+  }
+}
+
+.splide__slide img[src] {
+  display: block !important;
+
+  & + .splide__spinner {
+    display: none;
+  }
+}
+
+.expandable {
+  &.should-expand {
+    .expandable__content::after {
+      opacity: 1;
+    }
+
+    &.expanded {
+      .expandable__content::after {
+        opacity: 0;
+      }
+    }
+  }
+
+  &__content {
+    overflow: hidden;
+    position: relative;
+
+    &::after {
+      opacity: 0;
+      user-select: none;
+      pointer-events: none;
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
+      transition: opacity 0.2s ease-in-out;
+    }
+  }
+}
+
 @import "header";
 @import "hero";
 @import "buttons";

@@ -28,49 +28,9 @@
   }
 
   &__footer {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
     margin-top: 30px;
-    align-items: center;
   }
 
-  &__navBtn {
-    &.splide__arrow {
-      padding: 16px;
-      position: relative;
-      top: auto;
-      transform: translateY(0);
-      width: auto;
-      height: auto;
-      background-color: transparent;
-      border: 2px solid $light-green;
-
-      &:hover {
-        background-color: $light-green;
-      }
-
-      svg {
-        fill: none;
-      }
-    }
-  }
-
-  &__prevBtn {
-    &.splide__arrow--prev {
-      left: auto;
-      padding-left: 15px;
-      padding-right: 17px;
-    }
-  }
-
-  &__nextBtn {
-    &.splide__arrow--next {
-      right: auto;
-      padding-left: 17px;
-      padding-right: 15px;
-    }
-  }
 
   &__allBtn {
     background-color: #fff;
@@ -90,13 +50,7 @@
     transition: all 0.2s ease-in;
   }
 
-  .splide__slide img[src] {
-    display: block !important;
 
-    & + .splide__spinner {
-      display: none;
-    }
-  }
 
   @media screen and (min-width: 991px) {
     padding: 150px 0;

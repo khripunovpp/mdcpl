@@ -1,9 +1,153 @@
 @use 'vars' as *;
 
 .reviews-widget {
-  padding: 150px 0;
+  padding: 50px 0;
   background-color: $peach;
+
   &__title {
     text-align: center;
+  }
+
+  &__list {
+
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+
+    .review-card {
+      height: 100%;
+      flex: 100%;
+    }
+  }
+
+  &__footer {
+    margin-top: 20px;
+  }
+
+  &__navBtn {
+    &.splide__arrow {
+      border-color: #ffffff;
+
+      &:hover {
+        background-color: #ffffff;
+      }
+    }
+  }
+
+  &__allBtn {
+    background-color: #fff;
+    border-color: #fff;
+  }
+
+  @media screen and (min-width: 991px) {
+    padding: 150px 0;
+
+    &__item + &__item {
+      margin-top: 0;
+    }
+    &__footer {
+      margin-top: 50px;
+    }
+
+  }
+}
+
+.review-card {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  &__ava {
+    margin: 0;
+    margin-right: 10px;
+    width: 60px;
+    height: 60px;
+    background-color: $green;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    color: #6C8A7E;
+    line-height: 60px;
+  }
+
+  &__name {
+    font-size: 18px;
+    line-height: 22px;
+    margin: 0 0 5px;
+  }
+
+  &__description {
+    flex: 1 0 auto;
+  }
+
+  &__location {
+    margin: 0;
+    display: flex;
+    font-size: 14px;
+    line-height: 21px;
+
+    .icon {
+      margin-right: 3px;
+    }
+  }
+
+  &__tail {
+    font-size: 12px;
+    line-height: 18px;
+    margin-bottom: 10px;
+    opacity: 0.8;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__expandBtn {
+    align-self: flex-start;
+    margin-top: auto;
+  }
+
+  @media screen and (min-width: 991px) {
+    padding: 30px;
+    border-radius: 40px;
+
+    &__ava {
+      margin-right: 20px;
+      width: 80px;
+      height: 80px;
+      font-size: 30px;
+      line-height: 80px;
+    }
+    &__name {
+      font-size: 30px;
+      line-height: 37px;
+    }
+
+    &__location {
+      font-size: 18px;
+      line-height: 27px;
+
+      .icon {
+        margin-right: 5px;
+      }
+    }
+    &__tail {
+      font-size: 18px;
+      line-height: 27px;
+      margin-bottom: 20px;
+    }
+
   }
 }
