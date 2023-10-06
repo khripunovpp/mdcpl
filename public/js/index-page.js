@@ -57,7 +57,7 @@
   window.libLoaded = function () {
     console.log('libLoaded');
 
-    var splide = new Splide('#team-slider', {
+    var teamSplide = new Splide('#team-slider', {
       type: 'loop',
       perPage: 5,
       arrowPath: '',
@@ -69,7 +69,7 @@
         }
       }
     });
-    splide.mount();
+    teamSplide.mount();
 
     var slidingHover = $('.team-slider__slidingHover');
     var scale = 0.9;

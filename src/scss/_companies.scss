@@ -1,0 +1,83 @@
+@use 'vars' as *;
+
+.companies {
+  padding: 100px 0;
+
+  &__title {
+    text-align: center;
+  }
+
+  &__list {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    flex-wrap: wrap;
+    margin-left: -10px;
+    margin-right: -10px;
+    margin-bottom: -10px;
+    align-items: flex-start;
+  }
+
+  &__item {
+    flex: 0 1 calc(50% - 20px);
+    margin: 0 10px 20px;
+  }
+
+  @media screen and (min-width: 991px) {
+    &__list {
+      margin-left: -60px;
+      margin-right: -60px;
+      margin-bottom: -30px;
+    align-items: center;
+    justify-content: center;
+    }
+    &__item {
+      flex: 0 1 calc(20% - 120px);
+      margin: 0 60px 30px;
+    }
+  }
+}
+
+.company-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: $font-color;
+  text-decoration: none;
+
+  &__picture {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+  }
+
+  &__name {
+    margin: 10px 0 0 0;
+    opacity: 0.8;
+    font-size: 12px;
+    line-height: 18px;
+    transition: opacity 0.2s ease-in-out;
+  }
+
+  &:hover {
+    .company-card {
+      &__name {
+        opacity: 1;
+      }
+    }
+  }
+
+  @media screen and (min-width: 991px) {
+    &__picture {
+      height: 120px;
+    }
+    &__name {
+      margin: 35px 0 0 0;
+      font-size: 18px;
+      line-height: 27px;
+    }
+  }
+}

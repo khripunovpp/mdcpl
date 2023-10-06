@@ -1,0 +1,9 @@
+@use 'vars' as *;
+
+.reviews-widget {
+  padding: 150px 0;
+  background-color: $peach;
+  &__title {
+    text-align: center;
+  }
+}
