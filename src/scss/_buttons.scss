@@ -5,25 +5,30 @@
   background-color: $light-green;
   border-radius: 50px;
   font-family: inherit;
-  font-size: inherit;
+  font-size: 14px;
   line-height: 1;
   border: 2px solid $light-green;
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
   color: $font-color;
   cursor: pointer;
-  padding: 10px 20px;
+  padding: 11px 20px;
   font-weight: 600;
   text-decoration: none;
   text-align: center;
-  &:not(&--outlined)  {
 
-  &:hover {
-    background-color: $font-color;
-    border-color: $font-color;
-    color: #fff;
+  &:not(&--outlined) {
+    &:hover {
+      background-color: $font-color;
+      border-color: $font-color;
+      color: #fff;
+    }
   }
 
+  &--big {
+    //font-size: 30px;
+    //padding: 18px 50px;
   }
+
   &--outlined {
     background-color: transparent;
     border-color: $light-green;
@@ -69,8 +74,16 @@
   }
 
   @media screen and (min-width: 991px) {
-    font-size: 20px;
-    padding: 18px 20px;
+
+    &:not(&--big):not(&--icon) {
+      font-size: 20px;
+      padding: 18px 26px;
+    }
+
+    &--big {
+      font-size: 30px;
+      padding: 18px 50px;
+    }
     &--icon {
       padding: 16px;
     }

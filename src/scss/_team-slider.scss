@@ -32,11 +32,12 @@
     display: flex;
     justify-content: space-between;
     margin-top: 30px;
+    align-items: center;
   }
 
   &__navBtn {
     &.splide__arrow {
-      padding: 18px 20px;
+      padding: 16px;
       position: relative;
       top: auto;
       transform: translateY(0);
@@ -58,16 +59,16 @@
   &__prevBtn {
     &.splide__arrow--prev {
       left: auto;
-      padding-left: 17px;
-      padding-right: 19px;
+      padding-left: 15px;
+      padding-right: 17px;
     }
   }
 
   &__nextBtn {
     &.splide__arrow--next {
       right: auto;
-      padding-left: 19px;
-      padding-right: 17px;
+      padding-left: 17px;
+      padding-right: 15px;
     }
   }
 

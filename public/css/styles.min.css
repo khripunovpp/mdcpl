@@ -36,9 +36,17 @@ img {
 }
 
 .icon {
-  display: inline-block;
-  width: 24px;
-  height: 24px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
 }
 
 .icon svg {
@@ -447,14 +455,14 @@ img {
   background-color: #c1d3c8;
   border-radius: 50px;
   font-family: inherit;
-  font-size: inherit;
+  font-size: 14px;
   line-height: 1;
   border: 2px solid #c1d3c8;
   -webkit-transition: background-color .2s ease-in-out,color .2s ease-in-out,border-color .2s ease-in-out;
   transition: background-color .2s ease-in-out,color .2s ease-in-out,border-color .2s ease-in-out;
   color: #14373c;
   cursor: pointer;
-  padding: 10px 20px;
+  padding: 11px 20px;
   font-weight: 600;
   text-decoration: none;
   text-align: center;
@@ -535,6 +543,11 @@ img {
   padding: 30px 0;
 }
 
+.services-widget__showMore {
+  margin-top: 10px;
+  width: 100%;
+}
+
 .service-card {
   border-radius: 20px;
   padding: 15px;
@@ -607,6 +620,9 @@ img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
 }
@@ -761,10 +777,13 @@ img {
   -ms-flex-pack: justify;
   justify-content: space-between;
   margin-top: 30px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .team-slider__navBtn.splide__arrow {
-  padding: 18px 20px;
+  padding: 16px;
   position: relative;
   top: auto;
   -webkit-transform: translateY(0);
@@ -786,14 +805,14 @@ img {
 
 .team-slider__prevBtn.splide__arrow--prev {
   left: auto;
-  padding-left: 17px;
-  padding-right: 19px;
+  padding-left: 15px;
+  padding-right: 17px;
 }
 
 .team-slider__nextBtn.splide__arrow--next {
   right: auto;
-  padding-left: 19px;
-  padding-right: 17px;
+  padding-left: 17px;
+  padding-right: 15px;
 }
 
 .team-slider__allBtn {

@@ -1,4 +1,9 @@
 @media screen and (min-width:991px){
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
 .container {
   max-width: 1660px;
   padding: 0 30px;
@@ -90,9 +95,14 @@
   margin-left: 30px;
 }
 
-.button {
+.button:not(.button--big):not(.button--icon) {
   font-size: 20px;
-  padding: 18px 20px;
+  padding: 18px 26px;
+}
+
+.button--big {
+  font-size: 30px;
+  padding: 18px 50px;
 }
 
 .button--icon {
@@ -212,6 +222,10 @@
   opacity: 1;
 }
 
+.services-widget__showMore {
+  width: auto;
+}
+
 .service-card {
   margin-bottom: -20px;
   padding: 30px;
@@ -227,6 +241,11 @@
 
 .service-card__title {
   font-size: 30px;
+}
+
+.service-card__actions {
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
 }
 
 .service-card__actionButtonWrap--appointement {

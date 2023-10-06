@@ -27,7 +27,7 @@ img {
   *,
   *::before,
   *::after {
-    box-shadow: 0 0 0 1px  rgba(255, 0, 0, 0.1) !important;
+    box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.1) !important;
   }
 }
 
@@ -39,9 +39,11 @@ img {
 }
 
 .icon {
-  display: inline-block;
-  width: 24px;
-  height: 24px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  width: 16px;
+  height: 16px;
 
   svg {
     width: 100%;
@@ -54,6 +56,12 @@ img {
     path[stroke="#000000"] {
       stroke: currentColor;
     }
+  }
+
+  @media screen and (min-width: 991px) {
+
+    width: 24px;
+    height: 24px;
   }
 }
 
