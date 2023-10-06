@@ -9,6 +9,7 @@ const browserSync = require('browser-sync').create()
 const cleancss = require('gulp-clean-css');
 const rollup = require('gulp-rollup');
 const gulpSquoosh = require("gulp-squoosh");
+const splitMediaQueries = require('gulp-split-media-queries');
 
 function browsersync() {
   browserSync.init({ // Инициализация Browsersync
@@ -27,6 +28,9 @@ function styles() {
       grid: true
     })) // Создадим префиксы с помощью Autoprefixer
     .pipe(cleancss({level: {1: {specialComments: 0}}/* , format: 'beautify' */})) // Минифицируем стили
+    .pipe(splitMediaQueries({
+      breakpoint: 991,
+    }))
     .pipe(dest('public/css/')) // Выгрузим результат в папку "app/css/"
     .pipe(browserSync.stream()) // Сделаем инъекцию в браузер
 }
