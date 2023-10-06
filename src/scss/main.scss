@@ -113,7 +113,9 @@ img {
     display: none;
   }
 }
-
+ img:not([src]) {
+        visibility: hidden;
+    }
 .title {
   font-size: 24px;
   line-height: 31px;
@@ -131,3 +133,4 @@ img {
 @import "buttons";
 @import "services-widget";
 @import "team-slider";
+@import "advantages";
