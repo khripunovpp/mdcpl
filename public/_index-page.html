@@ -17,6 +17,37 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <script src="./js/jquery-3.6.1.min.js"></script>
+    <script async="async" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGncy0rJ_kQqLW4a4MXK7WowTGjDnbbJU&amp;callback=initMap"></script><script>
+  window.initMap = function () {
+    console.log('initMap');
+    var map = new google.maps.Map(document.getElementById('callback-widget-map'), {
+      center: {lat: 38.7223, lng: -9.1393}, // Координаты Лиссабона
+      zoom: 12, // Масштаб карты
+      disableDefaultUI: true, // Отключить все контролы
+    });
+
+
+    // Создайте маркеры для Лиссабона и Порту.
+    var lisbonMarker = new google.maps.Marker({
+      position: {lat: 38.7223, lng: -9.1393}, // Координаты Лиссабона
+      map: map,
+      title: 'Лиссабон',
+    });
+
+    var portoMarker = new google.maps.Marker({
+      position: {lat: 41.1579, lng: -8.6291}, // Координаты Порту
+      map: map,
+      title: 'Порту',
+    });
+
+    var oeiras = new google.maps.Marker({
+        position: { lat: 38.6886, lng: -9.3103 }, // Координаты Oeiras
+      map: map,
+      title: 'Оейраш',
+    });
+
+  };
+</script>
   </head>
   <body>
     <section class="overflow main-page">
@@ -106,10 +137,8 @@
               <section class="header__splitButton">
                 <div class="split-button">
                   <button type="button"><span>Записаться</span></button>
-                  <button type="button"><i class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g id="Icon/Outline/plus-sm">
-<path id="Icon" d="M12 6V12M12 12V18M12 12H18M12 12L6 12" stroke="#D56A5D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</g>
+                  <button type="button"><i class="icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7 1V7M7 7V13M7 7H13M7 7L1 7" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
 </i><span>Выезд на дом</span></button>
                 </div>

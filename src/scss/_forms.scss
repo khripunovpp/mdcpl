@@ -2,18 +2,24 @@
 
 .form {
   margin: 0;
-  margin-left: -15px;
-  margin-right: -15px;
   display: flex;
   flex-wrap: wrap;
+
+  a {
+    color: inherit;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
 
   &__field {
     background-color: #fff;
     position: relative;
-    border-radius: 10px;
-    margin: 0 15px 20px;
-    padding: 18px 30px;
-    flex: 1 1 calc(50% - 30px);
+    border-radius: 5px;
+    margin: 0 0 15px;
+    padding: 10px;
+    width: 100%;
 
     &.onfocus {
       .form__label {
@@ -28,6 +34,26 @@
         width: 100%;
         height: auto;
         resize: none;
+      }
+    }
+
+    &--select {
+      .form__control {
+        padding-right: 20px;
+      }
+
+      &::after {
+        content: '';
+        width: 7px;
+        height: 12px;
+        position: absolute;
+        top: 13px;
+        right: 13px;
+        transform: rotate(90deg);
+        background-image: url(../img/caret-left-icon.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
       }
     }
 
@@ -54,23 +80,30 @@
   }
 
   &__section {
-    margin: 0 15px 20px;
-
+    margin: 0 0 15px;
     flex: 1 1 100%;
+
+    &--files {
+      .form__control {
+        display: none;
+      }
+    }
   }
 
   &__footer {
-    margin: 30px 15px 0;
+    margin: 0 0 15px;
     flex: 1 1 100%;
+    display: flex;
+    flex-direction: column;
   }
 
   &__label {
     position: absolute;
-    top: 21px;
-    left: 30px;
+    top: 12px;
+    left: 10px;
     font-weight: 600;
-    font-size: 18px;
-    line-height: 20px;
+    font-size: 14px;
+    line-height: 1;
     transition: opacity 0.2s ease;
   }
 
@@ -79,8 +112,8 @@
     padding: 0;
     line-height: 1;
     font-weight: 600;
-    font-size: 18px;
-    height: 25px;
+    font-size: 14px;
+    height: 19px;
     width: 100%;
     max-width: 100%;
     font-family: inherit;
@@ -93,64 +126,184 @@
     }
   }
 
-  &--row {
+  &__info {
+    font-size: 14px;
+    margin: 0 0 10px;
+  }
+
+  &__files {
     display: flex;
-    width: 100%;
-    align-items: flex-start;
-    justify-content: space-between;
+    flex-direction: column;
+  }
+
+  &__uploadBtn {
+    font-size: 14px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  &__fileslist {
+    display: flex;
     flex-wrap: wrap;
+    align-items: baseline;
+    margin: 10px -15px 0;
+    padding: 0;
+    list-style: none;
 
-    .form {
-      &__field {
-        margin-bottom: 0;
-        margin-right: 40px;
-        flex: 1 0 calc(calc(33.33% - 175px) - 40px);
+    li {
+      margin: 5px 15px;
+      display: flex;
+      font-size: 14px;
+      align-items: center;
+      cursor: pointer;
+
+      &:hover {
+        &::after {
+          opacity: 1;
+        }
       }
 
-      &__submit {
-        flex: 0 0 175px;
+      &::after {
+        opacity: .8;
+        content: '';
+        width: 12px;
+        height: 12px;
+        display: block;
+        margin-left: 10px;
+        background-image: url(../img/cross-icon.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+
       }
     }
   }
 
-}
+  &__checkboxContainer {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
 
-.dropdown {
-  position: relative;
-
-  select {
-    appearance: none;
-    background-color: transparent;
-    border: 2px solid red;
-    padding: 16px 46px 16px 20px;
-    margin: 0;
-    width: 100%;
-    font-family: inherit;
-    font-weight: 700;
-    font-size: 16px;
-    cursor: inherit;
-    outline: none;
-    line-height: 1;
-    border-radius: 5px;
-
-    &::-ms-expand {
+    input[type="checkbox"] {
       display: none;
+
+      &:checked + .form__checkboxMark {
+        background-color: $font-color;
+
+        &::after {
+          opacity: 1;
+        }
+      }
     }
   }
 
-  &::after {
-    content: '';
+
+  &__checkboxMark {
+    position: relative;
+    order: -1;
     display: inline-block;
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    top: 20px;
-    right: 25px;
-    border-bottom: 2px solid red;
-    border-left: 2px solid red;
-    transform: rotate(-45deg);
+    width: 24px;
+    height: 24px;
+    border: 2px solid $font-color;
+    border-radius: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+    flex-shrink: 0;
+
+    &::after {
+      content: '';
+      width: 14px;
+      height: 14px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-image: url(../img/check-icon.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      opacity: 0;
+    }
+  }
+
+  &__submit {
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  @media (min-width: 991px) {
+    margin-left: -15px;
+    margin-right: -15px;
+    align-items: flex-start;
+    &__field {
+
+      border-radius: 10px;
+      margin: 0 15px 20px;
+      padding: 18px 30px;
+      flex: 1 1 calc(50% - 30px);
+
+      &--select {
+        .form__control {
+          padding-right: 15px;
+        }
+
+        &::after {
+          top: 24px;
+          right: 33px;
+        }
+      }
+    }
+
+    &__section {
+      margin: 0 15px 20px;
+    }
+    &__uploadBtn {
+      white-space: nowrap;
+      font-size: 18px !important;
+      padding-top: 12px !important;
+      padding-bottom: 12px !important;
+    }
+    &__footer {
+      margin: 10px 15px 0;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+    &__label {
+      top: 21px;
+      left: 30px;
+      font-size: 18px;
+    }
+    &__submit {
+      margin-top: 0;
+      width: auto;
+    }
+
+    &__control {
+      font-size: 18px;
+      height: 25px;
+    }
+    &__info {
+      font-size: 18px;
+    }
+    &__files {
+      flex-direction: row;
+      align-items: baseline;
+    }
+    &__fileslist {
+      margin: 0 0 0 15px;
+
+      li {
+        margin: 5px 15px;
+        font-size: 18px;
+      }
+    }
+    &__checkboxContainer {
+      font-size: 18px;
+    }
   }
 }
+
 
 @keyframes shake {
   10%, 90% {

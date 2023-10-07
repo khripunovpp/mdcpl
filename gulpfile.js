@@ -109,6 +109,7 @@ function startwatch(done) {
   // Выбираем все файлы JS в проекте, а затем исключим с суффиксом .min.js
   watch(['src/**/*.js'], parallel(scripts, libsscripts));
   watch('src/**/*.scss', styles);
+  watch('src/**/*.html', views).on('change', browserSync.reload)
   watch('src/**/*.pug', views).on('change', browserSync.reload)
   done();
 }

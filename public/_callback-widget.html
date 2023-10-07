@@ -16,8 +16,8 @@
               <input class="form__control error" type="text" name="name"/>
               <p class="form__field-errorText">Обязательное поле</p>
             </section>
-            <section class="form__field form__field--select has-error">
-              <select class="form__control error">
+            <section class="form__field form__field--select">
+              <select class="form__control">
                 <option value="Порто">Порто</option>
                 <option value="Лиссабон">Лиссабон</option>
                 <option value="Сетубал">Сетубал</option>
@@ -26,33 +26,33 @@
             </section>
             <section class="form__field">
               <label class="form__label">Телефон</label>
-              <input class="form__control error" type="tel" name="phone"/>
+              <input class="form__control" type="tel" name="phone"/>
               <p class="form__field-errorText">Обязательное поле</p>
             </section>
             <section class="form__field">
               <label class="form__label">Email</label>
-              <input class="form__control error" type="email" name="email"/>
+              <input class="form__control" type="email" name="email"/>
               <p class="form__field-errorText">Обязательное поле</p>
             </section>
             <section class="form__field form__field--fluid form__field--textarea">
               <label class="form__label">Ваше обращение</label>
-              <textarea class="form__control error" name="msg" rows="3"></textarea>
+              <textarea class="form__control" name="msg" rows="3"></textarea>
               <p class="form__field-errorText">Обязательное поле</p>
             </section>
             <section class="form__section form__section--files">
               <p class="form__info">Скан назначения врача или другие документы (.pdf, .doc, .docx, .jpg, .jpeg, .png, .zip, .rar):</p>
               <input class="form__control" type="file" name="file" multiple="multiple" accept=".pdf, .doc, .docx, .jpg, .jpeg, .png, .zip, .rar"/>
-              <button class="form__fileBtn button button--outlined" type="button">Прикрепить файл</button>
-              <ul class="form__fileList">
-                <li><span>Имя</span>
-                  <button class="form__fileRemoveBtn" type="button" aria-label="Удилть файл"></button>
-                </li>
-                <li><span>Имя</span>
-                  <button class="form__fileRemoveBtn" type="button" aria-label="Удилть файл"></button>
-                </li>
-              </ul>
+              <div class="form__files">
+                <button class="form__uploadBtn button button--outlined" type="button">Прикрепить файл</button>
+                <ul class="form__filesList"></ul>
+              </div>
             </section>
             <footer class="form__footer">
+              <div class="form__checkbox">
+                <label class="form__checkboxContainer"><span>Я согласен на обработку&nbsp;<a href="#" target="_blank">персональных данных</a></span>
+                  <input type="checkbox" name="agree" id="agree"/><span class="form__checkboxMark"></span>
+                </label>
+              </div>
               <button class="form__submit button button--outlined" type="button">Отправить</button>
             </footer>
           </form>

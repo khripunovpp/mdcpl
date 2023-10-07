@@ -12,34 +12,36 @@ section.callback-widget
                             label.form__label Имя
                             input.form__control.error(type='text', name='name')
                             p.form__field-errorText Обязательное поле
-                        section.form__field.form__field--select.has-error
-                            select.form__control.error
+                        section.form__field.form__field--select
+                            select.form__control
                                 option(value='Порто') Порто
                                 option(value='Лиссабон') Лиссабон
                                 option(value='Сетубал') Сетубал
                             p.form__field-errorText Обязательное поле
                         section.form__field
                             label.form__label Телефон
-                            input.form__control.error(type='tel', name='phone')
+                            input.form__control(type='tel', name='phone')
                             p.form__field-errorText Обязательное поле
                         section.form__field
                             label.form__label Email
-                            input.form__control.error(type='email', name='email')
+                            input.form__control(type='email', name='email')
                             p.form__field-errorText Обязательное поле
                         section.form__field.form__field--fluid.form__field--textarea
                             label.form__label Ваше обращение
-                            textarea.form__control.error(name='msg',rows='3')
+                            textarea.form__control(name='msg',rows='3')
                             p.form__field-errorText Обязательное поле
                         section.form__section.form__section--files
                             p.form__info Скан назначения врача или другие документы (.pdf, .doc, .docx, .jpg, .jpeg, .png, .zip, .rar):
                             input.form__control(type='file', name='file',multiple,accept='.pdf, .doc, .docx, .jpg, .jpeg, .png, .zip, .rar')
-                            button.form__fileBtn.button.button--outlined(type='button') Прикрепить файл
-                            ul.form__fileList
-                                li
-                                    span Имя
-                                    button.form__fileRemoveBtn(type='button',aria-label='Удилть файл')
-                                li
-                                    span Имя
-                                    button.form__fileRemoveBtn(type='button',aria-label='Удилть файл')
+                            .form__files
+                                button.form__uploadBtn.button.button--outlined(type='button') Прикрепить файл
+                                ul.form__filesList
                         footer.form__footer
+                            .form__checkbox
+                                label.form__checkboxContainer
+                                    span Я согласен на обработку&nbsp;
+                                        a(href='#',target='_blank') персональных данных
+                                    input(type='checkbox', name='agree', id='agree')
+                                    span.form__checkboxMark
+
                             button.form__submit.button.button--outlined(type='button') Отправить
