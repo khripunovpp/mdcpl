@@ -1,0 +1,45 @@
+section.callback-widget
+    .container
+        .callback-widget__inner
+            section.callback-widget__mapPart
+                .callback-widget__map
+                    #callback-widget-map
+            section.callback-widget__contentPart
+                h2.callback-widget__title.title Обратная связь
+                section.callback-widget__form
+                    form.form
+                        section.form__field.has-error
+                            label.form__label Имя
+                            input.form__control.error(type='text', name='name')
+                            p.form__field-errorText Обязательное поле
+                        section.form__field.form__field--select.has-error
+                            select.form__control.error
+                                option(value='Порто') Порто
+                                option(value='Лиссабон') Лиссабон
+                                option(value='Сетубал') Сетубал
+                            p.form__field-errorText Обязательное поле
+                        section.form__field
+                            label.form__label Телефон
+                            input.form__control.error(type='tel', name='phone')
+                            p.form__field-errorText Обязательное поле
+                        section.form__field
+                            label.form__label Email
+                            input.form__control.error(type='email', name='email')
+                            p.form__field-errorText Обязательное поле
+                        section.form__field.form__field--fluid.form__field--textarea
+                            label.form__label Ваше обращение
+                            textarea.form__control.error(name='msg',rows='3')
+                            p.form__field-errorText Обязательное поле
+                        section.form__section.form__section--files
+                            p.form__info Скан назначения врача или другие документы (.pdf, .doc, .docx, .jpg, .jpeg, .png, .zip, .rar):
+                            input.form__control(type='file', name='file',multiple,accept='.pdf, .doc, .docx, .jpg, .jpeg, .png, .zip, .rar')
+                            button.form__fileBtn.button.button--outlined(type='button') Прикрепить файл
+                            ul.form__fileList
+                                li
+                                    span Имя
+                                    button.form__fileRemoveBtn(type='button',aria-label='Удилть файл')
+                                li
+                                    span Имя
+                                    button.form__fileRemoveBtn(type='button',aria-label='Удилть файл')
+                        footer.form__footer
+                            button.form__submit.button.button--outlined(type='button') Отправить

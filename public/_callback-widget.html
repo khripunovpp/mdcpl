@@ -1,0 +1,63 @@
+
+<section class="callback-widget">
+  <div class="container">
+    <div class="callback-widget__inner">
+      <section class="callback-widget__mapPart">
+        <div class="callback-widget__map">
+          <div id="callback-widget-map"></div>
+        </div>
+      </section>
+      <section class="callback-widget__contentPart">
+        <h2 class="callback-widget__title title">Обратная связь</h2>
+        <section class="callback-widget__form">
+          <form class="form">
+            <section class="form__field has-error">
+              <label class="form__label">Имя</label>
+              <input class="form__control error" type="text" name="name"/>
+              <p class="form__field-errorText">Обязательное поле</p>
+            </section>
+            <section class="form__field form__field--select has-error">
+              <select class="form__control error">
+                <option value="Порто">Порто</option>
+                <option value="Лиссабон">Лиссабон</option>
+                <option value="Сетубал">Сетубал</option>
+              </select>
+              <p class="form__field-errorText">Обязательное поле</p>
+            </section>
+            <section class="form__field">
+              <label class="form__label">Телефон</label>
+              <input class="form__control error" type="tel" name="phone"/>
+              <p class="form__field-errorText">Обязательное поле</p>
+            </section>
+            <section class="form__field">
+              <label class="form__label">Email</label>
+              <input class="form__control error" type="email" name="email"/>
+              <p class="form__field-errorText">Обязательное поле</p>
+            </section>
+            <section class="form__field form__field--fluid form__field--textarea">
+              <label class="form__label">Ваше обращение</label>
+              <textarea class="form__control error" name="msg" rows="3"></textarea>
+              <p class="form__field-errorText">Обязательное поле</p>
+            </section>
+            <section class="form__section form__section--files">
+              <p class="form__info">Скан назначения врача или другие документы (.pdf, .doc, .docx, .jpg, .jpeg, .png, .zip, .rar):</p>
+              <input class="form__control" type="file" name="file" multiple="multiple" accept=".pdf, .doc, .docx, .jpg, .jpeg, .png, .zip, .rar"/>
+              <button class="form__fileBtn button button--outlined" type="button">Прикрепить файл</button>
+              <ul class="form__fileList">
+                <li><span>Имя</span>
+                  <button class="form__fileRemoveBtn" type="button" aria-label="Удилть файл"></button>
+                </li>
+                <li><span>Имя</span>
+                  <button class="form__fileRemoveBtn" type="button" aria-label="Удилть файл"></button>
+                </li>
+              </ul>
+            </section>
+            <footer class="form__footer">
+              <button class="form__submit button button--outlined" type="button">Отправить</button>
+            </footer>
+          </form>
+        </section>
+      </section>
+    </div>
+  </div>
+</section>

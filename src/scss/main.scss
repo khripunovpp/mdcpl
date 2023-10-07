@@ -10,6 +10,20 @@ body {
   margin: 0;
   padding: 0;
   -webkit-tap-highlight-color: transparent;
+
+  &.debug {
+    &:before {
+      content: "";
+      position: fixed;
+      z-index: 5;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      bottom: 0;
+      background-color: blue;
+    }
+  }
 }
 
 *,
@@ -26,7 +40,6 @@ img {
 
 .debug {
   *,
-  *::before,
   *::after {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.1) !important;
   }
@@ -243,6 +256,7 @@ img:not([src]) {
   }
 }
 
+@import "forms";
 @import "header";
 @import "hero";
 @import "buttons";
@@ -251,3 +265,4 @@ img:not([src]) {
 @import "advantages";
 @import "reviews";
 @import "companies";
+@import "callback-widget";

@@ -1,0 +1,22 @@
+@use 'vars' as *;
+
+.callback-widget {
+  background-color: $beige;
+  padding: 150px 0;
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__mapPart {
+    width: calc(50% - 15px);
+    height: 500px;
+    background-color: red;
+  }
+
+  &__contentPart {
+    width: calc(50% + 15px);
+    padding: 0 0 0 30px;
+  }
+}
