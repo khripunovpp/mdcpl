@@ -3,8 +3,7 @@ header.header.js-sticky-header
     .container
         .header__inner
             .header__logo
-                a(href="./").header-logo
-                    include ../img/logo.svg
+                a(href="./").header-logo.paste-sprite-logo
             section.header__nav
                 nav.nav
                     ul.nav__list.js-navigation
@@ -23,13 +22,11 @@ header.header.js-sticky-header
                     .nav__bottom
                         .nav__bottom-element
                             .contact-link
-                                i.icon
-                                    include ../img/telegram-icon.svg
+                                i.icon.paste-sprite-telegram-icon
                                 a(href="#") Telegram-бот
                         .nav__bottom-element
                             .contact-link
-                                i.icon
-                                    include ../img/email-icon.svg
+                                i.icon.paste-sprite-email-icon
                                 a(href="mailto:example@mail.com") example@mail.com
                         .nav__bottom-element
                             button(type='button').button.button--outlined
@@ -39,8 +36,7 @@ header.header.js-sticky-header
                                 span Выезд на дом
             section.header__phone
                 .contact-link
-                    i.icon
-                        include ../img/telegram-icon.svg
+                    i.icon.paste-sprite-telegram-icon
                     a(href="#") Telegram-бот
 
             section.header__splitButton
@@ -48,8 +44,7 @@ header.header.js-sticky-header
                     button(type='button')
                         span Записаться
                     button(type='button')
-                        i.icon
-                            include ../img/plus-icon.svg
+                        i.icon.paste-sprite-plus-icon
                         span Выезд на дом
 
             button.header__burger.burger(type='button',aria-label='Открыть меню')

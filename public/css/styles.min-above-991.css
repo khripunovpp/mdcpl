@@ -47,11 +47,16 @@
   padding-right: 19px;
 }
 
+.header-logo {
+  width: 240px;
+  display: block;
+}
+
 .header-logo svg {
   max-width: 240px;
 }
 
-.header-logo #logo-icon {
+.header-logo #glogo-icon {
   -webkit-transform: translate3d(0,0,0)!important;
   transform: translate3d(0,0,0)!important;
 }

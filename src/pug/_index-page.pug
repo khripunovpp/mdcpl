@@ -13,6 +13,10 @@ html(lang="ru")
       section.main-page__footer
         include _footer
     include ./_dialogs
+    .sprite(aria-hidden="true", style="display: none;")
+      include ../img/sprite.svg
+
+    include ./_footer-scripts.html
     script(defer,src='./js/main.js')
     script(defer,src='./js/index-page.js')
     script(defer,src='./js/libs.min.js',onload="libLoaded()")

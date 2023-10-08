@@ -17,9 +17,9 @@
     this.debTimer;
 
 
-    this.logoLeftPart = this.logo$.find('svg #logo-left');
-    this.logoIcon = this.logo$.find('svg #logo-icon');
-    this.logoRightPart = this.logo$.find('svg #logo-right');
+    this.logoLeftPart = this.logo$.find('svg #glogo-left');
+    this.logoIcon = this.logo$.find('svg #glogo-icon');
+    this.logoRightPart = this.logo$.find('svg #glogo-right');
 
     this.logoItems = Array.from(this.logoLeftPart.find('path')).concat(this.logoRightPart);
     this.delayStep = 0.05;

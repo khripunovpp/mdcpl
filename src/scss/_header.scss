@@ -93,15 +93,15 @@
   .header-logo {
     display: block;
     opacity: 0;
+    width: 36px;
 
     svg {
-
       max-width: 188px;
       max-height: 26px;
     }
 
-    #logo-right,
-    #logo-left path {
+    #glogo-right,
+    #glogo-left path {
       transition: transform 0.1s ease-in, opacity 0.1s ease-in-out;
       opacity: 0;
       transform: translateY(-10px);
@@ -111,11 +111,13 @@
 
 @media screen and (min-width: 991px) {
   .header-logo {
+    width: 240px;
+    display: block;
     svg {
       max-width: 240px;
     }
 
-    #logo-icon {
+    #glogo-icon {
       transform: translate3d(0, 0, 0) !important;
     }
   }
@@ -395,13 +397,13 @@
     }
 
     .header-logo {
-      #logo-right,
-      #logo-left path {
+      #glogo-right,
+      #glogo-left path {
         opacity: 1;
         transform: translateY(0);
       }
 
-      #logo-icon {
+      #glogo-icon {
         transform: translate3d(0, 0, 0) !important;
       }
     }

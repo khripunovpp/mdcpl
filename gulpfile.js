@@ -10,6 +10,7 @@ const cleancss = require('gulp-clean-css');
 const rollup = require('gulp-rollup');
 const gulpSquoosh = require("gulp-squoosh");
 const splitMediaQueries = require('gulp-split-media-queries');
+const svgSprite = require('gulp-svg-sprite');
 
 function browsersync() {
   browserSync.init({ // Инициализация Browsersync
@@ -105,6 +106,33 @@ function images() {
     .pipe(gulpSquoosh())
 }
 
+function sprites() {
+  return src('src/img/*.svg')
+    .pipe(svgSprite({
+      mode: {
+        symbol: {
+          dest: '.',
+          sprite: 'sprite.svg'
+        },
+      },
+      shape: {
+        transform: [
+          {
+            svgo: {
+              plugins: [
+                {
+                  removeAttrs: {attrs: 'class,id'},
+                  name: 'removeAttrs',
+                },
+              ],
+            },
+          },
+        ],
+      },
+    }))
+    .pipe(dest('src/img'));
+}
+
 function startwatch(done) {
   // Выбираем все файлы JS в проекте, а затем исключим с суффиксом .min.js
   watch(['src/**/*.js'], parallel(scripts, libsscripts));
@@ -114,5 +142,5 @@ function startwatch(done) {
   done();
 }
 
-exports.default = parallel(images, styles, stylesRaw, scriptsRaw, fonts, scripts, libsscripts, views, browsersync, startwatch);
-exports.build = parallel(images, styles, scriptsRaw, stylesRaw, fonts, scripts, libsscripts, views);
+exports.default = parallel(images, sprites, styles, stylesRaw, scriptsRaw, fonts, scripts, libsscripts, views, browsersync, startwatch);
+exports.build = parallel(images, sprites, styles, scriptsRaw, stylesRaw, fonts, scripts, libsscripts, views);
