@@ -762,45 +762,110 @@
 
   };
 
-  $(function () {
-    var sprite$ = $('.sprite').find('svg');
-    // replace all symbol tag with svg tag, clone is wrong
-    var spriteSvg = sprite$[0].outerHTML.replace(/symbol/g, 'svg');
-    console.log({
-        spriteSvg:spriteSvg,
-    });
-// jquery fragment
-    var cachedSvg$ = $(spriteSvg).clone().html('');
+  var sprite$ = $('.sprite').find('svg');
+  // replace all symbol tag with svg tag, clone is wrong
+  var spriteSvg = sprite$[0].outerHTML.replace(/symbol/g, 'svg');
+  console.log({
+    spriteSvg: spriteSvg,
+  });
+  // jquery fragment
+  var cachedSvg$ = $(spriteSvg).clone().html('');
 
-    $(spriteSvg).children().each(function(index,element){
-      var $element = $(element);
-      var id = $element.attr('id');
-      var xmlns = $element.attr('xmlns');
-      var viewBox = $element.attr('viewBox');
+  $(spriteSvg).children().each(function (index, element) {
+    var $element = $(element);
+    var id = $element.attr('id');
+    var xmlns = $element.attr('xmlns');
+    var viewBox = $element.attr('viewBox');
 
-      var width = viewBox.split(' ')[2];
-      var height = viewBox.split(' ')[3];
-      var svg$ = $('<svg xmlns="' + xmlns + '" + viewBox="' + viewBox + '" + width="' + width + '" + height="' + height + '" + id="' + id + '"></svg>');
-      svg$.html($element.html());
-      console.log({svg$:svg$[0].outerHTML,id})
-      cachedSvg$.append(svg$);
-    })
-    console.log('!!!!!!!!!!!!')
-    console.log({cachedSvg$})
-
-    // find all classes contains paste-sprite
-    var pasteSprite$ = $('[class*="paste-sprite"]');
-
-    pasteSprite$.each(function (index, element) {
-      var $element = $(element);
-      var className = $element.attr('class');
-      var spriteClass = className.match(/paste-sprite-([^\s]+)/)[1];
-      var iconSvg$ = cachedSvg$.find('#' + spriteClass);
-      console.log({spriteClass,iconSvg$:iconSvg$[0].outerHTML})
-      if (!iconSvg$.length) return;
-      $element.html(iconSvg$[0].outerHTML);
-    });
+    var width = viewBox.split(' ')[2];
+    var height = viewBox.split(' ')[3];
+    var svg$ = $('<svg xmlns="' + xmlns + '" + viewBox="' + viewBox + '" + width="' + width + '" + height="' + height + '" + id="' + id + '"></svg>');
+    svg$.html($element.html());
+    console.log({svg$: svg$[0].outerHTML, id})
+    cachedSvg$.append(svg$);
   })
+  console.log('!!!!!!!!!!!!')
+  console.log({cachedSvg$})
+
+  // find all classes contains paste-sprite
+  var pasteSprite$ = $('[class*="paste-sprite"]');
+
+  pasteSprite$.each(function (index, element) {
+    var $element = $(element);
+    var className = $element.attr('class');
+    var spriteClass = className.match(/paste-sprite-([^\s]+)/)[1];
+    var iconSvg$ = cachedSvg$.find('#' + spriteClass);
+    console.log({spriteClass, iconSvg$: iconSvg$[0].outerHTML})
+    if (!iconSvg$.length) return;
+    $element.html(iconSvg$[0].outerHTML);
+  });
+</script><script>
+  window.libLoaded = function () {
+    console.log('libLoaded');
+
+    var lazy = $('.lazy').Lazy({
+      effect: 'fadeIn',
+      effectTime: 500,
+      threshold: 0,
+    });
+
+    var teamSplide = new Splide('#team-slider', {
+      type: 'loop',
+      perPage: 5,
+      arrowPath: '',
+      perMove: 1,
+      lazyLoad: 'nearby',
+      breakpoints: {
+        991: {
+          destroy: true,
+        }
+      }
+    });
+    teamSplide.mount();
+    var reviewsSplide = new Splide('#reviews-slider', {
+      type: 'loop',
+      perPage: 2,
+      arrowPath: '',
+      perMove: 1,
+      lazyLoad: 'nearby',
+      gap: 30,
+      breakpoints: {
+        991: {
+          perPage: 1,
+        }
+      }
+    });
+    reviewsSplide.mount();
+
+    var slidingHover = $('.team-slider__slidingHover');
+    var scale = 0.9;
+    slidingHover.css({
+      transform: 'scale(' + scale + ')',
+    });
+    var lastTranslate = 0;
+    $('.team-slider__item').on('mouseenter', function (e) {
+      if (window.isMobile()) return;
+      var el = $(e.target).closest('.team-slider__item');
+      console.log(el, el.hasClass('is-visible'));
+      if (!el.hasClass('is-visible')) return;
+      var elOffset = el.offset();
+      var parentOffset = el.closest('.splide__track').offset();
+      var positionInsideParent = elOffset.left - parentOffset.left;
+      console.log({positionInsideParent, parentOffset, elOffset});
+      lastTranslate = positionInsideParent;
+      slidingHover.css({
+        'transform': 'translateX(' + lastTranslate + 'px) scale(1)',
+        opacity: 1,
+      });
+    });
+    $('.splide__track').on('mouseleave', function (e) {
+      if (window.isMobile()) return;
+      slidingHover.css({
+        opacity: 0,
+        transform: 'translateX(' + lastTranslate + 'px)' + ' scale(' + scale + ')',
+      });
+    });
+  }
 </script>
     <script defer="defer" src="./js/main.js"></script>
     <script defer="defer" src="./js/index-page.js"></script>
