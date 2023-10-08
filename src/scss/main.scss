@@ -4,7 +4,7 @@ body {
   background-color: #fff;
   color: $font-color;
   font-family: "Montserrat", sans-serif;
-  font-size: 18px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 600;
   margin: 0;
@@ -23,6 +23,10 @@ body {
       bottom: 0;
       background-color: blue;
     }
+  }
+
+  @media screen and (min-width: 991px) {
+    font-size: 18px;
   }
 }
 
@@ -83,7 +87,6 @@ img {
 .contact-link {
   text-decoration: none;
   font-weight: 600;
-  font-size: inherit;
   color: inherit;
   display: flex;
   align-items: center;
@@ -95,6 +98,15 @@ img {
   a {
     color: inherit;
     text-decoration: none;
+  }
+
+  span {
+    opacity: 0.5;
+    display: block;
+    margin-right: 10px;
+  }
+  @media screen and (min-width: 991px) {
+    font-size: 18px;
   }
 }
 
@@ -267,3 +279,4 @@ img:not([src]) {
 @import "reviews";
 @import "companies";
 @import "callback-widget";
+@import "footer";

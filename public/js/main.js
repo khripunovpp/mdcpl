@@ -17,9 +17,9 @@
     this.debTimer;
 
 
-    this.logoLeftPart = this.logo$.find('svg #glogo-left');
-    this.logoIcon = this.logo$.find('svg #glogo-icon');
-    this.logoRightPart = this.logo$.find('svg #glogo-right');
+    this.logoLeftPart = this.logo$.find('svg #hlogo-left');
+    this.logoIcon = this.logo$.find('svg #hlogo-icon');
+    this.logoRightPart = this.logo$.find('svg #hlogo-right');
 
     this.logoItems = Array.from(this.logoLeftPart.find('path')).concat(this.logoRightPart);
     this.delayStep = 0.05;
@@ -137,11 +137,11 @@
       });
     });
 
-    var logoIconBox = this.logoIcon[0].getBBox();
+    var logoIconBox = that.logoIcon[0].getBBox();
 
     var logoLeftShift = window.isMobile() ? logoIconBox.x : 0;
 
-    this.logoIcon.css({
+    that.logoIcon.css({
       transform: "translate3d(-" + logoLeftShift + "px, 0, 0)",
     });
 
@@ -295,6 +295,7 @@
     window.isMobile = function () {
       return window.matchMedia("only screen and (max-width: 991px)").matches;
     };
+    $('.year').text(new Date().getFullYear());
     new HeaderComponent().init();
 
     isFocus();

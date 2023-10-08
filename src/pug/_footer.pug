@@ -1,45 +1,59 @@
 footer.footer
-  .container
-    .footer__inner
-      section.footer__topSection
-        .footer__logo
-          a(href="./").footer-logo.paste-sprite-logo
-        section.footer__nav
-          nav.nav
-            ul.nav__list.js-navigation
-              li
-                a(href="./about/index.html") О нас
-              li
-                a(href="./services/index.html") Услуги
-              li
-                a(href="./doctors/index.html") Специалисты
-              li
-                a(href="./feedbacks/index.html") Отзывы
-              li
-                a(href="./faq/index.html") FAQ
-              li
-                a(href="./contacts/index.html") Контакты
-        section.footer__phone
-          .contact-link
-            i.icon.paste-sprite-telegram-icon
-            a(href="#") Telegram-бот
+    .container
+        section.footer__topPart
+            .footer__logo
+                a(href="./").footer-logo.paste-sprite-logo-white
+            section.footer__nav
+                nav.nav
+                    ul.nav__list.js-navigation
+                        li
+                            a(href="./about/index.html") О нас
+                        li
+                            a(href="./services/index.html") Услуги
+                        li
+                            a(href="./doctors/index.html") Специалисты
+                        li
+                            a(href="./feedbacks/index.html") Отзывы
+                        li
+                            a(href="./faq/index.html") FAQ
+                        li
+                            a(href="./contacts/index.html") Контакты
 
-        section.footer__splitButton
-          .split-button
-            button(type='button')
-              span Записаться
-            button(type='button')
-              i.icon.paste-sprite-plus-icon
-              span Выезд на дом
+            section.footer__splitButton
+                .split-button
+                    button(type='button')
+                        span Записаться
+                    button(type='button')
+                        i.icon.paste-sprite-plus-icon
+                        span Выезд на дом
 
-      section.footer__middlePart
-        p.footer__about
-        ul.footer__contactsList
-        ul.footer__contactsList
-      section.footer__bottomPart
-        p.footer__copyRights
-        .footer__policies
-          a(href="#") Политика конфиденциальности
-          a(href="#") Пользовательское соглашение
-        .footer__feedbacks
-          a(href="#") Оставить отзыв
+        section.footer__middlePart
+            p.footer__about Мы знаем, как работать с русскоговорящими пациентами, но еще мы знаем, как устроена португальская семейная и госпитальная медицина изнутри
+            ul.footer__contactsList
+                li
+                    .contact-link
+                        i.icon.paste-sprite-email-icon
+                        a(href="mailto:info@medcouple.pt") info@medcouple.pt
+                li
+                    .contact-link
+                        i.icon.paste-sprite-facebook-icon
+                        a(href="https://facebook.com/medcouplept") facebook.com/medcouplept
+            ul.footer__contactsList
+                li
+                    .contact-link
+                        i.icon.paste-sprite-telegram-circle-icon
+                        span Канал в телеграм:
+                        a(href="https://t.me/medcouplept") t.me/medcouplept
+                li
+                    .contact-link
+                        i.icon.paste-sprite-telegram-circle-icon
+                        span Телеграм бот для записи:
+                        a(href="https://t.me/MedCoupleBot") t.me/MedCoupleBot
+    section.footer__bottomPart
+        .container.footer__bottomPart-container
+            p.footer__copyRights © #[span.year] Medcouple.pt. Все права защищены
+            .footer__policies
+                a(href="#",target="_blank") Политика конфиденциальности
+                a(href="#",target="_blank") Правовая информация
+            a.footer__feedbacks(href="#", target="_blank")
+                img.lazy(data-src="./img/livro-de-reclamacoes-icon.png", alt="Livro de Reclamações")

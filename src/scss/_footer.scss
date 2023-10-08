@@ -1,5 +1,218 @@
-.footer {
-  &__inner {
+@use "vars" as *;
 
+.footer {
+  background-color: $font-color;
+  color: #fff;
+
+  &__topPart {
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
   }
+
+  &__logo {
+    order: 1;
+    max-width: clamp(120px, 45%, 152px);
+
+    svg {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__splitButton {
+    order: 2;
+  }
+
+  &__nav {
+    order: 3;
+    flex: 0 1 100%;
+    margin-top: 20px;
+  }
+
+  &__middlePart {
+    padding: 30px 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  &__about {
+    flex: 0 1 30%;
+    opacity: 0.5;
+    order: 5;
+    margin: 0;
+  }
+
+  &__contactsList {
+    margin: 0 0 30px;
+    padding: 0;
+    list-style: none;
+
+    li + li {
+      margin-top: 15px;
+    }
+
+    .contact-link a {
+      text-decoration: underline;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  &__bottomPart {
+    padding: 10px 0 40px;
+    border-top: 2px solid rgba(255, 255, 255, 0.1);
+
+    &-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+  }
+
+  &__copyRights {
+    margin: 0;
+    opacity: 0.5;
+    width: 100%;
+  }
+
+  &__policies {
+
+
+    a {
+      opacity: 0.5;
+      color: inherit;
+      transition: opacity 0.2s ease-in-out;
+      display: block;
+      margin-top: 10px;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__feedbacks {
+    transition: opacity 0.2s ease-in-out;
+    margin-top: 20px;
+    opacity: 0.5;
+    text-decoration: none;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .split-button {
+    button {
+      &:first-child, &:last-child {
+        border-color: #fff;
+      }
+
+      &:first-child {
+        &:hover {
+          border-color: $light-green;
+          color: $font-color;
+        }
+      }
+
+      &:last-child {
+        color: $font-color;
+
+        &:hover {
+          border-color: #fff;
+          color: #fff;
+        }
+      }
+    }
+  }
+
+
+  @media screen and (min-width: 991px) {
+    &__topPart {
+      padding-top: 60px;
+      flex-wrap: nowrap;
+    }
+    &__logo {
+      order: initial;
+      max-width: none;
+    }
+
+    &__splitButton {
+      order: initial;
+    }
+
+    &__nav {
+      order: initial;
+      flex: 0 0 auto;
+      margin-top: 0;
+    }
+    &__middlePart {
+      padding: 40px 0;
+      flex-direction: row;
+    }
+    &__about {
+      flex: 0 1 30%;
+      order: initial;
+      font-size: 18px;
+    }
+    &__contactsList {
+      margin: 0;
+
+      li + li {
+        margin-top: 30px;
+      }
+    }
+    &__bottomPart {
+      padding: 30px 0;
+
+      &-container {
+        flex-wrap: nowrap;
+      }
+    }
+    &__policies {
+      margin-left: auto;
+
+      a {
+        display: inline-block;
+        margin-left: 40px;
+        margin-top: 0;
+      }
+    }
+    &__copyRights {
+      width: auto;
+    }
+
+    &__feedbacks {
+      margin-left: 40px;
+      margin-top: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 990px) {
+
+  .footer {
+    .nav {
+      &__list {
+        font-size: 14px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        margin: 0 -10px -10px;
+
+        li {
+          margin: 0 10px 10px !important;
+        }
+      }
+    }
+  }
+
 }

@@ -36,6 +36,7 @@ $(function () {
   window.isMobile = function () {
     return window.matchMedia("only screen and (max-width: 991px)").matches;
   }
+  $('.year').text(new Date().getFullYear());
   new HeaderComponent().init();
 
   isFocus();

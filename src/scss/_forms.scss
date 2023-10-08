@@ -102,7 +102,6 @@
     top: 12px;
     left: 10px;
     font-weight: 600;
-    font-size: 14px;
     line-height: 1;
     transition: opacity 0.2s ease;
   }
@@ -127,7 +126,6 @@
   }
 
   &__info {
-    font-size: 14px;
     margin: 0 0 10px;
   }
 
@@ -153,7 +151,6 @@
     li {
       margin: 5px 15px;
       display: flex;
-      font-size: 14px;
       align-items: center;
       cursor: pointer;
 
@@ -182,7 +179,6 @@
   &__checkboxContainer {
     display: flex;
     align-items: center;
-    font-size: 14px;
 
     input[type="checkbox"] {
       display: none;

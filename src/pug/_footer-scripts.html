@@ -46,7 +46,7 @@
 
     var width = viewBox.split(' ')[2];
     var height = viewBox.split(' ')[3];
-    var svg$ = $('<svg xmlns="' + xmlns + '" + viewBox="' + viewBox + '" + width="' + width + '" + height="' + height + '" + id="' + id + '"></svg>');
+    var svg$ = $('<svg xmlns="' + xmlns + '" viewBox="' + viewBox + '"  width="' + width + '"  height="' + height + '"  id="' + id + '"></svg>');
     svg$.html($element.html());
     console.log({svg$: svg$[0].outerHTML, id})
     cachedSvg$.append(svg$);

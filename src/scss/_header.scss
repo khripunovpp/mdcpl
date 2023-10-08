@@ -48,9 +48,22 @@
     visibility: hidden;
     pointer-events: none;
     user-select: none;
+
   }
 
   @media screen and (max-width: 990px) {
+    .nav {
+
+      padding-top: 20px;
+      padding-bottom: 30px;
+
+      &__list {
+        li {
+          transform: translateY(-10px);
+          opacity: 0;
+        }
+      }
+    }
     &__phone {
       .contact-link {
         .icon {
@@ -100,8 +113,8 @@
       max-height: 26px;
     }
 
-    #glogo-right,
-    #glogo-left path {
+    #hlogo-right,
+    #hlogo-left path {
       transition: transform 0.1s ease-in, opacity 0.1s ease-in-out;
       opacity: 0;
       transform: translateY(-10px);
@@ -113,11 +126,12 @@
   .header-logo {
     width: 240px;
     display: block;
+
     svg {
       max-width: 240px;
     }
 
-    #glogo-icon {
+    #hlogo-icon {
       transform: translate3d(0, 0, 0) !important;
     }
   }
@@ -194,8 +208,6 @@
 
 .nav {
   flex: 100%;
-  padding-top: 20px;
-  padding-bottom: 30px;
   display: flex;
   flex-direction: column;
 
@@ -209,6 +221,11 @@
       color: inherit;
       text-decoration: none;
       font-weight: 600;
+      transition: color 0.2s ease-in;
+
+      &:hover {
+        color: $accent-color;
+      }
     }
 
     li + li {
@@ -217,8 +234,6 @@
 
     li {
       transition: transform 0.2s ease-in, opacity 0.2s ease-in-out;
-      transform: translateY(-10px);
-      opacity: 0;
     }
   }
 
@@ -299,7 +314,7 @@
       z-index: 1;
       border-color: $accent-color;
       background-color: #fff;
-      padding: 1px;
+      padding: 5px;
 
       span {
         display: none;
@@ -397,13 +412,13 @@
     }
 
     .header-logo {
-      #glogo-right,
-      #glogo-left path {
+      #hlogo-right,
+      #hlogo-left path {
         opacity: 1;
         transform: translateY(0);
       }
 
-      #glogo-icon {
+      #hlogo-icon {
         transform: translate3d(0, 0, 0) !important;
       }
     }
