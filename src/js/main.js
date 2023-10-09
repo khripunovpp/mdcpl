@@ -1,5 +1,6 @@
 import {HeaderComponent} from "./_header";
-import {FormsComponent} from "./_forms";
+import {FormComponent} from "./_forms";
+import {Dialog} from "./_dialogs";
 
 var isFocus = function () {
   var fieldEl = '.form__control',
@@ -38,47 +39,51 @@ $(function () {
   }
   $('.year').text(new Date().getFullYear());
   new HeaderComponent().init();
+  new Dialog().init();
 
   isFocus();
   var debugInUrl = window.location.href.indexOf('debug') > -1;
   $('body').toggleClass('debug', debugInUrl);
 
-  new FormsComponent().init();
+  var callbackForm = new FormComponent('#callback-form', '.callback-widget__contentPart');
+  callbackForm.init();
 
-  var iframeAppointments = $('.js-appointments-iframe');
+  var iframeAppointments = $('#rubitime-project__iframe-static');
 
-  $('.js-appointment-btn').on('click', function (e) {
-    var btn$ = $(e.target).closest('.js-appointment-btn');
-    var type = btn$.data('appointment-type');
-    console.log({scope: btn$.data('scope-id')})
-    var scope = String(btn$.data('scope-id')).split(',');
-    var defaultScope = String(btn$.data('defscope-id')).split(',')[0];
-    var doctor = String(btn$.data('doctor-id')).split(',');
-    var service = String(btn$.data('service-id')).split(',');
-    var url = window.appointmentsUrl;
-    var iframeSrc = url;
-
-    if (type === 'doctor') {
-      if (scope.length === 1) {
-        iframeSrc += '/' + scope[0];
-        iframeSrc += '/' + doctor[0];
-      } else if (defaultScope) {
-        iframeSrc += '/' + defaultScope;
-        iframeSrc += '/' + doctor[0];
-      }
-    }
-
-    if (type === 'service') {
-      if (scope.length > 1 || doctor.length > 1) {
-      } else {
-        iframeSrc += '/' + scope[0];
-        iframeSrc += '/' + doctor[0];
-        iframeSrc += '/' + service[0];
-      }
-    }
-
-    console.log({
-      iframeSrc
-    })
-  });
+  // $('.js-appointment-btn').on('click', function (e) {
+  //   var btn$ = $(e.target).closest('.js-appointment-btn');
+  //   var type = btn$.data('appointment-type');
+  //   console.log({scope: btn$.data('scope-id')})
+  //   var scope = String(btn$.data('scope-id')).split(',');
+  //   var defaultScope = String(btn$.data('defscope-id')).split(',')[0];
+  //   var doctor = String(btn$.data('doctor-id')).split(',');
+  //   var service = String(btn$.data('service-id')).split(',');
+  //   var url = window.appointmentsUrl;
+  //   var iframeSrc = url;
+  //
+  //   if (type === 'doctor') {
+  //     if (scope.length === 1) {
+  //       iframeSrc += '/' + scope[0];
+  //       iframeSrc += '/' + doctor[0];
+  //     } else if (defaultScope) {
+  //       iframeSrc += '/' + defaultScope;
+  //       iframeSrc += '/' + doctor[0];
+  //     }
+  //   }
+  //
+  //   if (type === 'service') {
+  //     if (scope.length > 1 || doctor.length > 1) {
+  //     } else {
+  //       iframeSrc += '/' + scope[0];
+  //       iframeSrc += '/' + doctor[0];
+  //       iframeSrc += '/' + service[0];
+  //     }
+  //   }
+  //
+  //   iframeAppointments.attr('src', iframeSrc);
+  //
+  //   console.log({
+  //     iframeSrc
+  //   })
+  // });
 });

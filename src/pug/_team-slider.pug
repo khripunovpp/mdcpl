@@ -1,5 +1,5 @@
 - var scopes = ['5460,5463','5463,6899','5463','5460,5463','5463'];
-- var doctors = ['12767','15787','3','4','5'];
+- var doctors = ['12767','13016','3','4','5'];
 section.team-slider.splide#team-slider
     .container
         .team-slider__inner
@@ -20,7 +20,15 @@ section.team-slider.splide#team-slider
                                                 i.icon.paste-sprite-location-icon
                                                 | Сетубал, Лиссабон
                                     footer.team-slide-card__footer
-                                        button.team-slide-card__appointmentBtn.button.button--outlined.js-appointment-btn(type='button', aria-label='Записаться',data-appointment-type='doctor',data-doctor-id=doctors[i],data-servie-id=`${i + 1}`,data-scope-id=scopes[i],data-defscope-id=scopes[i])
+                                        button.team-slide-card__appointmentBtn.button.button--outlined.js-appointment-btn(
+                                            type='button',
+                                            aria-label='Записаться',
+                                            data-appointment-type='doctor',
+                                            data-doctor-id=doctors[i],
+                                            data-servie-id=`${i + 1}`,
+                                            data-scope-id='5463',
+                                            data-defscope-id=scopes[i],
+                                            data-dialog-id="widget").js-open-dialog
                                             span Записаться
             footer.team-slider__footer.splide__arrows.splide__arrows--widget
                 button.team-slider__prevBtn.team-slider__navBtn.splide__arrow.splide__arrow--prev.button.button--outlined.button--icon(type='button', aria-label='Предыдущий слайд')

@@ -199,23 +199,42 @@
     that.navEleTopLevel$.removeClass('opened');
   };
 
-  function FormsComponent() {
-    this.controlClass = '.form__control';
-
+  function FormComponent(
+    query,
+    wrapperQuery,
+  ) {
+    this.$_target = $(query);
+    this.$_wrapper = this.$_target.closest(wrapperQuery);
+    this.$_form = this.$_wrapper.find('.form');
+    this.$_sumbit = this.$_form.find('.form__submit');
+    this.$_filesSection = this.$_form.find('.form__section--files');
+    this.$_filesUploadInput = this.$_filesSection.find('.form__control');
+    this.$_filesUploadButton = this.$_filesSection.find('.form__uploadBtn');
+    this.$_filesList = this.$_filesSection.find('.form__filesList');
+    this.$_resetButton = this.$_target.find('.js-reset');
+    this.$_formFields = this.$_form.find('.form__field');
   }
 
-  FormsComponent.prototype.init = function () {
+  FormComponent.prototype.init = function () {
     var _this = this;
-    $('.form__uploadBtn').on('click', function () {
-      var section$ = $(this).closest('.form__section--files');
-      var control$ = section$.find(_this.controlClass);
-      control$.trigger('click');
+
+    this.$_sumbit.on('click', function () {
+      _this.setLoader();
     });
 
-    $('.form__section--files').find(_this.controlClass).on('change', function () {
-      var section$ = $(this).closest('.form__section--files');
-      var fileList$ = section$.find('.form__filesList');
-      var files = $(this)[0].files;
+    this.$_form.on('change', function () {
+      _this.$_formFields.removeClass('has-error');
+    });
+    this.$_resetButton.on('click', function () {
+      _this.reset();
+    });
+
+    this.$_filesUploadButton.on('click', function () {
+      _this.$_filesUploadInput.trigger('click');
+    });
+
+    _this.$_filesUploadInput.on('change', function () {
+      var files = _this.$_filesUploadInput[0].files;
       var fileItems = [];
 
       for (var i = 0; i < files.length; i++) {
@@ -224,7 +243,7 @@
         fileItems.push(listItem$);
       }
 
-      fileList$.html(fileItems);
+      _this.$_filesList.html(fileItems);
     });
 
     // check DataTransfer
@@ -232,14 +251,13 @@
       return;
     }
 
-    $('.form__filesList').on('click', 'li', function () {
+    _this.$_filesList.on('click', 'li', function () {
       console.log('click');
 
-      var section$ = $(this).closest('.form__section--files');
       var listItemToRemove$ = $(this);
       var fileNameToRemove = listItemToRemove$.text();
 
-      var files = section$.find(_this.controlClass)[0].files;
+      var files = _this.$_filesUploadInput[0].files;
       listItemToRemove$.remove();
 
       // Создаем новый объект DataTransfer и добавляем в него оставшиеся файлы
@@ -249,14 +267,90 @@
           newTransfer.items.add(files[j]);
         }
       }
+      _this.$_filesUploadInput[0].files = newTransfer.files;
+    });
+  };
 
-      // Заменяем файлы в инпуте новым объектом DataTransfer
-      section$.find(_this.controlClass)[0].files = newTransfer.files;
 
-      console.log({
-        files: section$.find(_this.controlClass)[0].files,
-        newFiles: newTransfer.files,
-      });
+  FormComponent.prototype.setLoader = function (state = true) {
+    this.$_wrapper.toggleClass('loading', state);
+  };
+
+  FormComponent.prototype.goToSuccess = function () {
+    this.$_wrapper.removeClass('loading');
+    this.$_wrapper.addClass('finished');
+  };
+
+  FormComponent.prototype.reset = function () {
+    this.$_wrapper.removeClass(['loading', 'finished']);
+  };
+
+  function Dialog() {
+    this.$_overlay = $('.overlay');
+    this.$_body = $('body');
+  }
+
+  Dialog.prototype.init = function () {
+    var that = this;
+    $('.js-open-dialog, .js-open-sub-dialog').on('click', function (e) {
+      e.preventDefault();
+      var _subDialogId = $(e.target).closest('.js-open-sub-dialog').attr('data-sub-dialog-id');
+      var _dialogId = $(e.target).closest(_subDialogId ? '[data-dialog-id]' : '.js-open-dialog').attr('data-dialog-id');
+      var _windowOpenCallback = $(e.target).closest('[data-dialog-callback-open]').attr('data-dialog-callback-open');
+
+      var _openFn = function (id) {
+        return that.show.call(that, id, function () {
+          setTimeout(function () {
+            typeof window[_windowOpenCallback] === 'function' && window[_windowOpenCallback].call(window);
+          }, 400);
+        });
+      };
+
+      if (_subDialogId) {
+        that.overlayDisplay.call(that, function () {
+          that.close.call(that, _dialogId, false, function () {
+            _openFn(_subDialogId);
+          });
+        });
+      } else {
+        that.overlayDisplay.call(that, function () {
+          _openFn(_dialogId);
+        });
+      }
+    });
+
+    $('.js-close-dialog').on('click', function (e) {
+      var _dialogId = $(e.target).closest('.popup').attr('data-dialog-id');
+      that.close.call(that, _dialogId);
+    });
+
+  };
+
+  Dialog.prototype.overlayDisplay = function (cb) {
+    this.$_overlay.fadeIn(200, function () {
+      typeof cb === 'function' && cb();
+    });
+  };
+
+  Dialog.prototype.show = function (id, cb) {
+    var _target = $('.popup[data-dialog-id="' + id + '"]');
+    this.$_body.addClass('popup-opened');
+    _target.fadeIn(0, function () {
+      _target.addClass('opened');
+      typeof cb === 'function' && cb();
+    });
+  };
+
+  Dialog.prototype.close = function (id, withOverlay = true, cb) {
+    var that = this;
+    var _target = $('.popup[data-dialog-id="' + id + '"]');
+    _target.fadeOut(200, function () {
+      _target.removeClass('opened');
+      if (withOverlay) {
+        that.$_overlay.fadeOut(200);
+        that.$_body.removeClass('popup-opened');
+      }
+      typeof cb === 'function' && cb();
     });
   };
 
@@ -297,48 +391,53 @@
     };
     $('.year').text(new Date().getFullYear());
     new HeaderComponent().init();
+    new Dialog().init();
 
     isFocus();
     var debugInUrl = window.location.href.indexOf('debug') > -1;
     $('body').toggleClass('debug', debugInUrl);
 
-    new FormsComponent().init();
+    var callbackForm = new FormComponent('#callback-form', '.callback-widget__contentPart');
+    callbackForm.init();
 
-    var iframeAppointments = $('.js-appointments-iframe');
+    var iframeAppointments = $('#rubitime-project__iframe-static');
 
-    $('.js-appointment-btn').on('click', function (e) {
-      var btn$ = $(e.target).closest('.js-appointment-btn');
-      var type = btn$.data('appointment-type');
-      console.log({scope: btn$.data('scope-id')});
-      var scope = String(btn$.data('scope-id')).split(',');
-      var defaultScope = String(btn$.data('defscope-id')).split(',')[0];
-      var doctor = String(btn$.data('doctor-id')).split(',');
-      var service = String(btn$.data('service-id')).split(',');
-      var url = window.appointmentsUrl;
-      var iframeSrc = url;
-
-      if (type === 'doctor') {
-        if (scope.length === 1) {
-          iframeSrc += '/' + scope[0];
-          iframeSrc += '/' + doctor[0];
-        } else if (defaultScope) {
-          iframeSrc += '/' + defaultScope;
-          iframeSrc += '/' + doctor[0];
-        }
-      }
-
-      if (type === 'service') {
-        if (scope.length > 1 || doctor.length > 1) ; else {
-          iframeSrc += '/' + scope[0];
-          iframeSrc += '/' + doctor[0];
-          iframeSrc += '/' + service[0];
-        }
-      }
-
-      console.log({
-        iframeSrc
-      });
-    });
+    // $('.js-appointment-btn').on('click', function (e) {
+    //   var btn$ = $(e.target).closest('.js-appointment-btn');
+    //   var type = btn$.data('appointment-type');
+    //   console.log({scope: btn$.data('scope-id')})
+    //   var scope = String(btn$.data('scope-id')).split(',');
+    //   var defaultScope = String(btn$.data('defscope-id')).split(',')[0];
+    //   var doctor = String(btn$.data('doctor-id')).split(',');
+    //   var service = String(btn$.data('service-id')).split(',');
+    //   var url = window.appointmentsUrl;
+    //   var iframeSrc = url;
+    //
+    //   if (type === 'doctor') {
+    //     if (scope.length === 1) {
+    //       iframeSrc += '/' + scope[0];
+    //       iframeSrc += '/' + doctor[0];
+    //     } else if (defaultScope) {
+    //       iframeSrc += '/' + defaultScope;
+    //       iframeSrc += '/' + doctor[0];
+    //     }
+    //   }
+    //
+    //   if (type === 'service') {
+    //     if (scope.length > 1 || doctor.length > 1) {
+    //     } else {
+    //       iframeSrc += '/' + scope[0];
+    //       iframeSrc += '/' + doctor[0];
+    //       iframeSrc += '/' + service[0];
+    //     }
+    //   }
+    //
+    //   iframeAppointments.attr('src', iframeSrc);
+    //
+    //   console.log({
+    //     iframeSrc
+    //   })
+    // });
   });
 
 }));

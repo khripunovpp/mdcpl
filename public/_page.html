@@ -57,8 +57,8 @@
             </section>
             <section class="header__splitButton">
               <div class="split-button">
-                <button type="button"><span>Записаться</span></button>
-                <button type="button"><i class="icon paste-sprite-plus-icon"></i><span>Выезд на дом</span></button>
+                <button class="js-open-dialog" type="button" data-dialog-id="widget"><span>Записаться</span></button>
+                <button class="js-open-dialog" type="button" data-dialog-id="home-call"><i class="icon paste-sprite-plus-icon"></i><span>Выезд на дом</span></button>
               </div>
             </section>
             <button class="header__burger burger" type="button" aria-label="Открыть меню">
@@ -119,6 +119,110 @@
       </footer>
     </div>
     <div class="overlay"></div>
+    <section class="popup popup--callback" data-dialog-id="home-call">
+      <div class="popup__container">
+        <div class="popup__wrapper">
+          <section class="popup__inner">
+            <button class="popup__close js-close-dialog paste-sprite-cross-icon" type="button" aria-label="Закрыть"></button>
+            <h2 class="popup__title">Вызов на дом</h2>
+            <section class="popup__tail">
+              <form class="form">
+                <section class="form__field has-error">
+                  <label class="form__label">Имя</label>
+                  <input class="form__control error" type="text" name="name"/>
+                  <p class="form__field-errorText">Обязательное поле</p>
+                </section>
+                <section class="form__field form__field--select">
+                  <select class="form__control">
+                    <option value="Порто">Порто</option>
+                    <option value="Лиссабон">Лиссабон</option>
+                    <option value="Сетубал">Сетубал</option>
+                  </select>
+                  <p class="form__field-errorText">Обязательное поле</p>
+                </section>
+                <section class="form__field">
+                  <label class="form__label">Телефон</label>
+                  <input class="form__control" type="tel" name="phone"/>
+                  <p class="form__field-errorText">Обязательное поле</p>
+                </section>
+                <section class="form__field">
+                  <label class="form__label">Email</label>
+                  <input class="form__control" type="email" name="email"/>
+                  <p class="form__field-errorText">Обязательное поле</p>
+                </section>
+                <section class="form__field form__field--fluid form__field--textarea">
+                  <label class="form__label">Ваше обращение</label>
+                  <textarea class="form__control" name="msg" rows="3"></textarea>
+                  <p class="form__field-errorText">Обязательное поле</p>
+                </section>
+                <footer class="form__footer">
+                  <button class="form__submit button button--outlined" type="button">Отправить</button>
+                </footer>
+              </form>
+            </section>
+          </section>
+        </div>
+      </div>
+    </section>
+    <section class="popup popup--widget" data-dialog-id="widget">
+      <div class="popup__container">
+        <div class="popup__wrapper">
+          <section class="popup__inner">
+            <button class="popup__close js-close-dialog paste-sprite-cross-icon" type="button" aria-label="Закрыть"></button>
+            <section class="popup__tail"><a href="https://rubitime.ru/api/get-project/f7fbb1acc92982eb871f4d96d6672d3bb17163bd2ec3ecc7aa280b4808f8d480"
+   class="rubitime-project-iframe">Записаться</a>
+
+
+<script>(function () {
+  if (typeof (rubitimeIframeIsLoaded) != "boolean") {
+    var rpis = document.getElementsByClassName("rubitime-project-iframe")[0];
+    var rpisi = document.createElement("iframe");
+    rpisi.src = rpis.getAttribute("href");
+    rpisi.src = rpisi.src.indexOf("?") >= 0 ? rpisi.src + "&rvtype=iframe&noscroll=1" : rpisi.src + "?rvtype=static&noscroll=1";
+    rpisi.style.width = "100%";
+    rpisi.style.height = "540px";
+    rpisi.style.border = "0";
+    rpisi.id = 'rubitime-project__iframe-static';
+    rpis.parentNode.replaceChild(rpisi, rpis);
+    var rubiEventMethod = window.addEventListener ? "addEventListener" : "attachEvent",
+      rubiEventer = window[rubiEventMethod],
+      rubiMessageEvent = "attachEvent" == rubiEventMethod ? "onmessage" : "message";
+    rubiEventer(rubiMessageEvent, function (e) {
+      try{
+        if (e.data != undefined && typeof (e.data) == "string" - 1 != e.data.indexOf("height")) {
+        var t = JSON.parse(e.data);
+        if (0 != t.height && "static" == t.type) {
+          var i = document.getElementById("rubitime-project__iframe-static");
+          i && (i.style.height = Math.round(t.height) + 20 + "px")
+        }
+        if (t.type == "loadpage" && t.scroll == "yes" && (document.getElementById("rubitime-project-shadow") == null || document.getElementById("rubitime-project-shadow").style.display == "none")) {
+          if (typeof (jQuery) != "undefined") {
+            jQuery("html, body").animate({scrollTop: $("#rubitime-project__iframe-static").offset().top});
+          } else {
+            document.getElementById("rubitime-project__iframe-static").scrollIntoView()
+          }
+        }
+      }
+      } catch (e) {
+        
+      }
+    }, !1);
+  }
+  var rubitimeEls = document.getElementsByClassName("rubitime-project-iframe");
+  var ri = 0;
+  while (rubitimeEls.length > ri) {
+    rubitimeEls[ri].style.display = "none";
+    ri++;
+  }
+})();
+var rubitimeIframeIsLoaded = true;</script>
+
+
+            </section>
+          </section>
+        </div>
+      </div>
+    </section>
     <script defer="defer" src="./js/main.js"></script>
   </body>
 </html>

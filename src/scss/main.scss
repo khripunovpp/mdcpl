@@ -28,6 +28,10 @@ body {
   @media screen and (min-width: 991px) {
     font-size: 18px;
   }
+
+  &.popup-opened {
+    overflow: hidden;
+  }
 }
 
 *,
@@ -270,6 +274,7 @@ img:not([src]) {
 }
 
 @import "forms";
+@import "dialog";
 @import "header";
 @import "hero";
 @import "buttons";

@@ -4,10 +4,10 @@ section.callback-widget
             section.callback-widget__mapPart
                 .callback-widget__map
                     #callback-widget-map
-            section.callback-widget__contentPart
+            section.callback-widget__contentPart.loading
                 h2.callback-widget__title.title Обратная связь
                 section.callback-widget__form
-                    form.form
+                    form.form#callback-form
                         section.form__field.has-error
                             label.form__label Имя
                             input.form__control.error(type='text', name='name')
