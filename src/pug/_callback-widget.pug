@@ -4,7 +4,7 @@ section.callback-widget
             section.callback-widget__mapPart
                 .callback-widget__map
                     #callback-widget-map
-            section.callback-widget__contentPart.loading
+            section.callback-widget__contentPart
                 h2.callback-widget__title.title Обратная связь
                 section.callback-widget__form
                     form.form#callback-form
@@ -13,6 +13,7 @@ section.callback-widget
                             input.form__control.error(type='text', name='name')
                             p.form__field-errorText Обязательное поле
                         section.form__field.form__field--select
+                            i.form__caretDown.paste-sprite-caret-left-icon.icon
                             select.form__control
                                 option(value='Порто') Порто
                                 option(value='Лиссабон') Лиссабон
@@ -43,5 +44,6 @@ section.callback-widget
                                         a(href='#',target='_blank') персональных данных
                                     input(type='checkbox', name='agree', id='agree')
                                     span.form__checkboxMark
+                                        span.form__checkboxMark-icon.paste-sprite-check-icon.icon
 
                             button.form__submit.button.button--outlined(type='button') Отправить

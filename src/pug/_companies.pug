@@ -5,7 +5,7 @@ section.companies
             ul.companies__list
                 - for (let i = 0; i < 5; i++)
                     li.companies__item
-                        a.company-card(href='#')
+                        a.company-card(href='#', target='_blank')
                             span.company-card__picture
-                                img.lazy(data-src=`../img/company-pic-${i + 1}.png`, alt='Имя')
+                                img.lazy(data-src=`./img/company-pic-${i + 1}.png`, alt='Имя')
                             p.company-card__name Hospital da Luz

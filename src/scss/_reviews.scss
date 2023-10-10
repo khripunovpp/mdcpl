@@ -15,11 +15,6 @@
   &__item {
     display: flex;
     flex-direction: column;
-
-    .review-card {
-      height: 100%;
-      flex: 100%;
-    }
   }
 
   &__footer {

@@ -34,9 +34,6 @@ var isFocus = function () {
 };
 
 $(function () {
-  window.isMobile = function () {
-    return window.matchMedia("only screen and (max-width: 991px)").matches;
-  }
   $('.year').text(new Date().getFullYear());
   new HeaderComponent().init();
   new Dialog().init();
@@ -45,8 +42,9 @@ $(function () {
   var debugInUrl = window.location.href.indexOf('debug') > -1;
   $('body').toggleClass('debug', debugInUrl);
 
-  var callbackForm = new FormComponent('#callback-form', '.callback-widget__contentPart');
-  callbackForm.init();
+  window.formsComponents = {};
+  window.formsComponents['callback-form'] = new FormComponent('#callback-form', '.callback-widget');
+  window.formsComponents['home-call-form'] = new FormComponent('#home-call-form', '.popup__container');
 
   var iframeAppointments = $('#rubitime-project__iframe-static');
 

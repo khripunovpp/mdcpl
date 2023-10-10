@@ -6,10 +6,10 @@ section.hero
                 section.hero__leadText
                     p Мы знаем, как работать с русскоговорящими пациентами, но еще мы знаем, как устроена португальская семейная и госпитальная медицина изнутри.
                 footer.hero__footer
-                    button.button.button--accent(type='button', aria-label='Записаться на прием')
+                    button.button.button--accent(type='button', aria-label='Записаться на прием').js-open-dialog(data-dialog-id="widget")
                         span Записаться на прием
-                    a.button.button--outlined(type='button', aria-label='Наши услуги', href='#')
+                    a.button.button--outlined(type='button', aria-label='Наши услуги', href='./services/index.html')
                         span Наши услуги
-            .hero__picture
-                img.hero__picture-img(data-src='../img/hero-pic.jpg', alt='Медицинская помощь в Португалии').lazy.only-desktop
-                img.hero__picture-img(data-src='../img/hero-pic-mobile.jpg', alt='Медицинская помощь в Португалии').lazy.only-mobile
+            .hero__picture.lazy-wrapper
+                img.hero__picture-img(data-src='./img/hero-pic.jpg', alt='Медицинская помощь в Португалии').lazy.only-desktop
+                img.hero__picture-img(data-src='./img/hero-pic-mobile.jpg', alt='Медицинская помощь в Португалии').lazy.only-mobile

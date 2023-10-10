@@ -2,7 +2,7 @@ footer.footer
     .container
         section.footer__topPart
             .footer__logo
-                a(href="./").footer-logo.paste-sprite-logo-white
+                a(href="./").logo.logo--footer.paste-sprite-logo-white
             section.footer__nav
                 nav.nav
                     ul.nav__list.js-navigation
@@ -11,7 +11,7 @@ footer.footer
                         li
                             a(href="./services/index.html") Услуги
                         li
-                            a(href="./doctors/index.html") Специалисты
+                            a(href="./team/index.html") Специалисты
                         li
                             a(href="./feedbacks/index.html") Отзывы
                         li
@@ -21,9 +21,9 @@ footer.footer
 
             section.footer__splitButton
                 .split-button
-                    button(type='button')
+                    button(type='button').js-open-dialog(data-dialog-id="widget")
                         span Записаться
-                    button(type='button')
+                    button(type='button').js-open-dialog(data-dialog-id="home-call")
                         i.icon.paste-sprite-plus-icon
                         span Выезд на дом
 
@@ -31,24 +31,24 @@ footer.footer
             p.footer__about Мы знаем, как работать с русскоговорящими пациентами, но еще мы знаем, как устроена португальская семейная и госпитальная медицина изнутри
             ul.footer__contactsList
                 li
-                    .contact-link
-                        i.icon.paste-sprite-email-icon
-                        a(href="mailto:info@medcouple.pt") info@medcouple.pt
+                    a(href="mailto:info@medcouple.pt").contact-link
+                        i.contact-link__icon.icon.paste-sprite-email-icon
+                        span.contact-link__label info@medcouple.pt
                 li
-                    .contact-link
-                        i.icon.paste-sprite-facebook-icon
-                        a(href="https://facebook.com/medcouplept") facebook.com/medcouplept
+                    a(href="https://facebook.com/medcouplept").contact-link
+                        i.contact-link__icon.icon.paste-sprite-facebook-icon
+                        span.contact-link__label facebook.com/medcouplept
             ul.footer__contactsList
                 li
-                    .contact-link
-                        i.icon.paste-sprite-telegram-circle-icon
-                        span Канал в телеграм:
-                        a(href="https://t.me/medcouplept") t.me/medcouplept
+                    a(href="https://t.me/medcouplept").contact-link
+                        i.contact-link__icon.icon.paste-sprite-telegram-circle-icon
+                        span.contact-link__description Канал в телеграм:
+                        span.contact-link__label t.me/medcouplept
                 li
-                    .contact-link
-                        i.icon.paste-sprite-telegram-circle-icon
-                        span Телеграм бот для записи:
-                        a(href="https://t.me/MedCoupleBot") t.me/MedCoupleBot
+                    a(href="https://t.me/MedCoupleBot").contact-link
+                        i.contact-link__icon.icon.paste-sprite-telegram-circle-icon
+                        span.contact-link__description Бот для записи:
+                        span.contact-link__label t.me/MedCoupleBot
     section.footer__bottomPart
         .container.footer__bottomPart-container
             p.footer__copyRights © #[span.year] Medcouple.pt. Все права защищены

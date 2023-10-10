@@ -13,7 +13,7 @@ section.team-slider.splide#team-slider
                                 section.team-slide-card
                                     section.team-slide-card__tail
                                         .team-slide-card__picture
-                                            img(data-splide-lazy=`../img/doc-pic-${i + 1}.jpg`, alt='Имя')
+                                            img(data-splide-lazy=`./img/doc-pic-${i + 1}.jpg`, alt='Имя')
                                         section.team-slide-card__description
                                             p.team-slide-card__name Имя Фамилия
                                             p.team-slide-card__location
@@ -33,7 +33,7 @@ section.team-slider.splide#team-slider
             footer.team-slider__footer.splide__arrows.splide__arrows--widget
                 button.team-slider__prevBtn.team-slider__navBtn.splide__arrow.splide__arrow--prev.button.button--outlined.button--icon(type='button', aria-label='Предыдущий слайд')
                     i.icon.paste-sprite-caret-left-icon
-                button.team-slider__allBtn.button.button--big(type='button', aria-label='Подробнее о специалистах')
+                a.team-slider__allBtn.button.button--big(type='button', aria-label='Подробнее о специалистах', href='./team/index.html')
                     span Подробнее о специалистах
                 button.team-slider__nextBtn.team-slider__navBtn.splide__arrow.splide__arrow--next.button.button--outlined.button--icon(type='button', aria-label='Следующий слайд')
                     i.icon.paste-sprite-caret-left-icon

@@ -38,6 +38,14 @@ Dialog.prototype.init = function () {
     that.close.call(that, _dialogId);
   });
 
+  $('.popup').on('click', function (e) {
+    var insideInner = $(e.target).closest('.popup__inner').length;
+    if (!insideInner) {
+      var _dialogId = $(e.target).closest('.popup').attr('data-dialog-id');
+      that.close.call(that, _dialogId);
+    }
+  });
+
 }
 
 Dialog.prototype.overlayDisplay = function (cb) {
@@ -55,7 +63,8 @@ Dialog.prototype.show = function (id, cb) {
   });
 }
 
-Dialog.prototype.close = function (id, withOverlay = true, cb) {
+Dialog.prototype.close = function (id, withOverlay, cb) {
+  var withOverlay = withOverlay === false ? false : true;
   var that = this;
   var _target = $('.popup[data-dialog-id="' + id + '"]');
   _target.fadeOut(200, function () {

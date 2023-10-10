@@ -1,19 +1,20 @@
 .overlay
+.notify
 section.popup.popup--callback(data-dialog-id="home-call")
   .popup__container
     .popup__wrapper
       section.popup__inner
         button.popup__close.js-close-dialog.paste-sprite-cross-icon(type='button',aria-label='Закрыть')
 
-        h2.popup__title Вызов на дом
+        h2.popup__title Выезд на дом
         section.popup__tail
-
-          form.form
-            section.form__field.has-error
+          form.form#home-call-form
+            section.form__field
               label.form__label Имя
-              input.form__control.error(type='text', name='name')
+              input.form__control(type='text', name='name')
               p.form__field-errorText Обязательное поле
             section.form__field.form__field--select
+              i.form__caretDown.paste-sprite-caret-left-icon.icon
               select.form__control
                 option(value='Порто') Порто
                 option(value='Лиссабон') Лиссабон

@@ -31,41 +31,52 @@
 
   window.appointmentsUrl = 'https://rubitime.ru/api/get-project-static/f7fbb1acc92982eb871f4d96d6672d3bb17163bd2ec3ecc7aa280b4808f8d480';
 
-  var sprite$ = $('.sprite').find('svg');
-  // replace all symbol tag with svg tag, clone is wrong
-  var spriteSvg = sprite$[0].outerHTML.replace(/symbol/g, 'svg');
-  console.log({
-    spriteSvg: spriteSvg,
-  });
-  // jquery fragment
-  var cachedSvg$ = $(spriteSvg).clone().html('');
+  window.insertSprites = function () {
+    if (!window.cachedSvg$) {
+      var sprite$ = $('.sprite').find('svg');
+      // replace all symbol tag with svg tag, clone is wrong
+      var spriteSvg = sprite$[0].outerHTML.replace(/symbol/g, 'svg');
+      console.log({
+        spriteSvg: spriteSvg,
+      });
+      // jquery fragment
+      window.cachedSvg$ = $(spriteSvg).clone().html('');
 
-  $(spriteSvg).children().each(function (index, element) {
-    var $element = $(element);
-    var id = $element.attr('id');
-    var xmlns = $element.attr('xmlns');
-    var viewBox = $element.attr('viewBox');
+      $(spriteSvg).children().each(function (index, element) {
+        var $element = $(element);
+        var id = $element.attr('id');
+        var xmlns = $element.attr('xmlns');
+        var viewBox = $element.attr('viewBox');
 
-    var width = viewBox.split(' ')[2];
-    var height = viewBox.split(' ')[3];
-    var svg$ = $('<svg xmlns="' + xmlns + '" viewBox="' + viewBox + '"  width="' + width + '"  height="' + height + '"  id="' + id + '"></svg>');
-    svg$.html($element.html());
-    console.log({svg$: svg$[0].outerHTML, id})
-    cachedSvg$.append(svg$);
+        var width = viewBox.split(' ')[2];
+        var height = viewBox.split(' ')[3];
+        var svg$ = $('<svg xmlns="' + xmlns + '" viewBox="' + viewBox + '"  width="' + width + '"  height="' + height + '"  id="' + id + '"></svg>');
+        svg$.html($element.html());
+        console.log({svg$: svg$[0].outerHTML, id})
+        window.cachedSvg$.append(svg$);
+      })
+      console.log('!!!!!!!!!!!!')
+      console.log({cachedSvg$})
+    }
+
+
+    // find all classes contains paste-sprite
+    var pasteSprite$ = $('[class*="paste-sprite"]');
+
+    pasteSprite$.each(function (index, element) {
+      var $element = $(element);
+      if ($element.hasClass('inserted')) return;
+      var className = $element.attr('class');
+      var spriteClass = className.match(/paste-sprite-([^\s]+)/)[1];
+      var iconSvg$ = window.cachedSvg$.find('#' + spriteClass);
+      console.log({spriteClass, iconSvg$: iconSvg$[0].outerHTML})
+      if (!iconSvg$.length) return;
+      $element.html(iconSvg$[0].outerHTML);
+      $element.addClass('inserted')
+    });
+  }
+
+  $(function () {
+    window.insertSprites();
   })
-  console.log('!!!!!!!!!!!!')
-  console.log({cachedSvg$})
-
-  // find all classes contains paste-sprite
-  var pasteSprite$ = $('[class*="paste-sprite"]');
-
-  pasteSprite$.each(function (index, element) {
-    var $element = $(element);
-    var className = $element.attr('class');
-    var spriteClass = className.match(/paste-sprite-([^\s]+)/)[1];
-    var iconSvg$ = cachedSvg$.find('#' + spriteClass);
-    console.log({spriteClass, iconSvg$: iconSvg$[0].outerHTML})
-    if (!iconSvg$.length) return;
-    $element.html(iconSvg$[0].outerHTML);
-  });
 </script>

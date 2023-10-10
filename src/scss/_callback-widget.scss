@@ -34,18 +34,29 @@
 
   @media (min-width: 991px) {
     padding: 150px 0;
+    &__mapPart {
+      border-radius: 40px;
+      height: 400px;
+    }
+
+    &__contentPart {
+      margin-top: 50px;
+    }
+  }
+
+  @media (min-width: 1200px) {
     &__inner {
       flex-direction: row;
     }
     &__mapPart {
       width: calc(50% - 15px);
-      border-radius: 40px;
       height: auto;
     }
 
     &__contentPart {
       width: calc(50% + 15px);
       padding: 0 0 0 30px;
+      margin: 0;
     }
   }
 }

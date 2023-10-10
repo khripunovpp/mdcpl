@@ -1,10 +1,10 @@
 export function FormComponent(
   query,
-  wrapperQuery,
+  wrapperQuery
 ) {
   this.$_target = $(query);
   this.$_wrapper = this.$_target.closest(wrapperQuery);
-  this.$_form = this.$_wrapper.find('.form');
+  this.$_form = this.$_wrapper.find('form.form');
   this.$_sumbit = this.$_form.find('.form__submit');
   this.$_filesSection = this.$_form.find('.form__section--files');
   this.$_filesUploadInput = this.$_filesSection.find('.form__control');
@@ -12,6 +12,9 @@ export function FormComponent(
   this.$_filesList = this.$_filesSection.find('.form__filesList');
   this.$_resetButton = this.$_target.find('.js-reset');
   this.$_formFields = this.$_form.find('.form__field');
+  this.$_formControls = this.$_form.find('.form__control');
+  this.$_notification = $('body').find('.notify');
+  this.init();
 }
 
 FormComponent.prototype.init = function () {
@@ -19,6 +22,9 @@ FormComponent.prototype.init = function () {
 
   this.$_sumbit.on('click', function () {
     _this.setLoader();
+    setTimeout(function () {
+      _this.goToSuccess();
+    }, 3000);
   });
 
   this.$_form.on('change', function () {
@@ -38,11 +44,12 @@ FormComponent.prototype.init = function () {
 
     for (var i = 0; i < files.length; i++) {
       var fileName = files[i].name;
-      var listItem$ = $('<li>').text(fileName);
+      var listItem$ = $('<li>').text(fileName).append($('<i class="paste-sprite-cross-icon icon">'))
       fileItems.push(listItem$);
     }
 
     _this.$_filesList.html(fileItems);
+    window.insertSprites();
   });
 
   // check DataTransfer
@@ -68,18 +75,43 @@ FormComponent.prototype.init = function () {
     }
     _this.$_filesUploadInput[0].files = newTransfer.files;
   });
+
+  $(window).on('scroll', function () {
+    if (window['notyTimer']) {
+      clearTimeout(window['notyTimer']);
+    }
+    _this.$_notification.fadeOut(500);
+  });
 }
 
 
-FormComponent.prototype.setLoader = function (state = true) {
+FormComponent.prototype.setLoader = function (state) {
+  var state = state || true;
   this.$_wrapper.toggleClass('loading', state);
 }
 
 FormComponent.prototype.goToSuccess = function () {
   this.$_wrapper.removeClass('loading');
-  this.$_wrapper.addClass('finished');
+  this.$_form[0].reset();
+  this.$_filesList.html('');
+  this.$_formFields.removeClass(['has-error', 'onfocus']);
+  this.noty('Спасибо! Ваша заявка отправлена.');
 }
 
-FormComponent.prototype.reset = function () {
-  this.$_wrapper.removeClass(['loading', 'finished']);
-}
+FormComponent.prototype.noty = function (
+  text,
+  type
+) {
+  var type = type || 'success';
+  var that = this;
+  this.$_notification.text(text);
+  this.$_notification.addClass(type);
+  this.$_notification.fadeIn(500);
+
+  if (window['notyTimer']) {
+    clearTimeout(window['notyTimer']);
+  }
+  window['notyTimer'] = setTimeout(function () {
+    that.$_notification.fadeOut(500);
+  }, 3000);
+};

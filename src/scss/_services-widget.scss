@@ -27,7 +27,7 @@
   &__servicesListContainer {
     max-width: $desktop-container-width-mob;
     margin: 0 auto;
-    padding: 30px 0;
+    padding: 50px 0;
   }
 
   &__showMore {
@@ -295,20 +295,25 @@
       font-size: 30px;
     }
     &__actions {
-      flex-wrap: nowrap;
+      gap: 30px;
+      padding-bottom: 15px;
+      justify-content: flex-start;
     }
     &__actionButtonWrap {
+
+      margin-bottom: -15px !important;
+
       &--appointement {
         flex: auto;
         margin: 0;
       }
 
       &--contact {
-        margin-left: 30px;
+        max-width: 60px;
+        margin: 0;
       }
 
       &--details {
-        margin-left: 30px;
       }
     }
     &.opened {

@@ -12,29 +12,31 @@ section.services-widget
                             section.service-card__tail
                                 footer.service-card__actions
                                     .service-card__actionButtonWrap.service-card__actionButtonWrap--appointement
-                                        button.service-card__appointement.button.button--accent(type='button', aria-label='Записаться на прием')
+                                        button.service-card__appointement.button.button--accent(type='button', aria-label='Записаться на прием').js-open-dialog(data-dialog-id="widget")
                                             span Записаться на прием
                                     .service-card__actionButtonWrap.service-card__actionButtonWrap--details
-                                        button.service-card__details.button.button--outlined(type='button', aria-label='Подробнее')
+                                        a.service-card__details.button.button--outlined(type='button', aria-label='Подробнее', href='./services/index.html')
                                             span Подробнее
                                     .service-card__actionButtonWrap.service-card__actionButtonWrap--contact
-                                        button.service-card__contact.button.button--outlined.button--telegram.button--icon(type='button', aria-label='Написать в Telegram')
+                                        a.service-card__contact.button.button--outlined.button--telegram.button--icon(type='button', aria-label='Написать в Telegram', href="https://t.me/MedCoupleBot",target='_blank')
                                             i.icon.paste-sprite-telegram-icon
                                     .service-card__actionButtonWrap.service-card__actionButtonWrap--contact
-                                        button.service-card__contact.button.button--outlined.button--whatsapp.button--icon(type='button', aria-label='Написать в WhatsApp')
+                                        a.service-card__contact.button.button--outlined.button--whatsapp.button--icon(type='button', aria-label='Написать в WhatsApp', href="https://t.me/MedCoupleBot",target='_blank')
                                             i.icon.paste-sprite-whatsapp-icon
                                 section.service-card__services
                                     ul.service-card__list
                                         li
-                                            a(href='#') Организация вакцинации  в клиниках Португалии
+                                            a(href='./services/index.html') Организация вакцинации  в клиниках Португалии
                                         li
-                                            a(href='#') Программы годового сопровождения семей с детьми
+                                            a(href='./services/index.html') Программы годового сопровождения семей с детьми
                                         li
-                                            a(href='#') Программы годового сопровождения семей с детьми
+                                            a(href='./services/index.html') Программы годового сопровождения семей с детьми
                                         li
-                                            a(href='#') Программы годового сопровождения семей с детьми
-                button.services-widget__showMore.button.button--big(type='button', aria-label='Все услуги')
+                                            a(href='./services/index.html') Программы годового сопровождения семей с детьми
+
+                a.services-widget__showMore.button.button--big(type='button', aria-label='Все услуги', href='./services/index.html')
                     span Все услуги
-        .services-widget__desktopScrollerListContainer
+        .services-widget__desktopScrollerListContainer(data-sticky-container)
             .services-widget__desktopScrollerListContainer-inner
-                ul.services-widget__desktopScrollerListContainer-list
+                .sticky-block
+                    ul.services-widget__desktopScrollerListContainer-list

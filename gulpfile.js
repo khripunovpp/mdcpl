@@ -14,7 +14,7 @@ const svgSprite = require('gulp-svg-sprite');
 
 function browsersync() {
   browserSync.init({ // Инициализация Browsersync
-    server: {baseDir: 'public/'}, // Указываем папку сервера
+    server: {baseDir: 'docs/'}, // Указываем папку сервера
     notify: false, // Отключаем уведомления
     online: true // Режим работы: true или false
   })
@@ -32,7 +32,7 @@ function styles() {
     .pipe(splitMediaQueries({
       breakpoint: 991,
     }))
-    .pipe(dest('public/css/')) // Выгрузим результат в папку "app/css/"
+    .pipe(dest('docs/css/')) // Выгрузим результат в папку "app/css/"
     .pipe(browserSync.stream()) // Сделаем инъекцию в браузер
 }
 
@@ -41,7 +41,7 @@ function stylesRaw() {
     'src/css/splide.min.css',
     'src/css/splide-default.min.css',
   ])
-    .pipe(dest('public/css/')) // Выгружаем готовый файл в папку назначения
+    .pipe(dest('docs/css/')) // Выгружаем готовый файл в папку назначения
     .pipe(browserSync.stream()) // Триггерим Browsersync для обновления страницы
 }
 
@@ -56,24 +56,20 @@ function scripts() {
       input: entries,
       format: 'umd',
     }))
-    .pipe(dest('public/js/')) // Выгружаем готовый файл в папку назначения
+    .pipe(dest('docs/js/')) // Выгружаем готовый файл в папку назначения
     .pipe(browserSync.stream()) // Триггерим Browsersync для обновления страницы
 }
 
 function libsscripts() {
   const entries = [
-
-    'src/js/jquery.lazy.js',
     'src/js/splide.min.js',
+    'src/js/jquery.lazy.js',
+    'src/js/sticky.min.js',
+    'src/js/sticky-sidebar.min.js',
   ];
   return src(entries)
-    .pipe(rollup({
-      allowRealFiles: true,
-      input: entries,
-      format: 'umd',
-    }))
     .pipe(concat('libs.min.js')) // Конкатенируем в один файл
-    .pipe(dest('public/js/')) // Выгружаем готовый файл в папку назначения
+    .pipe(dest('docs/js/')) // Выгружаем готовый файл в папку назначения
     .pipe(browserSync.stream()) // Триггерим Browsersync для обновления страницы
 }
 
@@ -81,13 +77,13 @@ function scriptsRaw() {
   return src([
     'src/js/jquery-3.6.1.min.js',
   ])
-    .pipe(dest('public/js/')) // Выгружаем готовый файл в папку назначения
+    .pipe(dest('docs/js/')) // Выгружаем готовый файл в папку назначения
     .pipe(browserSync.stream()) // Триггерим Browsersync для обновления страницы
 }
 
 function fonts() {
   return src('src/fonts/**/*')
-    .pipe(dest('public/fonts/'))
+    .pipe(dest('docs/fonts/'))
     .pipe(browserSync.stream())
 }
 
@@ -96,13 +92,13 @@ function views() {
     .pipe(pug({
       pretty: true,
     }))
-    .pipe(dest('public/'))
+    .pipe(dest('docs/'))
     .pipe(browserSync.stream()) // Триггерим Browsersync для обновления страницы
 }
 
 function images() {
   return src('src/img/**/*')
-    .pipe(dest('public/img'))
+    .pipe(dest('docs/img'))
     .pipe(gulpSquoosh())
 }
 
@@ -142,5 +138,6 @@ function startwatch(done) {
   done();
 }
 
-exports.default = parallel(images, sprites, styles, stylesRaw, scriptsRaw, fonts, scripts, libsscripts, views, browsersync, startwatch);
-exports.build = parallel(images, sprites, styles, scriptsRaw, stylesRaw, fonts, scripts, libsscripts, views);
+exports.default = parallel(images, styles, stylesRaw, scriptsRaw, fonts, scripts, libsscripts, views, browsersync, startwatch);
+exports.build = parallel(images, styles, scriptsRaw, stylesRaw, fonts, scripts, libsscripts, views);
+exports.sprites = parallel(sprites);

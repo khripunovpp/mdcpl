@@ -1,9 +1,10 @@
 header.header.js-sticky-header
     .header__mobileBg(aria-hidden="true")
+        img(data-src='./img/mobile-menu-bg.jpg').lazy
     .container
         .header__inner
             .header__logo
-                a(href="./").header-logo.paste-sprite-logo
+                a(href="./").logo.logo--header.paste-sprite-logo
             section.header__nav
                 nav.nav
                     ul.nav__list.js-navigation
@@ -12,7 +13,7 @@ header.header.js-sticky-header
                         li
                             a(href="./services/index.html") Услуги
                         li
-                            a(href="./doctors/index.html") Специалисты
+                            a(href="./team/index.html") Специалисты
                         li
                             a(href="./feedbacks/index.html") Отзывы
                         li
@@ -21,23 +22,23 @@ header.header.js-sticky-header
                             a(href="./contacts/index.html") Контакты
                     .nav__bottom
                         .nav__bottom-element
-                            .contact-link
-                                i.icon.paste-sprite-telegram-icon
-                                a(href="#") Telegram-бот
+                            a(href="https://t.me/MedCoupleBot",target='_blank').contact-link
+                                i.contact-link__icon.icon.paste-sprite-telegram-icon
+                                span.contact-link__label Telegram-бот
                         .nav__bottom-element
-                            .contact-link
-                                i.icon.paste-sprite-email-icon
-                                a(href="mailto:example@mail.com") example@mail.com
+                            a(href="mailto:example@mail.com").contact-link
+                                i.contact-link__icon.icon.paste-sprite-email-icon
+                                span.contact-link__label example@mail.com
                         .nav__bottom-element
-                            button(type='button').button.button--outlined
+                            button(type='button').button.button--outlined.js-open-dialog(data-dialog-id="widget")
                                 span Записаться на прием
                         .nav__bottom-element
-                            button(type='button').button.button--outlined.button--accent
+                            button(type='button').button.button--outlined.button--accent.js-open-dialog(data-dialog-id="home-call")
                                 span Выезд на дом
             section.header__phone
-                .contact-link
-                    i.icon.paste-sprite-telegram-icon
-                    a(href="#") Telegram-бот
+                a(href="https://t.me/MedCoupleBot",target='_blank').contact-link
+                    i.contact-link__icon.icon.paste-sprite-telegram-icon
+                    span.contact-link__label Telegram-бот
 
             section.header__splitButton
                 .split-button

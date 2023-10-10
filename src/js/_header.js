@@ -7,14 +7,16 @@ export function HeaderComponent() {
   this.navEleTopLevel$ = this.nav$.find('.has-children');
   this.headerNav$ = this.$_header.find('.header__nav');
   this.headerNavBottom$ = this.headerNav$.find('.nav__bottom');
-  this.logo$ = this.$_header.find('.header-logo');
+  this.logo$ = this.$_header.find('.logo--header');
+  this.logosVG$ = this.logo$.find('svg');
   this.timerId = null;
   this.debTimer;
 
 
-  this.logoLeftPart = this.logo$.find('svg #hlogo-left');
-  this.logoIcon = this.logo$.find('svg #hlogo-icon');
-  this.logoRightPart = this.logo$.find('svg #hlogo-right');
+  //id contains logo-left
+  this.logoLeftPart = this.logosVG$.find('[id*="logo-left"]');
+  this.logoIcon = this.logosVG$.find('[id*="logo-icon"]');
+  this.logoRightPart = this.logosVG$.find('[id*="logo-right"]');
 
   this.logoItems = Array.from(this.logoLeftPart.find('path')).concat(this.logoRightPart);
   this.delayStep = 0.05;
@@ -146,20 +148,17 @@ HeaderComponent.prototype.setAnimationProps = function () {
     var totalTime = window.isMobile() ? that.totalTime : 0;
     // нужно изменять css  последовательно, иначе transition примениться вместе с transform
     that.logoIcon.css({
-      transition: "transform " + totalTime + "s ease-in-out",
+      transition: window.isMobile() ? "transform " + totalTime + "s ease-in-out" : 'none',
     });
     that.logo$.css({
-      opacity: 1
+      opacity: 1,
+      maxWidth: window.isMobile() ? logoIconBox.width + "px" : 'none',
     });
-    if (window.isMobile()) {
-      that.logo$.css({
-        maxWidth: logoIconBox.width + "px",
-      });
-    }
   }, 0);
 }
 
-HeaderComponent.prototype.show = function (withShadow = true) {
+HeaderComponent.prototype.show = function (withShadow) {
+  var withShadow = withShadow != null ? withShadow : true;
   this.$_header.addClass(['show', withShadow ? 'glow' : '']);
   this.$_header.css({
     transform: "translate3d(0, 0, 0)",

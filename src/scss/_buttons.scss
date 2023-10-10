@@ -15,6 +15,7 @@
   font-weight: 600;
   text-decoration: none;
   text-align: center;
+  display: inline-block;
 
   &:not(&--outlined) {
     &:hover {

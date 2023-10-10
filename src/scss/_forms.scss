@@ -13,6 +13,19 @@
     }
   }
 
+  &__caretDown {
+    width: 7px;
+    height: 12px;
+    position: absolute;
+    top: 13px;
+    right: 13px;
+    transform: rotate(90deg);
+
+    svg {
+      fill: none
+    }
+  }
+
   &__field {
     background-color: #fff;
     position: relative;
@@ -42,19 +55,6 @@
         padding-right: 20px;
       }
 
-      &::after {
-        content: '';
-        width: 7px;
-        height: 12px;
-        position: absolute;
-        top: 13px;
-        right: 13px;
-        transform: rotate(90deg);
-        background-image: url(../img/caret-left-icon.svg);
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: center;
-      }
     }
 
     &--fluid {
@@ -140,11 +140,11 @@
     padding-bottom: 10px;
   }
 
-  &__fileslist {
+  &__filesList {
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;
-    margin: 10px -15px 0;
+    margin: 10px -15px 0 0;
     padding: 0;
     list-style: none;
 
@@ -153,24 +153,20 @@
       display: flex;
       align-items: center;
       cursor: pointer;
+      word-break: break-all;
 
       &:hover {
-        &::after {
+        i {
           opacity: 1;
         }
       }
 
-      &::after {
+      i {
+        flex-shrink: 0;
         opacity: .8;
-        content: '';
         width: 12px;
         height: 12px;
-        display: block;
         margin-left: 10px;
-        background-image: url(../img/cross-icon.svg);
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: center;
 
       }
     }
@@ -186,7 +182,7 @@
       &:checked + .form__checkboxMark {
         background-color: $font-color;
 
-        &::after {
+        & > .form__checkboxMark-icon {
           opacity: 1;
         }
       }
@@ -206,18 +202,13 @@
     cursor: pointer;
     flex-shrink: 0;
 
-    &::after {
-      content: '';
-      width: 14px;
-      height: 14px;
+    &-icon.icon {
+      width: 16px;
+      height: 12px;
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background-image: url(../img/check-icon.svg);
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: center;
       opacity: 0;
     }
   }
@@ -231,6 +222,12 @@
     margin-left: -15px;
     margin-right: -15px;
     align-items: flex-start;
+    &__caretDown {
+      top: 24px;
+      right: 33px;
+      width: 9px;
+      height: 16px;
+    }
     &__field {
 
       border-radius: 10px;
@@ -241,11 +238,6 @@
       &--select {
         .form__control {
           padding-right: 15px;
-        }
-
-        &::after {
-          top: 24px;
-          right: 33px;
         }
       }
     }
@@ -297,6 +289,10 @@
     &__checkboxContainer {
       font-size: 18px;
     }
+  }
+
+  &.finished {
+    opacity: .5;
   }
 }
 

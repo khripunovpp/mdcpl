@@ -1,7 +1,7 @@
 @use 'vars' as *;
 
 .companies {
-  padding: 100px 0;
+  padding: 50px 0;
 
   &__title {
     text-align: center;
@@ -25,18 +25,24 @@
   }
 
   @media screen and (min-width: 991px) {
+    padding: 150px 0;
     &__list {
       margin-left: -60px;
       margin-right: -60px;
       margin-bottom: -30px;
-    align-items: center;
-    justify-content: center;
+      align-items: center;
+      justify-content: center;
     }
     &__item {
-      flex: 0 1 calc(20% - 120px);
+      flex: 0 1 calc(33.333% - 120px);
       margin: 0 60px 30px;
     }
   }
+   @media screen and (min-width: 1200px) {
+    &__item {
+      flex: 0 1 calc(20% - 120px);
+    }
+   }
 }
 
 .company-card {

@@ -1,4 +1,8 @@
 <script>
+
+  window.isMobile = function () {
+    return window.matchMedia("only screen and (max-width: 990px)").matches;
+  };
   window.libLoaded = function () {
     console.log('libLoaded');
 
@@ -6,6 +10,9 @@
       effect: 'fadeIn',
       effectTime: 500,
       threshold: 0,
+      afterLoad: function (element) {
+        $(element).closest('.lazy-wrapper').addClass('is-loaded');
+      },
     });
 
     var teamSplide = new Splide('#team-slider', {
@@ -15,9 +22,12 @@
       perMove: 1,
       lazyLoad: 'nearby',
       breakpoints: {
-        991: {
+        1200: {
+          perPage: 4,
+        },
+        990: {
           destroy: true,
-        }
+        },
       }
     });
     teamSplide.mount();
@@ -29,12 +39,29 @@
       lazyLoad: 'nearby',
       gap: 30,
       breakpoints: {
-        991: {
+        1100: {
           perPage: 1,
-        }
+        },
       }
     });
     reviewsSplide.mount();
+    reviewsSplide.on('move', function (newIndex, prevIndex) {
+      // find all expaned items and close them
+      $('.expandable.expanded').find('.expandable__button').trigger('click');
+      // updateHeight(newIndex);
+    });
+
+
+    function updateHeight(newIndex) {
+      var isMob = window.matchMedia("only screen and (max-width: 1100px)").matches;
+      if (!isMob) return;
+      console.log(teamSplide);
+      let slide = reviewsSplide.Components.Slides.getAt(typeof (newIndex) == 'number' ? newIndex : reviewsSplide.index).slide;
+      console.log({slide})
+      var h = slide.querySelector('.review-card').offsetHeight;
+
+      slide.parentElement.parentElement.style.height = (h ? h : 80) + 'px';
+    }
 
     var slidingHover = $('.team-slider__slidingHover');
     var scale = 0.9;
@@ -64,5 +91,23 @@
         transform: 'translateX(' + lastTranslate + 'px)' + ' scale(' + scale + ')',
       });
     });
+    $(window).on('resize', function () {
+      slidingHover.css({
+        opacity: 0,
+      });
+    });
+    //
+    //  var stickySidebar = new StickySidebar('.sticky-block', {
+    //   // bottomSpacing: 20,
+    //   containerSelector: '.services-widget__desktopScrollerListContainer',
+    //   innerWrapperSelector: '.services-widget__desktopScrollerListContainer-list',
+    // });
+
+    // var sticky = new Sticky('.sticky-block');
+  }
+
+  //listen all errors
+  window.onerror = function (message, url, linenumber) {
+    alert('JavaScript error: ' + message + ' on line ' + linenumber + ' for ' + url);
   }
 </script>
