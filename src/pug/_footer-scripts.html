@@ -1,4 +1,19 @@
 <script>
+  window.loadLazy = function () {
+    $(function () {
+      var lazy = $('.lazy').Lazy({
+        effect: 'fadeIn',
+        effectTime: 500,
+        threshold: 0,
+        afterLoad: function (element) {
+          $(element).closest('.lazy-wrapper').addClass('is-loaded');
+        },
+      });
+    })
+  }
+  window.isMobile = function () {
+    return window.matchMedia("only screen and (max-width: 990px)").matches;
+  };
   window.initMap = function () {
     console.log('initMap');
     var map = new google.maps.Map(document.getElementById('callback-widget-map'), {
@@ -69,7 +84,6 @@
       var className = $element.attr('class');
       var spriteClass = className.match(/paste-sprite-([^\s]+)/)[1];
       var iconSvg$ = window.cachedSvg$.find('#' + spriteClass);
-      console.log({spriteClass, iconSvg$: iconSvg$[0].outerHTML})
       if (!iconSvg$.length) return;
       $element.html(iconSvg$[0].outerHTML);
       $element.addClass('inserted')

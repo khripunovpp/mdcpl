@@ -1,8 +1,8 @@
-import {ServicesWidget} from "./_service-widget";
+import {AnimatedExpand} from "./_service-widget";
 
 function ExpandableComponent() {
 
-  $('.expandable').each(function (index,target) {
+  $('.expandable').each(function (index, target) {
     var $_target = $(target);
     var $_content = $_target.find('.expandable__content');
     var $_toggleButton = $_target.find('.expandable__button');
@@ -22,7 +22,7 @@ function ExpandableComponent() {
     setSign();
 
     $_content.css({
-      height: _maxHeight > _contentHeight ? _contentHeight : _maxHeight - buttonHeight  + 'px'
+      height: _maxHeight > _contentHeight ? _contentHeight : _maxHeight - buttonHeight + 'px'
     });
 
     $_toggleButton.on('click', function (e) {
@@ -31,7 +31,7 @@ function ExpandableComponent() {
       _expanded = !_expanded;
       setSign();
       $_content.animate({
-        height: _expanded ? _contentHeight :  _maxHeight - buttonHeight ,
+        height: _expanded ? _contentHeight : _maxHeight - buttonHeight,
       }, _expanded ? 500 : 200);
 
       $_target.toggleClass('expanded', _expanded);
@@ -73,6 +73,30 @@ function ExpandableComponent() {
 
 
 $(function () {
-  new ServicesWidget().init();
+  var desktopScrollerListContainerColor$ = $('.services-widget__desktopScrollerListContainer');
+  var desktopScrollerListContainer$ = $('.services-widget__desktopScrollerListContainer-list');
+  var serviceCards = new AnimatedExpand(
+    '.services-widget',
+    '.service-card',
+    '.service-card__title',
+    '.service-card__tail',
+    '.service-card__actionButtonWrap, .service-card__list li',
+    {
+      closeOthers: true,
+      onExpand: function (el) {
+        console.log('onExpand', el)
+        var $serviceCard = $(el);
+        var $serviceCardList = $serviceCard.find('.service-card__list li');
+        var color = $serviceCard.data('color');
+        var clonedList = $serviceCardList.clone();
+        desktopScrollerListContainerColor$.css('background-color', color);
+        desktopScrollerListContainer$.html(clonedList);
+        setTimeout(function () {
+          clonedList.addClass('animate');
+        }, 100);
+      },
+    }
+  );
+  serviceCards.openById(0)
   new ExpandableComponent();
 })

@@ -6,7 +6,7 @@ section.services-widget
                 h2.services-widget__title.title Наши услуги
                 ul.services-widget__list
                     each service,index in services
-                        li.services-widget__item.service-card(data-color=service.color)
+                        li.services-widget__item.service-card(data-color=service.color, data-id=index).dot-holder
                             .service-card__dot.dot(style=`background-color: ${service.color}`)
                             h3.service-card__title=service.title
                             section.service-card__tail

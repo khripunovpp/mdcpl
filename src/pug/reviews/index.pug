@@ -1,1 +1,25 @@
-h1 Отзывы
+extends ../_page
+
+block body
+    section.lead
+        .container
+            .lead__inner
+                .lead__picture
+                    img.lazy(data-src='../img/reviews-lead-pic.jpg', alt='Наши услуги')
+                .lead__content
+                    header.lead__header
+                        button.lead__backBtn(type='button', aria-label='Назад')
+                            i.icon.paste-sprite-arrow-left-icon
+                            span Назад
+                        h1.lead__title Отзывы <br>пациентов
+
+                    footer.lead__footer
+                        button.button.button--outlined(type='button', aria-label='Оставить отзыв').js-open-dialog(data-dialog-id="review")
+                            span Оставить отзыв
+
+    include ../_callback-widget
+
+block footer-scripts
+    include ../_footer-scripts.html
+    include ../_service-page-footer-scripts.html
+    script(defer,src='../js/services-page.js')

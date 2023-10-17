@@ -1,17 +1,18 @@
 <!doctype html>
 html(lang="ru")
   head
+
+    base(href='./')
     include ./_meta
     block scripts
       include _head-scripts
 
   body
     section.overflow.main-page
-      section.main-page__header
-        include _header
-      block body
-      section.main-page__footer
-        include _footer
+      include _header
+      section.tail
+        block body
+      include _footer
     include ./_dialogs
     .sprite(aria-hidden="true", style="display: none;")
       include ../img/sprite.svg

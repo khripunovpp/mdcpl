@@ -1,19 +1,9 @@
 <script>
 
-  window.isMobile = function () {
-    return window.matchMedia("only screen and (max-width: 990px)").matches;
-  };
   window.libLoaded = function () {
     console.log('libLoaded');
 
-    var lazy = $('.lazy').Lazy({
-      effect: 'fadeIn',
-      effectTime: 500,
-      threshold: 0,
-      afterLoad: function (element) {
-        $(element).closest('.lazy-wrapper').addClass('is-loaded');
-      },
-    });
+    window.loadLazy();
 
     var teamSplide = new Splide('#team-slider', {
       type: 'loop',

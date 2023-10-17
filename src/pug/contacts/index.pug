@@ -1,1 +1,21 @@
-h1 Контакты
+extends ../_page
+
+block body
+    section.lead
+        .container
+            .lead__inner
+                .lead__picture
+                    img.lazy(data-src='../img/contacts-lead-pic.jpg', alt='Наши услуги')
+                .lead__content
+                    header.lead__header
+                        button.lead__backBtn(type='button', aria-label='Назад')
+                            i.icon.paste-sprite-arrow-left-icon
+                            span Назад
+                        h1.lead__title Контакты
+                    .lead__text
+                        p Мы - семейные врачи и врачи общей практики и работаем с пациентами любого возраста и помогаем вам в решении самого широкого круга вопросов.
+
+block footer-scripts
+    include ../_footer-scripts.html
+    include ../_service-page-footer-scripts.html
+    script(defer,src='../js/services-page.js')

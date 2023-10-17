@@ -1,52 +1,85 @@
-export function ServicesWidget() {
-  this.serviceCard$ = $('.service-card');
-  this.desktopScrollerListContainerColor$ = $('.services-widget__desktopScrollerListContainer');
-  this.desktopScrollerListContainer$ = $('.services-widget__desktopScrollerListContainer-list');
-  this.title$ = this.serviceCard$.find('.service-card__title');
-}
+export function AnimatedExpand(
+  rootEl,
+  itemEl,
+  triggerEl,
+  tailEl,
+  animatedItemsQuery,
+  options
+) {
+  console.log('AnimatedExpand init');
+  var transitionStep = 50;
+  var that = this;
+  this.options = options || {};
+  this.rootEl = rootEl;
+  this.itemEl = itemEl;
+  this.trigger$ = $(triggerEl);
+  this.tailEl$ = $(tailEl);
+  this.animatedItems$ = $(animatedItemsQuery);
 
-ServicesWidget.prototype.init = function () {
-  console.log('ServicesWidget init');
-  this.title$.on('click', this.openToggle.bind(this));
-  this.serviceCard$.each(function (i, el) {
-    var items = Array.from($(el).find('.service-card__actionButtonWrap')).concat(Array.from($(el).find('.service-card__list li')));
-    items.forEach(function (item, itemIndex) {
-      $(item).css('transition-delay', `${itemIndex * 50}ms`);
-    })
-  })
-  this.openByIndex(0);
-}
-
-ServicesWidget.prototype.openToggle = function (e) {
-  var $target = $(e.target);
-  var index = $target.closest('.service-card').index();
-  this.openByIndex(index);
-}
-
-ServicesWidget.prototype.openByIndex = function (index) {
-  var $serviceCard = $(this.serviceCard$[index]);
-  // $serviceCard[0].scrollIntoView({
-  //   behavior: 'smooth',
-  //   block: 'center',
-  // });
-  var $serviceCardList = $serviceCard.find('.service-card__list li');
-  var color = $serviceCard.data('color');
-  var clonedList = $serviceCardList.clone();
-  this.desktopScrollerListContainerColor$.css('background-color', color);
-  this.desktopScrollerListContainer$.html(clonedList);
-  setTimeout(function () {
-    clonedList.addClass('animate');
-  }, 100);
-  // закрываем все открытые карточки, кроме текущей
-  if (!$serviceCard.hasClass('opened')) {
-    this.serviceCard$.removeClass('opened');
-    this.serviceCard$.find('.service-card__tail').removeClass('opened');
-    this.serviceCard$.find('.service-card__tail').slideUp(200);
+  if ($(this.rootEl).length) {
+    this.trigger$.on('click', function (e) {
+      that.open.call(that, e.target);
+    });
+    $(this.itemEl).each(function (i, el) {
+      var items = $(el).find(animatedItemsQuery);
+      items.each(function (itemIndex, item) {
+        $(item).css('transition-delay', itemIndex * transitionStep + 'ms');
+      })
+    });
   }
-  var $serviceCardTail = $serviceCard.find('.service-card__tail');
-  $serviceCard.addClass('opened');
+}
+
+AnimatedExpand.prototype.open = function (target) {
+  var $item = $(target).closest(this.itemEl);
+  var id = $item.data('id');
+  this.openById(id);
+}
+
+AnimatedExpand.prototype.openById = function (id) {
+  var $el = $(this.rootEl).find(this.itemEl).filter('[data-id="' + id + '"]');
+  var root$ = $el.closest(this.rootEl);
+  var closeOthers = this.options.closeOthers !== false;
+  var toggleClose = this.options.toggleBehavior !== false;
+
+  // если toggleClose тогда если открыт то закрываем
+  // если closeOthers тогда закрываем все остальные
+  if (toggleClose && $el.hasClass('opened')) {
+    this.close($el);
+    return;
+  }
+
+  if (closeOthers) {
+    this.close(root$.find(this.itemEl).not($el));
+  }
+  var $serviceCardTail = $el.find(this.tailEl$);
+
+  $el.find(this.trigger$).addClass('opened');
+  $el.addClass('opened');
   $serviceCardTail.slideDown(300);
   setTimeout(function () {
     $serviceCardTail.addClass('opened');
   }, 200);
+
+  if (typeof this.options.onExpand === 'function') {
+    this.options.onExpand($el[0]);
+  }
+}
+
+AnimatedExpand.prototype.close = function (target) {
+  var $item = $(target).closest(this.itemEl);
+  $item.removeClass('opened');
+  $item.find(this.tailEl$).slideUp(300);
+  $item.find(this.tailEl$).removeClass('opened');
+  $item.find(this.trigger$).removeClass('opened');
+
+  var autoCloseNested = this.options.autoCloseNested !== false;
+  if (autoCloseNested && this.options.nested) {
+    this.options.nested.closeAll($item);
+  }
+}
+
+AnimatedExpand.prototype.closeAll = function (rootEl) {
+  var $rootEl = $(rootEl || this.rootEl);
+  var $items = $rootEl.find(this.itemEl);
+  this.close($items);
 }

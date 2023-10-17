@@ -1,15 +1,23 @@
+<!doctype html>
 html(lang="ru")
   head
-    base(href='./../')
+
+    base(href='../')
     include ./_meta
     block scripts
       include _head-scripts
 
   body
-    div.overflow
+    section.overflow
       include _header
-      block page
+      section.tail
+        block body
       include _footer
     include ./_dialogs
+    .sprite(aria-hidden="true", style="display: none;")
+      include ../img/sprite.svg
+
+
+    block footer-scripts
     script(defer,src='./js/main.js')
-    block scripts-page
+    script(defer,src='./js/libs.min.js',onload="libLoaded()")

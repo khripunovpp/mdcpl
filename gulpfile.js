@@ -49,6 +49,7 @@ function scripts() {
   const entries = [
     './src/js/main.js',
     './src/js/index-page.js',
+    './src/js/services-page.js',
   ];
   return src(entries)
     .pipe(rollup({
@@ -64,7 +65,6 @@ function libsscripts() {
   const entries = [
     'src/js/splide.min.js',
     'src/js/jquery.lazy.js',
-    'src/js/sticky.min.js',
     'src/js/sticky-sidebar.min.js',
   ];
   return src(entries)
