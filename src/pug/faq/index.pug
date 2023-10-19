@@ -1,24 +1,225 @@
-extends ../_page
+<!doctype html>
+- var services=[{title: 'Педиатрия', color: '#F3D6C6'},{title: 'Рецепты / Вакцинация', color: '#EBE2DD'},{title: 'Справки', color: '#C1D3C8'},{title: 'Ассистанс', color: '#F3D6C6'},{title: 'Справки', color: '#F4D8D5'},{title: 'Организация скринингов', color: '#F0C7AE'},{title: 'Педиатрия', color: '#E2E6ED'},{title: 'Рецепты / Вакцинация', color: '#AECDBE'},{title: 'Справки', color: '#E8BFAF'},{title: 'Организация скринингов', color: '#c9dadf'},];
 
-block body
-    section.lead
-        .container
-            .lead__inner
-                .lead__picture
-                    img.lazy(data-src='../img/faq-lead-pic.jpg', alt='Наши услуги')
-                .lead__content
-                    header.lead__header
-                        button.lead__backBtn(type='button', aria-label='Назад')
-                            i.icon.paste-sprite-arrow-left-icon
-                            span Назад
-                        h1.lead__title Частые <br>вопросы
-                    footer.lead__footer
-                        button.button.button--outlined(type='button', aria-label='Оставить отзыв').js-open-dialog(data-dialog-id="review")
-                            span Задать вопрос
+html(lang="ru")
+    head
 
-    include ../_callback-widget
+        base(href='../')
+        include ../_meta
+        block scripts
+            include ../_head-scripts
 
-block footer-scripts
-    include ../_footer-scripts.html
-    include ../_service-page-footer-scripts.html
-    script(defer,src='../js/services-page.js')
+    body
+        section.overflow
+            include ../_header
+            section.tail
+
+                section.lead
+                    .container
+                        .lead__inner
+                            .lead__picture
+                                img.lazy(data-src='../img/faq-lead-pic.jpg', alt='Наши услуги')
+                            .lead__content
+                                header.lead__header
+                                    button.lead__backBtn(type='button', aria-label='Назад')
+                                        i.icon.paste-sprite-arrow-left-icon
+                                        span Назад
+                                    h1.lead__title Частые <br>вопросы
+                                footer.lead__footer
+                                    button.button.button--outlined(type='button', aria-label='Оставить отзыв').js-goto(data-to-id='callback-widget')
+                                        span Задать вопрос
+
+                section.faq-lib
+                    .container
+                        .faq-lib__inner
+                            section.faq-lib__list
+                                section.faq-lib__item.toggle-group(data-id=0).dot-holder
+                                    .toggle-group__dot.dot(aria-hidden='true',style=`background-color: #C1D3C8`)
+                                    header.toggle-group__header
+                                        h2.toggle-group__title Общие вопросы
+                                        button.toggle-group__toggleBtn(type='button', aria-label='Развернуть',style=``).plus-expand
+                                    .toggle-group__tail
+                                        .toggle-group__columns
+                                            ul.toggle-group__columns-list
+                                                li.toggle-group__columns-item
+                                                    .toggle-item(data-id='0' + index + 1)
+                                                        header.toggle-item__header
+                                                            h2.toggle-item__title Где ведут прием доктора Medcouple.PT?
+                                                            button.toggle-item__toggleBtn(type='button', aria-label='Развернуть')
+                                                                i.paste-sprite-caret-left-icon.icon
+                                                        .toggle-item__tail
+                                                            .toggle-item__description
+                                                                p Мы выезжаем на дом в Большом Лиссабоне от Сетубала до Кашкаиша, принимаем в кабинете в центре Лиссабона на Saldanha и даем консультации онлайн для людей находящихся в других регонах Португалии и в других странах (часто к нам обращаются еще до переезда в Португалию).
+
+                                                li.toggle-group__columns-item
+                                                    .toggle-item(data-id='1' + index + 1)
+                                                        header.toggle-item__header
+                                                            h2.toggle-item__title Вы работаете со страховыми?
+                                                            button.toggle-item__toggleBtn(type='button', aria-label='Развернуть')
+                                                                i.paste-sprite-caret-left-icon.icon
+                                                        .toggle-item__tail
+                                                            .toggle-item__description
+                                                                p Мы выезжаем на дом в Большом Лиссабоне от Сетубала до Кашкаиша, принимаем в кабинете в центре Лиссабона на Saldanha и даем консультации онлайн для людей находящихся в других регонах Португалии и в других странах (часто к нам обращаются еще до переезда в Португалию).
+
+                                                li.toggle-group__columns-item
+                                                    .toggle-item(data-id='2' + index + 1)
+                                                        header.toggle-item__header
+                                                            h2.toggle-item__title Как получить предложение по сопровождению для семьи?
+                                                            button.toggle-item__toggleBtn(type='button', aria-label='Развернуть')
+                                                                i.paste-sprite-caret-left-icon.icon
+                                                        .toggle-item__tail
+                                                            .toggle-item__description
+                                                                p Мы выезжаем на дом в Большом Лиссабоне от Сетубала до Кашкаиша, принимаем в кабинете в центре Лиссабона на Saldanha и даем консультации онлайн для людей находящихся в других регонах Португалии и в других странах (часто к нам обращаются еще до переезда в Португалию).
+
+                                                li.toggle-group__columns-item
+                                                    .toggle-item(data-id='3' + index + 1)
+                                                        header.toggle-item__header
+                                                            h2.toggle-item__title Как проводятся консультации онлайн?
+                                                            button.toggle-item__toggleBtn(type='button', aria-label='Развернуть')
+                                                                i.paste-sprite-caret-left-icon.icon
+                                                        .toggle-item__tail
+                                                            .toggle-item__description
+                                                                p Мы выезжаем на дом в Большом Лиссабоне от Сетубала до Кашкаиша, принимаем в кабинете в центре Лиссабона на Saldanha и даем консультации онлайн для людей находящихся в других регонах Португалии и в других странах (часто к нам обращаются еще до переезда в Португалию).
+
+                                            ul.toggle-group__columns-list
+                                                li.toggle-group__columns-item
+                                                    .toggle-item(data-id='00' + index + 1)
+                                                        header.toggle-item__header
+                                                            h2.toggle-item__title Где ведут прием доктора Medcouple.PT?
+                                                            button.toggle-item__toggleBtn(type='button', aria-label='Развернуть')
+                                                                i.paste-sprite-caret-left-icon.icon
+                                                        .toggle-item__tail
+                                                            .toggle-item__description
+                                                                p Мы выезжаем на дом в Большом Лиссабоне от Сетубала до Кашкаиша, принимаем в кабинете в центре Лиссабона на Saldanha и даем консультации онлайн для людей находящихся в других регонах Португалии и в других странах (часто к нам обращаются еще до переезда в Португалию).
+
+                                                li.toggle-group__columns-item
+                                                    .toggle-item(data-id='01' + index + 1)
+                                                        header.toggle-item__header
+                                                            h2.toggle-item__title Вы работаете со страховыми?
+                                                            button.toggle-item__toggleBtn(type='button', aria-label='Развернуть')
+                                                                i.paste-sprite-caret-left-icon.icon
+                                                        .toggle-item__tail
+                                                            .toggle-item__description
+                                                                p Мы выезжаем на дом в Большом Лиссабоне от Сетубала до Кашкаиша, принимаем в кабинете в центре Лиссабона на Saldanha и даем консультации онлайн для людей находящихся в других регонах Португалии и в других странах (часто к нам обращаются еще до переезда в Португалию).
+
+                                                li.toggle-group__columns-item
+                                                    .toggle-item(data-id='02' + index + 1)
+                                                        header.toggle-item__header
+                                                            h2.toggle-item__title Как получить предложение по сопровождению для семьи?
+                                                            button.toggle-item__toggleBtn(type='button', aria-label='Развернуть')
+                                                                i.paste-sprite-caret-left-icon.icon
+                                                        .toggle-item__tail
+                                                            .toggle-item__description
+                                                                p Мы выезжаем на дом в Большом Лиссабоне от Сетубала до Кашкаиша, принимаем в кабинете в центре Лиссабона на Saldanha и даем консультации онлайн для людей находящихся в других регонах Португалии и в других странах (часто к нам обращаются еще до переезда в Португалию).
+
+                                                li.toggle-group__columns-item
+                                                    .toggle-item(data-id='03' + index + 1)
+                                                        header.toggle-item__header
+                                                            h2.toggle-item__title Как проводятся консультации онлайн?
+                                                            button.toggle-item__toggleBtn(type='button', aria-label='Развернуть')
+                                                                i.paste-sprite-caret-left-icon.icon
+                                                        .toggle-item__tail
+                                                            .toggle-item__description
+                                                                p Мы выезжаем на дом в Большом Лиссабоне от Сетубала до Кашкаиша, принимаем в кабинете в центре Лиссабона на Saldanha и даем консультации онлайн для людей находящихся в других регонах Португалии и в других странах (часто к нам обращаются еще до переезда в Португалию).
+                                each group,index in services
+                                    section.faq-lib__item.toggle-group(data-id=index + 1).dot-holder
+                                        .toggle-group__dot.dot(aria-hidden='true',style=`background-color: ${group.color}`)
+                                        header.toggle-group__header
+                                            h2.toggle-group__title=group.title
+                                            button.toggle-group__toggleBtn(type='button', aria-label='Развернуть',style=``).plus-expand
+                                        .toggle-group__tail
+                                            .toggle-group__columns
+                                                ul.toggle-group__columns-list
+                                                    li.toggle-group__columns-item
+                                                        .toggle-item(data-id='0' + index + 1)
+                                                            header.toggle-item__header
+                                                                h2.toggle-item__title Где ведут прием доктора Medcouple.PT?
+                                                                button.toggle-item__toggleBtn(type='button', aria-label='Развернуть')
+                                                                    i.paste-sprite-caret-left-icon.icon
+                                                            .toggle-item__tail
+                                                                .toggle-item__description
+                                                                    p Мы выезжаем на дом в Большом Лиссабоне от Сетубала до Кашкаиша, принимаем в кабинете в центре Лиссабона на Saldanha и даем консультации онлайн для людей находящихся в других регонах Португалии и в других странах (часто к нам обращаются еще до переезда в Португалию).
+
+                                                    li.toggle-group__columns-item
+                                                        .toggle-item(data-id='1' + index + 1)
+                                                            header.toggle-item__header
+                                                                h2.toggle-item__title Вы работаете со страховыми?
+                                                                button.toggle-item__toggleBtn(type='button', aria-label='Развернуть')
+                                                                    i.paste-sprite-caret-left-icon.icon
+                                                            .toggle-item__tail
+                                                                .toggle-item__description
+                                                                    p Мы выезжаем на дом в Большом Лиссабоне от Сетубала до Кашкаиша, принимаем в кабинете в центре Лиссабона на Saldanha и даем консультации онлайн для людей находящихся в других регонах Португалии и в других странах (часто к нам обращаются еще до переезда в Португалию).
+
+                                                    li.toggle-group__columns-item
+                                                        .toggle-item(data-id='2' + index + 1)
+                                                            header.toggle-item__header
+                                                                h2.toggle-item__title Как получить предложение по сопровождению для семьи?
+                                                                button.toggle-item__toggleBtn(type='button', aria-label='Развернуть')
+                                                                    i.paste-sprite-caret-left-icon.icon
+                                                            .toggle-item__tail
+                                                                .toggle-item__description
+                                                                    p Мы выезжаем на дом в Большом Лиссабоне от Сетубала до Кашкаиша, принимаем в кабинете в центре Лиссабона на Saldanha и даем консультации онлайн для людей находящихся в других регонах Португалии и в других странах (часто к нам обращаются еще до переезда в Португалию).
+
+                                                    li.toggle-group__columns-item
+                                                        .toggle-item(data-id='3' + index + 1)
+                                                            header.toggle-item__header
+                                                                h2.toggle-item__title Как проводятся консультации онлайн?
+                                                                button.toggle-item__toggleBtn(type='button', aria-label='Развернуть')
+                                                                    i.paste-sprite-caret-left-icon.icon
+                                                            .toggle-item__tail
+                                                                .toggle-item__description
+                                                                    p Мы выезжаем на дом в Большом Лиссабоне от Сетубала до Кашкаиша, принимаем в кабинете в центре Лиссабона на Saldanha и даем консультации онлайн для людей находящихся в других регонах Португалии и в других странах (часто к нам обращаются еще до переезда в Португалию).
+
+                                                ul.toggle-group__columns-list
+                                                    li.toggle-group__columns-item
+                                                        .toggle-item(data-id='00' + index + 1)
+                                                            header.toggle-item__header
+                                                                h2.toggle-item__title Где ведут прием доктора Medcouple.PT?
+                                                                button.toggle-item__toggleBtn(type='button', aria-label='Развернуть')
+                                                                    i.paste-sprite-caret-left-icon.icon
+                                                            .toggle-item__tail
+                                                                .toggle-item__description
+                                                                    p Мы выезжаем на дом в Большом Лиссабоне от Сетубала до Кашкаиша, принимаем в кабинете в центре Лиссабона на Saldanha и даем консультации онлайн для людей находящихся в других регонах Португалии и в других странах (часто к нам обращаются еще до переезда в Португалию).
+
+                                                    li.toggle-group__columns-item
+                                                        .toggle-item(data-id='01' + index + 1)
+                                                            header.toggle-item__header
+                                                                h2.toggle-item__title Вы работаете со страховыми?
+                                                                button.toggle-item__toggleBtn(type='button', aria-label='Развернуть')
+                                                                    i.paste-sprite-caret-left-icon.icon
+                                                            .toggle-item__tail
+                                                                .toggle-item__description
+                                                                    p Мы выезжаем на дом в Большом Лиссабоне от Сетубала до Кашкаиша, принимаем в кабинете в центре Лиссабона на Saldanha и даем консультации онлайн для людей находящихся в других регонах Португалии и в других странах (часто к нам обращаются еще до переезда в Португалию).
+
+                                                    li.toggle-group__columns-item
+                                                        .toggle-item(data-id='02' + index + 1)
+                                                            header.toggle-item__header
+                                                                h2.toggle-item__title Как получить предложение по сопровождению для семьи?
+                                                                button.toggle-item__toggleBtn(type='button', aria-label='Развернуть')
+                                                                    i.paste-sprite-caret-left-icon.icon
+                                                            .toggle-item__tail
+                                                                .toggle-item__description
+                                                                    p Мы выезжаем на дом в Большом Лиссабоне от Сетубала до Кашкаиша, принимаем в кабинете в центре Лиссабона на Saldanha и даем консультации онлайн для людей находящихся в других регонах Португалии и в других странах (часто к нам обращаются еще до переезда в Португалию).
+
+                                                    li.toggle-group__columns-item
+                                                        .toggle-item(data-id='03' + index + 1)
+                                                            header.toggle-item__header
+                                                                h2.toggle-item__title Как проводятся консультации онлайн?
+                                                                button.toggle-item__toggleBtn(type='button', aria-label='Развернуть')
+                                                                    i.paste-sprite-caret-left-icon.icon
+                                                            .toggle-item__tail
+                                                                .toggle-item__description
+                                                                    p Мы выезжаем на дом в Большом Лиссабоне от Сетубала до Кашкаиша, принимаем в кабинете в центре Лиссабона на Saldanha и даем консультации онлайн для людей находящихся в других регонах Португалии и в других странах (часто к нам обращаются еще до переезда в Португалию).
+
+                include ../_callback-widget
+            include ../_footer
+        include ../_dialogs
+        .sprite(aria-hidden="true", style="display: none;")
+            include ../../img/sprite.svg
+
+
+
+        include ../_footer-scripts.html
+        script(defer,src='./js/main.js')
+        script(defer,src='./js/faq-page.js')
+        script(defer,src='./js/libs.min.js',onload="libLoaded()")

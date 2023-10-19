@@ -58,8 +58,6 @@ FormComponent.prototype.init = function () {
   }
 
   _this.$_filesList.on('click', 'li', function () {
-    console.log('click')
-
     var listItemToRemove$ = $(this);
     var fileNameToRemove = listItemToRemove$.text();
 

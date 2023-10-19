@@ -1,21 +1,34 @@
-extends ../_page
+<!doctype html>
+html(lang="ru")
+    head
 
-block body
-    section.lead
-        .container
-            .lead__inner
-                .lead__picture
-                    img.lazy(data-src='../img/team-lead-pic.jpg', alt='Наши услуги')
-                .lead__content
-                    header.lead__header
-                        button.lead__backBtn(type='button', aria-label='Назад')
-                            i.icon.paste-sprite-arrow-left-icon
-                            span Назад
-                        h1.lead__title Специалисты <br>семейной <br>медицины
+        base(href='../')
+        include ../_meta
+        block scripts
+            include ../_head-scripts
 
-    include ../_callback-widget
+    body
+        section.overflow
+            include ../_header
+            section.tail
 
-block footer-scripts
-    include ../_footer-scripts.html
-    include ../_service-page-footer-scripts.html
-    script(defer,src='../js/services-page.js')
+                section.lead
+                    .container
+                        .lead__inner
+                            .lead__picture
+                                img.lazy(data-src='../img/team-lead-pic.jpg', alt='Наши услуги')
+                            .lead__content
+                                header.lead__header
+                                    button.lead__backBtn(type='button', aria-label='Назад')
+                                        i.icon.paste-sprite-arrow-left-icon
+                                        span Назад
+                                    h1.lead__title Специалисты <br>семейной <br>медицины
+            include ../_footer
+        include ../_dialogs
+        .sprite(aria-hidden="true", style="display: none;")
+            include ../../img/sprite.svg
+
+
+        include ../_footer-scripts.html
+        script(defer,src='./js/main.js')
+        script(defer,src='./js/libs.min.js',onload="libLoaded()")

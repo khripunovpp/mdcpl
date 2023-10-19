@@ -1,9 +1,9 @@
 import {AnimatedExpand} from "./_service-widget";
 
 $(function () {
-  var servicesLibGroupItems = new AnimatedExpand(
+  var faqLibGroupItems = new AnimatedExpand(
     {
-      rootEl: '.services-lib .toggle-group',
+      rootEl: '.faq-lib .toggle-group',
       itemEl: '.toggle-item',
       triggerEl: '.toggle-item__toggleBtn,.toggle-item__title',
       tailEl: '.toggle-item__tail',
@@ -12,9 +12,10 @@ $(function () {
       closeOthers: false,
     }
   );
-  var servicesLibToggleGroup = new AnimatedExpand(
+
+  var faqLibToggleGroup = new AnimatedExpand(
     {
-      rootEl: '.services-lib',
+      rootEl: '.faq-lib',
       itemEl: '.toggle-group',
       triggerEl: '.toggle-group__toggleBtn,.toggle-group__title',
       tailEl: '.toggle-group__tail',
@@ -22,8 +23,26 @@ $(function () {
       toggleBehavior: true,
       closeOthers: false,
       autoCloseNested: true,
-      nested: servicesLibGroupItems,
+      nested: faqLibGroupItems,
     }
   );
-  servicesLibToggleGroup.openById(0);
-})
+
+  var hash = window.location.hash;
+  var toggleGroupId = hash.indexOf('#toggle-group-');
+  if (toggleGroupId > -1) {
+    var result = hash.match(/#toggle-group-(\d+)-(\d+)/);
+    var groupId = result[1];
+    var itemId = result[2];
+
+    if (groupId) {
+      faqLibToggleGroup.openById(groupId);
+    }
+
+    if (itemId) {
+      faqLibGroupItems.openById(itemId);
+    }
+  } else {
+    faqLibToggleGroup.openById(0);
+  }
+
+});

@@ -1,32 +1,49 @@
-extends ../_page
+<!doctype html>
+html(lang="ru")
+    head
 
-block body
-    section.lead
-        .container
-            .lead__inner
-                .lead__picture
-                    img.lazy(data-src='../img/about-lead-pic.jpg', alt='Наши услуги')
-                .lead__content
-                    header.lead__header
-                        button.lead__backBtn(type='button', aria-label='Назад')
-                            i.icon.paste-sprite-arrow-left-icon
-                            span Назад
-                        h1.lead__title О нас
-                    .lead__text
-                        p Мы - семейные врачи и врачи общей практики и работаем с пациентами любого возраста и помогаем вам в решении самого широкого круга вопросов.
-    section.content.content--columns
-        .container
-            .content__inner
-                .content__text
-                    p Efficiently implement multimedia based mindshare with high-quality infrastructures. Credibly target cross-unit infomediaries and cost effective networks. Efficiently orchestrate plug-and-play bandwidth rather than optimal vortals. Competently scale one-to-one experiences whereas user friendly e-services. Completely engage cooperative synergy before cost effective expertise.
-                    p Dramatically leverage existing bricks-and-clicks processes through customer directed information. Phosfluorescently enhance progressive e-markets and ubiquitous deliverables. Dramatically communicate end-to-end manufactured products and e-business alignments. Collaboratively evolve maintainable markets via global ideas. Interactively drive progressive potentialities without market positioning e-tailers.
-                    p Holisticly grow state of the art sources rather than customer directed partnerships. Enthusiastically seize distinctive process improvements after extensive scenarios. Proactively disseminate 2.0 meta-services via frictionless results. Phosfluorescently evolve excellent metrics after intermandated growth strategies. Conveniently integrate superior partnerships and tactical expertise.
-                    p Efficiently implement multimedia based mindshare with high-quality infrastructures. Credibly target cross-unit infomediaries and cost effective networks. Efficiently orchestrate plug-and-play bandwidth rather than optimal vortals. Competently scale one-to-one experiences whereas user friendly e-services. Completely engage cooperative synergy before cost effective expertise.
+        base(href='../')
+        include ../_meta
+        block scripts
+            include ../_head-scripts
+
+    body
+        section.overflow
+            include ../_header
+            section.tail
+
+                section.lead
+                    .container
+                        .lead__inner
+                            .lead__picture
+                                img.lazy(data-src='../img/about-lead-pic.jpg', alt='Наши услуги')
+                            .lead__content
+                                header.lead__header
+                                    button.lead__backBtn(type='button', aria-label='Назад')
+                                        i.icon.paste-sprite-arrow-left-icon
+                                        span Назад
+                                    h1.lead__title О нас
+                                .lead__text
+                                    p Мы - семейные врачи и врачи общей практики и работаем с пациентами любого возраста и помогаем вам в решении самого широкого круга вопросов.
+                section.content.content--columns
+                    .container
+                        .content__inner
+                            .content__text
+                                p Efficiently implement multimedia based mindshare with high-quality infrastructures. Credibly target cross-unit infomediaries and cost effective networks. Efficiently orchestrate plug-and-play bandwidth rather than optimal vortals. Competently scale one-to-one experiences whereas user friendly e-services. Completely engage cooperative synergy before cost effective expertise.
+                                p Dramatically leverage existing bricks-and-clicks processes through customer directed information. Phosfluorescently enhance progressive e-markets and ubiquitous deliverables. Dramatically communicate end-to-end manufactured products and e-business alignments. Collaboratively evolve maintainable markets via global ideas. Interactively drive progressive potentialities without market positioning e-tailers.
+                                p Holisticly grow state of the art sources rather than customer directed partnerships. Enthusiastically seize distinctive process improvements after extensive scenarios. Proactively disseminate 2.0 meta-services via frictionless results. Phosfluorescently evolve excellent metrics after intermandated growth strategies. Conveniently integrate superior partnerships and tactical expertise.
+                                p Efficiently implement multimedia based mindshare with high-quality infrastructures. Credibly target cross-unit infomediaries and cost effective networks. Efficiently orchestrate plug-and-play bandwidth rather than optimal vortals. Competently scale one-to-one experiences whereas user friendly e-services. Completely engage cooperative synergy before cost effective expertise.
 
 
-    include ../_callback-widget
+                include ../_callback-widget
+            include ../_footer
+        include ../_dialogs
+        .sprite(aria-hidden="true", style="display: none;")
+            include ../../img/sprite.svg
 
-block footer-scripts
-    include ../_footer-scripts.html
-    include ../_service-page-footer-scripts.html
-    script(defer,src='../js/services-page.js')
+
+
+        include ../_footer-scripts.html
+        script(defer,src='../js/services-page.js')
+        script(defer,src='./js/main.js')
+        script(defer,src='./js/libs.min.js',onload="libLoaded()")

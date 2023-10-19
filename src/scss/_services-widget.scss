@@ -364,3 +364,37 @@
     }
   }
 }
+
+.faq-lib {
+  padding-bottom: 0;
+
+  &__item {
+    margin-bottom: 20px;
+  }
+
+  @media screen and (min-width: 991px) {
+    padding-bottom: 70px;
+
+    &__item {
+      margin-bottom: 30px;
+    }
+  }
+}
+
+
+.feedbacks-lib {
+  padding-bottom: 0;
+
+  &__item {
+    margin-bottom: 20px;
+  }
+
+  @media screen and (min-width: 991px) {
+    padding-bottom: 70px;
+
+    &__item {
+      margin-bottom: 30px;
+    }
+  }
+}
+

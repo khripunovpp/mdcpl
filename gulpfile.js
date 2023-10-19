@@ -49,7 +49,9 @@ function scripts() {
   const entries = [
     './src/js/main.js',
     './src/js/index-page.js',
-    './src/js/services-page.js',
+    './src/js/faq-page.js',
+    './src/js/reviews-page.js',
+    './src/js/team-page.js',
   ];
   return src(entries)
     .pipe(rollup({

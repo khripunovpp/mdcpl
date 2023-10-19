@@ -28,7 +28,6 @@ export function HeaderComponent() {
 }
 
 HeaderComponent.prototype.init = function () {
-  console.log('HeaderComponent init');
   var that = this;
   that.$_header.addClass('show');
   that.$_header.css({

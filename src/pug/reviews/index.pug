@@ -1,25 +1,58 @@
-extends ../_page
+<!doctype html>
+html(lang="ru")
+    head
 
-block body
-    section.lead
-        .container
-            .lead__inner
-                .lead__picture
-                    img.lazy(data-src='../img/reviews-lead-pic.jpg', alt='Наши услуги')
-                .lead__content
-                    header.lead__header
-                        button.lead__backBtn(type='button', aria-label='Назад')
-                            i.icon.paste-sprite-arrow-left-icon
-                            span Назад
-                        h1.lead__title Отзывы <br>пациентов
+        base(href='../')
+        include ../_meta
+        block scripts
+            include ../_head-scripts
 
-                    footer.lead__footer
-                        button.button.button--outlined(type='button', aria-label='Оставить отзыв').js-open-dialog(data-dialog-id="review")
-                            span Оставить отзыв
+    body(style="background-color: #F3D6C6;")
+        section.overflow
+            include ../_header
+            section.tail
+                section.lead
+                    .container
+                        .lead__inner
+                            .lead__picture
+                                img.lazy(data-src='../img/reviews-lead-pic.jpg', alt='Наши услуги')
+                            .lead__content
+                                header.lead__header
+                                    button.lead__backBtn(type='button', aria-label='Назад')
+                                        i.icon.paste-sprite-arrow-left-icon
+                                        span Назад
+                                    h1.lead__title Отзывы <br>пациентов
 
-    include ../_callback-widget
+                                footer.lead__footer
+                                    button.button.button--outlined(type='button', aria-label='Оставить отзыв').js-open-dialog(data-dialog-id="review")
+                                        span Оставить отзыв
 
-block footer-scripts
-    include ../_footer-scripts.html
-    include ../_service-page-footer-scripts.html
-    script(defer,src='../js/services-page.js')
+                section.feedbacks-lib
+                    .container
+                        .feedbacks-lib__inner
+                            .feedbacks-lib__list
+                                - for (let i = 0; i < 5; i++)
+                                    section.feedbacks-lib__item
+                                        section.review-card.expandable
+                                            header.review-card__header
+                                                p.review-card__ava FH
+                                                section.review-card__description
+                                                    p.review-card__name Имя Фамилия
+                                                    p.review-card__location
+                                                        i.icon.paste-sprite-location-icon
+                                                        | Сетубал, Лиссабон
+                                            section.review-card__tail.expandable__content
+                                                p Сегодня к нам с визитом на дом приходил доктор Иван Проценко.  Вызов был для ребёнка 12 лет. Пунктуальный, доброжелательный, компетентный и сразу расположил к себе.Внимательно выслушал  наши симптомы, осмотрел, вежливо прокомментировал наши самостоятельные попытки лечения и по совокупности, доктор дал  все необходимые рекомендации и назначил лечение.
+                                            button.review-card__expandBtn.expandable__button.button.button--outlined(type='button')
+
+                include ../_callback-widget
+            include ../_footer
+        include ../_dialogs
+        .sprite(aria-hidden="true", style="display: none;")
+            include ../../img/sprite.svg
+
+
+        include ../_footer-scripts.html
+        script(defer,src='./js/main.js')
+        script(defer,src='../js/reviews-page.js')
+        script(defer,src='./js/libs.min.js',onload="libLoaded()")

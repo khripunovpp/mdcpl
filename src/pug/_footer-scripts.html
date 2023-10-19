@@ -1,4 +1,13 @@
 <script>
+  window.goToSectionById = function (id) {
+    var targetEl = document.querySelector('[data-id="' + id + '"]');
+    if (targetEl) {
+      targetEl.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+      });
+    }
+  }
   window.loadLazy = function () {
     $(function () {
       var lazy = $('.lazy').Lazy({
@@ -15,7 +24,6 @@
     return window.matchMedia("only screen and (max-width: 990px)").matches;
   };
   window.initMap = function () {
-    console.log('initMap');
     var map = new google.maps.Map(document.getElementById('callback-widget-map'), {
       center: {lat: 38.7223, lng: -9.1393}, // Координаты Лиссабона
       zoom: 12, // Масштаб карты
@@ -51,9 +59,6 @@
       var sprite$ = $('.sprite').find('svg');
       // replace all symbol tag with svg tag, clone is wrong
       var spriteSvg = sprite$[0].outerHTML.replace(/symbol/g, 'svg');
-      console.log({
-        spriteSvg: spriteSvg,
-      });
       // jquery fragment
       window.cachedSvg$ = $(spriteSvg).clone().html('');
 
@@ -67,11 +72,8 @@
         var height = viewBox.split(' ')[3];
         var svg$ = $('<svg xmlns="' + xmlns + '" viewBox="' + viewBox + '"  width="' + width + '"  height="' + height + '"  id="' + id + '"></svg>');
         svg$.html($element.html());
-        console.log({svg$: svg$[0].outerHTML, id})
         window.cachedSvg$.append(svg$);
       })
-      console.log('!!!!!!!!!!!!')
-      console.log({cachedSvg$})
     }
 
 
@@ -93,4 +95,8 @@
   $(function () {
     window.insertSprites();
   })
+
+  window.libLoaded = function () {
+    window.loadLazy();
+  }
 </script>

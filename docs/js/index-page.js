@@ -68,6 +68,10 @@
     }
   };
 
+  AnimatedExpand.prototype.openNestedById = function (id) {
+    this.options.nested.openById(id);
+  };
+
   AnimatedExpand.prototype.close = function (target) {
     var $item = $(target).closest(this.itemEl);
     $item.removeClass('opened');
@@ -87,25 +91,23 @@
     this.close($items);
   };
 
-  function ExpandableComponent() {
-
+  function ExpandableComponent(
+    desktopHeight, mobileHeight, signs
+  ) {
     $('.expandable').each(function (index, target) {
       var $_target = $(target);
       var $_content = $_target.find('.expandable__content');
       var $_toggleButton = $_target.find('.expandable__button');
       var buttonHeight = 60;
       var _contentHeight = 0;
-      console.log({_contentHeight, ch: $_content.children()});
       var _expanded = false;
-      var _signs = ['Отзыв полностью', 'Свернуть'];
-      var _maxVisibleHeight = 190;
-      var _maxVisibleHeightMobile = 110;
+      var _signs = signs || ['Отзыв полностью', 'Свернуть'];
+      var _maxVisibleHeight = desktopHeight || 190;
+      var _maxVisibleHeightMobile = mobileHeight || 110;
       var _maxHeight = 0;
-      console.log({buttonHeight});
 
       calcHeights();
       setButtonState();
-
       setSign();
 
       $_content.css({
@@ -158,7 +160,6 @@
 
   }
 
-
   $(function () {
     var desktopScrollerListContainerColor$ = $('.services-widget__desktopScrollerListContainer');
     var desktopScrollerListContainer$ = $('.services-widget__desktopScrollerListContainer-list');
@@ -171,7 +172,6 @@
         animatedItemsQuery: '.toggle-group__actionButtonWrap, .toggle-group__subFooter-list li',
         closeOthers: true,
         onExpand: function (el) {
-          console.log('onExpand', el);
           var $serviceCard = $(el);
           var $serviceCardList = $serviceCard.find('.toggle-group__subFooter-list li');
           var color = $serviceCard.data('color');

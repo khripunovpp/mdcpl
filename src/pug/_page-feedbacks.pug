@@ -2,13 +2,13 @@
 html(lang="ru")
   head
 
-    base(href='./')
+    base(href='../')
     include ./_meta
     block scripts
       include _head-scripts
 
-  body
-    section.overflow.main-page
+  body(style="background-color: #F3D6C6;")
+    section.overflow
       include _header
       section.tail
         block body
@@ -17,8 +17,7 @@ html(lang="ru")
     .sprite(aria-hidden="true", style="display: none;")
       include ../img/sprite.svg
 
-    include ./_footer-scripts.html
-    include ./_index-footer-scripts.html
+
+    block footer-scripts
     script(defer,src='./js/main.js')
-    script(defer,src='./js/index-page.js')
     script(defer,src='./js/libs.min.js',onload="libLoaded()")

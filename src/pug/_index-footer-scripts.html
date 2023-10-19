@@ -1,8 +1,6 @@
 <script>
 
   window.libLoaded = function () {
-    console.log('libLoaded');
-
     window.loadLazy();
 
     var teamSplide = new Splide('#team-slider', {
@@ -45,9 +43,7 @@
     function updateHeight(newIndex) {
       var isMob = window.matchMedia("only screen and (max-width: 1100px)").matches;
       if (!isMob) return;
-      console.log(teamSplide);
       let slide = reviewsSplide.Components.Slides.getAt(typeof (newIndex) == 'number' ? newIndex : reviewsSplide.index).slide;
-      console.log({slide})
       var h = slide.querySelector('.review-card').offsetHeight;
 
       slide.parentElement.parentElement.style.height = (h ? h : 80) + 'px';
@@ -62,12 +58,10 @@
     $('.team-slider__item').on('mouseenter', function (e) {
       if (window.isMobile()) return;
       var el = $(e.target).closest('.team-slider__item');
-      console.log(el, el.hasClass('is-visible'));
       if (!el.hasClass('is-visible')) return;
       var elOffset = el.offset();
       var parentOffset = el.closest('.splide__track').offset();
       var positionInsideParent = elOffset.left - parentOffset.left;
-      console.log({positionInsideParent, parentOffset, elOffset});
       lastTranslate = positionInsideParent;
       slidingHover.css({
         'transform': 'translateX(' + lastTranslate + 'px) scale(1)',

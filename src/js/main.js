@@ -34,6 +34,12 @@ var isFocus = function () {
 };
 
 $(function () {
+  $('.js-goto').on('click', function (e) {
+    e.preventDefault();
+    var id = $(this).data('to-id');
+
+    window.goToSectionById(id);
+  });
   $('.year').text(new Date().getFullYear());
   new HeaderComponent().init();
   new Dialog().init();

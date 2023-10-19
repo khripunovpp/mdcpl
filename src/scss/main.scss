@@ -686,6 +686,13 @@ img:not([src]) {
           opacity: 1;
           transform: translateX(0);
         }
+
+        &__subFooter-list {
+          li {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
       }
     }
   }
@@ -785,12 +792,6 @@ img:not([src]) {
         transform: translateX(0);
       }
 
-      &__subFooter-list {
-        li {
-          opacity: 1;
-          transform: translateX(0);
-        }
-      }
     }
   }
 
@@ -873,7 +874,7 @@ img:not([src]) {
 
       &-list {
         flex: 1 0 calc(50% - 20px);
-        margin: 0 10px;
+        margin: 0 10px -20px;
       }
 
       &-item {

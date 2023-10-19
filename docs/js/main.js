@@ -33,7 +33,6 @@
   }
 
   HeaderComponent.prototype.init = function () {
-    console.log('HeaderComponent init');
     var that = this;
     that.$_header.addClass('show');
     that.$_header.css({
@@ -258,8 +257,6 @@
     }
 
     _this.$_filesList.on('click', 'li', function () {
-      console.log('click');
-
       var listItemToRemove$ = $(this);
       var fileNameToRemove = listItemToRemove$.text();
 
@@ -426,6 +423,12 @@
   };
 
   $(function () {
+    $('.js-goto').on('click', function (e) {
+      e.preventDefault();
+      var id = $(this).data('to-id');
+
+      window.goToSectionById(id);
+    });
     $('.year').text(new Date().getFullYear());
     new HeaderComponent().init();
     new Dialog().init();

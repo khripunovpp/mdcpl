@@ -63,6 +63,10 @@ AnimatedExpand.prototype.openById = function (id) {
   }
 }
 
+AnimatedExpand.prototype.openNestedById = function (id) {
+  this.options.nested.openById(id);
+}
+
 AnimatedExpand.prototype.close = function (target) {
   var $item = $(target).closest(this.itemEl);
   $item.removeClass('opened');
