@@ -4,33 +4,31 @@
 }(function () { 'use strict';
 
   function AnimatedExpand(
-    rootEl,
-    itemEl,
-    triggerEl,
-    tailEl,
-    animatedItemsQuery,
     options
   ) {
-    console.log('AnimatedExpand init');
     var transitionStep = 50;
     var that = this;
     this.options = options || {};
-    this.rootEl = rootEl;
-    this.itemEl = itemEl;
-    this.trigger$ = $(triggerEl);
-    this.tailEl$ = $(tailEl);
-    this.animatedItems$ = $(animatedItemsQuery);
+    this.rootEl = options.rootEl;
+    this.itemEl = options.itemEl;
+    this.trigger = options.triggerEl;
+    this.tailEl = options.tailEl;
+    this.animatedItems = options.animatedItemsQuery;
 
     if ($(this.rootEl).length) {
-      this.trigger$.on('click', function (e) {
+      var animate = this.options.animate !== false;
+      $(this.rootEl).find(this.trigger).on('click', function (e) {
         that.open.call(that, e.target);
       });
-      $(this.itemEl).each(function (i, el) {
-        var items = $(el).find(animatedItemsQuery);
-        items.each(function (itemIndex, item) {
-          $(item).css('transition-delay', itemIndex * transitionStep + 'ms');
+
+      if (animate) {
+        $(this.rootEl).find(this.itemEl).each(function (i, el) {
+          var items = $(el).find(that.animatedItems);
+          items.each(function (itemIndex, item) {
+            $(item).css('transition-delay', itemIndex * transitionStep + 'ms');
+          });
         });
-      });
+      }
     }
   }
 
@@ -56,9 +54,9 @@
     if (closeOthers) {
       this.close(root$.find(this.itemEl).not($el));
     }
-    var $serviceCardTail = $el.find(this.tailEl$);
+    var $serviceCardTail = $el.find(this.tailEl);
 
-    $el.find(this.trigger$).addClass('opened');
+    $el.find(this.trigger).addClass('opened');
     $el.addClass('opened');
     $serviceCardTail.slideDown(300);
     setTimeout(function () {
@@ -73,9 +71,9 @@
   AnimatedExpand.prototype.close = function (target) {
     var $item = $(target).closest(this.itemEl);
     $item.removeClass('opened');
-    $item.find(this.tailEl$).slideUp(300);
-    $item.find(this.tailEl$).removeClass('opened');
-    $item.find(this.trigger$).removeClass('opened');
+    $item.find(this.tailEl).slideUp(300);
+    $item.find(this.tailEl).removeClass('opened');
+    $item.find(this.trigger).removeClass('opened');
 
     var autoCloseNested = this.options.autoCloseNested !== false;
     if (autoCloseNested && this.options.nested) {
@@ -90,36 +88,31 @@
   };
 
   $(function () {
-
-    var serviceItems = new AnimatedExpand(
-      '.services-group',
-      '.service-item',
-      '.service-item__header',
-      '.service-item__tail',
-      '.service-item__actionButtonWrap, .service-item__description',
+    var servicesLibGroupItems = new AnimatedExpand(
       {
+        rootEl: '.toggle-group',
+        itemEl: '.toggle-item',
+        triggerEl: '.toggle-item__toggleBtn,.toggle-item__title',
+        tailEl: '.toggle-item__tail',
+        animatedItemsQuery: '.toggle-item__actionButtonWrap, .toggle-item__description',
         toggleBehavior: true,
         closeOthers: false,
       }
     );
-
-    var serviceGroups = new AnimatedExpand(
-      '.services-lib',
-      '.services-group',
-      '.services-group__toggleBtn,.services-group__title',
-      '.services-group__tail',
-      '.services-group__actionButtonWrap, .services-group__service-item,.services-group__description,.services-group__title,.services-group__services-item',
+    var servicesLibToggleGroup = new AnimatedExpand(
       {
+        rootEl: '.services-lib',
+        itemEl: '.toggle-group',
+        triggerEl: '.toggle-group__toggleBtn,.toggle-group__title',
+        tailEl: '.toggle-group__tail',
+        animatedItemsQuery: '.toggle-group__actionButtonWrap, .toggle-group__columns-item,.toggle-group__description,.toggle-group__title',
         toggleBehavior: true,
         closeOthers: false,
         autoCloseNested: true,
-        nested: serviceItems,
-        onExpand: function (id) {
-          console.log('onExpand', id);
-        },
+        nested: servicesLibGroupItems,
       }
     );
-    serviceGroups.openById(0);
+    servicesLibToggleGroup.openById(0);
   });
 
 }));

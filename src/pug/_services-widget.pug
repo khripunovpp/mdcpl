@@ -6,25 +6,25 @@ section.services-widget
                 h2.services-widget__title.title Наши услуги
                 ul.services-widget__list
                     each service,index in services
-                        li.services-widget__item.service-card(data-color=service.color, data-id=index).dot-holder
-                            .service-card__dot.dot(style=`background-color: ${service.color}`)
-                            h3.service-card__title=service.title
-                            section.service-card__tail
-                                footer.service-card__actions
-                                    .service-card__actionButtonWrap.service-card__actionButtonWrap--appointement
-                                        button.service-card__appointement.button.button--accent(type='button', aria-label='Записаться на прием').js-open-dialog(data-dialog-id="widget")
+                        li.services-widget__item.toggle-group(data-color=service.color, data-id=index).dot-holder.toggle-group--indexPage
+                            .toggle-group__dot.dot(style=`background-color: ${service.color}`)
+                            h3.toggle-group__title=service.title
+                            section.toggle-group__tail
+                                footer.toggle-group__actions
+                                    .toggle-group__actionButtonWrap.toggle-group__actionButtonWrap--appointement
+                                        button.toggle-group__appointement.button.button--accent(type='button', aria-label='Записаться на прием').js-open-dialog(data-dialog-id="widget")
                                             span Записаться на прием
-                                    .service-card__actionButtonWrap.service-card__actionButtonWrap--details
-                                        a.service-card__details.button.button--outlined(type='button', aria-label='Подробнее', href='./services/index.html')
+                                    .toggle-group__actionButtonWrap.toggle-group__actionButtonWrap--details
+                                        a.toggle-group__details.button.button--outlined(type='button', aria-label='Подробнее', href='./services/index.html')
                                             span Подробнее
-                                    .service-card__actionButtonWrap.service-card__actionButtonWrap--contact
-                                        a.service-card__contact.button.button--outlined.button--telegram.button--icon(type='button', aria-label='Написать в Telegram', href="https://t.me/MedCoupleBot",target='_blank')
+                                    .toggle-group__actionButtonWrap.toggle-group__actionButtonWrap--contact
+                                        a.toggle-group__contact.button.button--outlined.button--telegram.button--icon(type='button', aria-label='Написать в Telegram', href="https://t.me/MedCoupleBot",target='_blank')
                                             i.icon.paste-sprite-telegram-icon
-                                    .service-card__actionButtonWrap.service-card__actionButtonWrap--contact
-                                        a.service-card__contact.button.button--outlined.button--whatsapp.button--icon(type='button', aria-label='Написать в WhatsApp', href="https://t.me/MedCoupleBot",target='_blank')
+                                    .toggle-group__actionButtonWrap.toggle-group__actionButtonWrap--contact
+                                        a.toggle-group__contact.button.button--outlined.button--whatsapp.button--icon(type='button', aria-label='Написать в WhatsApp', href="https://t.me/MedCoupleBot",target='_blank')
                                             i.icon.paste-sprite-whatsapp-icon
-                                section.service-card__services
-                                    ul.service-card__list
+                                section.toggle-group__subFooter
+                                    ul.toggle-group__subFooter-list
                                         li
                                             a(href='./services/index.html') Организация вакцинации  в клиниках Португалии
                                         li

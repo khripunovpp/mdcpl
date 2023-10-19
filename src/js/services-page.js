@@ -1,34 +1,29 @@
 import {AnimatedExpand} from "./_service-widget";
 
 $(function () {
-
-  var serviceItems = new AnimatedExpand(
-    '.services-group',
-    '.service-item',
-    '.service-item__header',
-    '.service-item__tail',
-    '.service-item__actionButtonWrap, .service-item__description',
+  var servicesLibGroupItems = new AnimatedExpand(
     {
+      rootEl: '.toggle-group',
+      itemEl: '.toggle-item',
+      triggerEl: '.toggle-item__toggleBtn,.toggle-item__title',
+      tailEl: '.toggle-item__tail',
+      animatedItemsQuery: '.toggle-item__actionButtonWrap, .toggle-item__description',
       toggleBehavior: true,
       closeOthers: false,
     }
   );
-
-  var serviceGroups = new AnimatedExpand(
-    '.services-lib',
-    '.services-group',
-    '.services-group__toggleBtn,.services-group__title',
-    '.services-group__tail',
-    '.services-group__actionButtonWrap, .services-group__service-item,.services-group__description,.services-group__title,.services-group__services-item',
+  var servicesLibToggleGroup = new AnimatedExpand(
     {
+      rootEl: '.services-lib',
+      itemEl: '.toggle-group',
+      triggerEl: '.toggle-group__toggleBtn,.toggle-group__title',
+      tailEl: '.toggle-group__tail',
+      animatedItemsQuery: '.toggle-group__actionButtonWrap, .toggle-group__columns-item,.toggle-group__description,.toggle-group__title',
       toggleBehavior: true,
       closeOthers: false,
       autoCloseNested: true,
-      nested: serviceItems,
-      onExpand: function (id) {
-        console.log('onExpand', id)
-      },
+      nested: servicesLibGroupItems,
     }
   );
-  serviceGroups.openById(0)
+  servicesLibToggleGroup.openById(0);
 })

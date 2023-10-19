@@ -26,182 +26,190 @@ block body
     section.services-lib
         .container
             .services-lib__inner
-                section.services-lib__item.services-group(data-id='0').dot-holder
-                    .services-group__dot.dot(aria-hidden='true',style='background-color: #C1D3C8;')
-                    header.services-group__header
-                        h2.services-group__title Выезд на дом для детей и взрослых
-                        button.services-group__toggleBtn(type='button', aria-label='Развернуть',style='background-color: #C1D3C8;').plus-expand
-                    .services-group__tail
-                        .services-group__description
+                section.services-lib__item.toggle-group(data-id='0').dot-holder
+                    .toggle-group__dot.dot(aria-hidden='true',style='background-color: #C1D3C8;')
+                    header.toggle-group__header
+                        h2.toggle-group__title Выезд на дом для детей и взрослых
+                        button.toggle-group__toggleBtn(type='button', aria-label='Развернуть',style='background-color: #C1D3C8;').plus-expand
+                    .toggle-group__tail
+                        .toggle-group__description
                             p Мы выезжаем на дом при острой болезни и для плановых осмотров к детям и взрослым. Если по какой-то причине вы не можете или не хотите ехать в Услуги 2 больницу - это прекрасный вариант для вас.
-                        footer.services-group__actions
-                            .services-group__actionButtonWrap
-                                button.services-group__appointement.button.button--accent(type='button', aria-label='Записаться на прием').js-open-dialog(data-dialog-id="widget")
+                        footer.toggle-group__actions
+                            .toggle-group__actionButtonWrap
+                                button.toggle-group__appointement.button.button--accent(type='button', aria-label='Записаться на прием').js-open-dialog(data-dialog-id="widget")
                                     span Записаться на прием
-                            .services-group__actionButtonWrap
-                                a.services-group__contact.button.button--outlined.button--telegram.button--icon(type='button', aria-label='Написать в Telegram', href="https://t.me/MedCoupleBot",target='_blank')
+                            .toggle-group__actionButtonWrap
+                                a.toggle-group__contact.button.button--outlined.button--telegram.button--icon(type='button', aria-label='Написать в Telegram', href="https://t.me/MedCoupleBot",target='_blank')
                                     i.icon.paste-sprite-telegram-icon
-                            .services-group__actionButtonWrap
-                                a.services-group__contact.button.button--outlined.button--whatsapp.button--icon(type='button', aria-label='Написать в WhatsApp', href="https://t.me/MedCoupleBot",target='_blank')
+                            .toggle-group__actionButtonWrap
+                                a.toggle-group__contact.button.button--outlined.button--whatsapp.button--icon(type='button', aria-label='Написать в WhatsApp', href="https://t.me/MedCoupleBot",target='_blank')
                                     i.icon.paste-sprite-whatsapp-icon
                 - var services=[{title: 'Педиатрия', color: '#F3D6C6'},{title: 'Рецепты / Вакцинация', color: '#EBE2DD'},{title: 'Справки', color: '#C1D3C8'},{title: 'Ассистанс', color: '#F3D6C6'},{title: 'Справки', color: '#F4D8D5'},{title: 'Организация скринингов', color: '#F0C7AE'},{title: 'Педиатрия', color: '#E2E6ED'},{title: 'Рецепты / Вакцинация', color: '#AECDBE'},{title: 'Справки', color: '#E8BFAF'},{title: 'Организация скринингов', color: '#c9dadf'},];
                 each service,index in services
-                    section.services-lib__item.services-group(data-id=index+1).dot-holder
-                        .services-group__dot.dot(aria-hidden='true',style=`background-color: ${service.color}`)
-                        header.services-group__header
-                            h2.services-group__title=service.title
-                            button.services-group__toggleBtn(type='button', aria-label='Развернуть',style=``).plus-expand
-                        .services-group__tail
-                            .services-group__description
+                    section.services-lib__item.toggle-group(data-id=index+1).dot-holder
+                        .toggle-group__dot.dot(aria-hidden='true',style=`background-color: ${service.color}`)
+                        header.toggle-group__header
+                            h2.toggle-group__title=service.title
+                            button.toggle-group__toggleBtn(type='button', aria-label='Развернуть',style=``).plus-expand
+                        .toggle-group__tail
+                            .toggle-group__description
                                 p Как семейные врачи мы каждый день сталкиваемся с диагностикой на ранних этапах болезней и после
                                     | первичного обследования помогаем клиентам понять к какому специалисту нужно отправиться для дообследования и лечения.
                                     | Часто Услуги 3 пациенты после таких консультаций возвращаются к нам чтобы продолжить наблюдение или адаптировать план под собственные реалии.
-                            .services-group__services-columns
-                                ul.services-group__services-list
-                                    li.services-group__services-item
-                                        .service-item(data-id='0'+index+1)
-                                            header.service-item__header
-                                                h2.service-item__title Урология
-                                                button.service-item__toggleBtn(type='button', aria-label='Развернуть')
-                                            .service-item__tail
-                                                .service-item__description
+                            .toggle-group__columns
+                                ul.toggle-group__columns-list
+                                    li.toggle-group__columns-item
+                                        .toggle-item(data-id='0'+index+1)
+                                            header.toggle-item__header
+                                                h2.toggle-item__title Урология
+                                                button.toggle-item__toggleBtn(type='button', aria-label='Развернуть')
+                                                    i.paste-sprite-caret-left-icon.icon
+                                            .toggle-item__tail
+                                                .toggle-item__description
                                                     p Доброкачественная гиперплазия простаты, мочекаменная болезнь и почечная колика, скриниг рака простаты, профилактика и лечение инфекций мочевыводящих путей, все это поводы для обращения к сеейному врачу.
-                                                footer.service-item__actions
-                                                    .service-item__actionButtonWrap
-                                                        button.service-item__appointement.button.button--accent(type='button', aria-label='Записаться на прием').js-open-dialog(data-dialog-id="widget")
+                                                footer.toggle-item__actions
+                                                    .toggle-item__actionButtonWrap
+                                                        button.toggle-item__appointement.button.button--accent(type='button', aria-label='Записаться на прием').js-open-dialog(data-dialog-id="widget")
                                                             span Записаться на прием
-                                                    .service-item__actionButtonWrap
-                                                        a.service-item__contact.button.button--outlined.button--telegram.button--icon(type='button', aria-label='Написать в Telegram', href="https://t.me/MedCoupleBot",target='_blank')
+                                                    .toggle-item__actionButtonWrap
+                                                        a.toggle-item__contact.button.button--outlined.button--telegram.button--icon(type='button', aria-label='Написать в Telegram', href="https://t.me/MedCoupleBot",target='_blank')
                                                             i.icon.paste-sprite-telegram-icon
-                                                    .service-item__actionButtonWrap
-                                                        a.service-item__contact.button.button--outlined.button--whatsapp.button--icon(type='button', aria-label='Написать в WhatsApp', href="https://t.me/MedCoupleBot",target='_blank')
+                                                    .toggle-item__actionButtonWrap
+                                                        a.toggle-item__contact.button.button--outlined.button--whatsapp.button--icon(type='button', aria-label='Написать в WhatsApp', href="https://t.me/MedCoupleBot",target='_blank')
                                                             i.icon.paste-sprite-whatsapp-icon
-                                    li.services-group__services-item
-                                        .service-item(data-id='1'+index+1)
-                                            header.service-item__header
-                                                h2.service-item__title Гинекология
-                                                button.service-item__toggleBtn(type='button', aria-label='Развернуть')
-                                            .service-item__tail
-                                                .service-item__description
+                                    li.toggle-group__columns-item
+                                        .toggle-item(data-id='1'+index+1)
+                                            header.toggle-item__header
+                                                h2.toggle-item__title Гинекология
+                                                button.toggle-item__toggleBtn(type='button', aria-label='Развернуть')
+                                                    i.paste-sprite-caret-left-icon.icon
+                                            .toggle-item__tail
+                                                .toggle-item__description
                                                     p Доброкачественная гиперплазия простаты, мочекаменная болезнь и почечная колика, скриниг рака простаты, профилактика и лечение инфекций мочевыводящих путей, все это поводы для обращения к сеейному врачу.
-                                                footer.service-item__actions
-                                                    .service-item__actionButtonWrap
-                                                        button.service-item__appointement.button.button--accent(type='button', aria-label='Записаться на прием').js-open-dialog(data-dialog-id="widget")
+                                                footer.toggle-item__actions
+                                                    .toggle-item__actionButtonWrap
+                                                        button.toggle-item__appointement.button.button--accent(type='button', aria-label='Записаться на прием').js-open-dialog(data-dialog-id="widget")
                                                             span Записаться на прием
-                                                    .service-item__actionButtonWrap
-                                                        a.service-item__contact.button.button--outlined.button--telegram.button--icon(type='button', aria-label='Написать в Telegram', href="https://t.me/MedCoupleBot",target='_blank')
+                                                    .toggle-item__actionButtonWrap
+                                                        a.toggle-item__contact.button.button--outlined.button--telegram.button--icon(type='button', aria-label='Написать в Telegram', href="https://t.me/MedCoupleBot",target='_blank')
                                                             i.icon.paste-sprite-telegram-icon
-                                                    .service-item__actionButtonWrap
-                                                        a.service-item__contact.button.button--outlined.button--whatsapp.button--icon(type='button', aria-label='Написать в WhatsApp', href="https://t.me/MedCoupleBot",target='_blank')
+                                                    .toggle-item__actionButtonWrap
+                                                        a.toggle-item__contact.button.button--outlined.button--whatsapp.button--icon(type='button', aria-label='Написать в WhatsApp', href="https://t.me/MedCoupleBot",target='_blank')
                                                             i.icon.paste-sprite-whatsapp-icon
-                                    li.services-group__services-item
-                                        .service-item(data-id='2'+index+1)
-                                            header.service-item__header
-                                                h2.service-item__title Нефрология
-                                                button.service-item__toggleBtn(type='button', aria-label='Развернуть')
-                                            .service-item__tail
-                                                .service-item__description
+                                    li.toggle-group__columns-item
+                                        .toggle-item(data-id='2'+index+1)
+                                            header.toggle-item__header
+                                                h2.toggle-item__title Нефрология
+                                                button.toggle-item__toggleBtn(type='button', aria-label='Развернуть')
+                                                    i.paste-sprite-caret-left-icon.icon
+                                            .toggle-item__tail
+                                                .toggle-item__description
                                                     p Доброкачественная гиперплазия простаты, мочекаменная болезнь и почечная колика, скриниг рака простаты, профилактика и лечение инфекций мочевыводящих путей, все это поводы для обращения к сеейному врачу.
-                                                footer.service-item__actions
-                                                    .service-item__actionButtonWrap
-                                                        button.service-item__appointement.button.button--accent(type='button', aria-label='Записаться на прием').js-open-dialog(data-dialog-id="widget")
+                                                footer.toggle-item__actions
+                                                    .toggle-item__actionButtonWrap
+                                                        button.toggle-item__appointement.button.button--accent(type='button', aria-label='Записаться на прием').js-open-dialog(data-dialog-id="widget")
                                                             span Записаться на прием
-                                                    .service-item__actionButtonWrap
-                                                        a.service-item__contact.button.button--outlined.button--telegram.button--icon(type='button', aria-label='Написать в Telegram', href="https://t.me/MedCoupleBot",target='_blank')
+                                                    .toggle-item__actionButtonWrap
+                                                        a.toggle-item__contact.button.button--outlined.button--telegram.button--icon(type='button', aria-label='Написать в Telegram', href="https://t.me/MedCoupleBot",target='_blank')
                                                             i.icon.paste-sprite-telegram-icon
-                                                    .service-item__actionButtonWrap
-                                                        a.service-item__contact.button.button--outlined.button--whatsapp.button--icon(type='button', aria-label='Написать в WhatsApp', href="https://t.me/MedCoupleBot",target='_blank')
+                                                    .toggle-item__actionButtonWrap
+                                                        a.toggle-item__contact.button.button--outlined.button--whatsapp.button--icon(type='button', aria-label='Написать в WhatsApp', href="https://t.me/MedCoupleBot",target='_blank')
                                                             i.icon.paste-sprite-whatsapp-icon
-                                    li.services-group__services-item
-                                        .service-item(data-id='3'+index+1)
-                                            header.service-item__header
-                                                h2.service-item__title Гастроэнтерология
-                                                button.service-item__toggleBtn(type='button', aria-label='Развернуть')
-                                            .service-item__tail
-                                                .service-item__description
+                                    li.toggle-group__columns-item
+                                        .toggle-item(data-id='3'+index+1)
+                                            header.toggle-item__header
+                                                h2.toggle-item__title Гастроэнтерология
+                                                button.toggle-item__toggleBtn(type='button', aria-label='Развернуть')
+                                                    i.paste-sprite-caret-left-icon.icon
+                                            .toggle-item__tail
+                                                .toggle-item__description
                                                     p Доброкачественная гиперплазия простаты, мочекаменная болезнь и почечная колика, скриниг рака простаты, профилактика и лечение инфекций мочевыводящих путей, все это поводы для обращения к сеейному врачу.
-                                                footer.service-item__actions
-                                                    .service-item__actionButtonWrap
-                                                        button.service-item__appointement.button.button--accent(type='button', aria-label='Записаться на прием').js-open-dialog(data-dialog-id="widget")
+                                                footer.toggle-item__actions
+                                                    .toggle-item__actionButtonWrap
+                                                        button.toggle-item__appointement.button.button--accent(type='button', aria-label='Записаться на прием').js-open-dialog(data-dialog-id="widget")
                                                             span Записаться на прием
-                                                    .service-item__actionButtonWrap
-                                                        a.service-item__contact.button.button--outlined.button--telegram.button--icon(type='button', aria-label='Написать в Telegram', href="https://t.me/MedCoupleBot",target='_blank')
+                                                    .toggle-item__actionButtonWrap
+                                                        a.toggle-item__contact.button.button--outlined.button--telegram.button--icon(type='button', aria-label='Написать в Telegram', href="https://t.me/MedCoupleBot",target='_blank')
                                                             i.icon.paste-sprite-telegram-icon
-                                                    .service-item__actionButtonWrap
-                                                        a.service-item__contact.button.button--outlined.button--whatsapp.button--icon(type='button', aria-label='Написать в WhatsApp', href="https://t.me/MedCoupleBot",target='_blank')
+                                                    .toggle-item__actionButtonWrap
+                                                        a.toggle-item__contact.button.button--outlined.button--whatsapp.button--icon(type='button', aria-label='Написать в WhatsApp', href="https://t.me/MedCoupleBot",target='_blank')
                                                             i.icon.paste-sprite-whatsapp-icon
-                                ul.services-group__services-list
-                                    li.services-group__services-item
-                                        .service-item(data-id='10' + index + 1)
-                                            header.service-item__header
-                                                h2.service-item__title Cкриниг
-                                                button.service-item__toggleBtn(type='button', aria-label='Развернуть')
-                                            .service-item__tail
-                                                .service-item__description
+                                ul.toggle-group__columns-list
+                                    li.toggle-group__columns-item
+                                        .toggle-item(data-id='10' + index + 1)
+                                            header.toggle-item__header
+                                                h2.toggle-item__title Cкриниг
+                                                button.toggle-item__toggleBtn(type='button', aria-label='Развернуть')
+                                                    i.paste-sprite-caret-left-icon.icon
+                                            .toggle-item__tail
+                                                .toggle-item__description
                                                     p Доброкачественная гиперплазия простаты, мочекаменная болезнь и почечная колика, скриниг рака простаты, профилактика и лечение инфекций мочевыводящих путей, все это поводы для обращения к сеейному врачу.
-                                                footer.service-item__actions
-                                                    .service-item__actionButtonWrap
-                                                        button.service-item__appointement.button.button--accent(type='button', aria-label='Записаться на прием').js-open-dialog(data-dialog-id="widget")
+                                                footer.toggle-item__actions
+                                                    .toggle-item__actionButtonWrap
+                                                        button.toggle-item__appointement.button.button--accent(type='button', aria-label='Записаться на прием').js-open-dialog(data-dialog-id="widget")
                                                             span Записаться на прием
-                                                    .service-item__actionButtonWrap
-                                                        a.service-item__contact.button.button--outlined.button--telegram.button--icon(type='button', aria-label='Написать в Telegram', href="https://t.me/MedCoupleBot",target='_blank')
+                                                    .toggle-item__actionButtonWrap
+                                                        a.toggle-item__contact.button.button--outlined.button--telegram.button--icon(type='button', aria-label='Написать в Telegram', href="https://t.me/MedCoupleBot",target='_blank')
                                                             i.icon.paste-sprite-telegram-icon
-                                                    .service-item__actionButtonWrap
-                                                        a.service-item__contact.button.button--outlined.button--whatsapp.button--icon(type='button', aria-label='Написать в WhatsApp', href="https://t.me/MedCoupleBot",target='_blank')
+                                                    .toggle-item__actionButtonWrap
+                                                        a.toggle-item__contact.button.button--outlined.button--whatsapp.button--icon(type='button', aria-label='Написать в WhatsApp', href="https://t.me/MedCoupleBot",target='_blank')
                                                             i.icon.paste-sprite-whatsapp-icon
-                                    li.services-group__services-item
-                                        .service-item(data-id='11' + index + 1)
-                                            header.service-item__header
-                                                h2.service-item__title Профилактика
-                                                button.service-item__toggleBtn(type='button', aria-label='Развернуть')
-                                            .service-item__tail
-                                                .service-item__description
+                                    li.toggle-group__columns-item
+                                        .toggle-item(data-id='11' + index + 1)
+                                            header.toggle-item__header
+                                                h2.toggle-item__title Профилактика
+                                                button.toggle-item__toggleBtn(type='button', aria-label='Развернуть')
+                                                    i.paste-sprite-caret-left-icon.icon
+                                            .toggle-item__tail
+                                                .toggle-item__description
                                                     p Доброкачественная гиперплазия простаты, мочекаменная болезнь и почечная колика, скриниг рака простаты, профилактика и лечение инфекций мочевыводящих путей, все это поводы для обращения к сеейному врачу.
-                                                footer.service-item__actions
-                                                    .service-item__actionButtonWrap
-                                                        button.service-item__appointement.button.button--accent(type='button', aria-label='Записаться на прием').js-open-dialog(data-dialog-id="widget")
+                                                footer.toggle-item__actions
+                                                    .toggle-item__actionButtonWrap
+                                                        button.toggle-item__appointement.button.button--accent(type='button', aria-label='Записаться на прием').js-open-dialog(data-dialog-id="widget")
                                                             span Записаться на прием
-                                                    .service-item__actionButtonWrap
-                                                        a.service-item__contact.button.button--outlined.button--telegram.button--icon(type='button', aria-label='Написать в Telegram', href="https://t.me/MedCoupleBot",target='_blank')
+                                                    .toggle-item__actionButtonWrap
+                                                        a.toggle-item__contact.button.button--outlined.button--telegram.button--icon(type='button', aria-label='Написать в Telegram', href="https://t.me/MedCoupleBot",target='_blank')
                                                             i.icon.paste-sprite-telegram-icon
-                                                    .service-item__actionButtonWrap
-                                                        a.service-item__contact.button.button--outlined.button--whatsapp.button--icon(type='button', aria-label='Написать в WhatsApp', href="https://t.me/MedCoupleBot",target='_blank')
+                                                    .toggle-item__actionButtonWrap
+                                                        a.toggle-item__contact.button.button--outlined.button--whatsapp.button--icon(type='button', aria-label='Написать в WhatsApp', href="https://t.me/MedCoupleBot",target='_blank')
                                                             i.icon.paste-sprite-whatsapp-icon
-                                    li.services-group__services-item
-                                        .service-item(data-id='12' + index + 1)
-                                            header.service-item__header
-                                                h2.service-item__title Простаты
-                                                button.service-item__toggleBtn(type='button', aria-label='Развернуть')
-                                            .service-item__tail
-                                                .service-item__description
+                                    li.toggle-group__columns-item
+                                        .toggle-item(data-id='12' + index + 1)
+                                            header.toggle-item__header
+                                                h2.toggle-item__title Простаты
+                                                button.toggle-item__toggleBtn(type='button', aria-label='Развернуть')
+                                                    i.paste-sprite-caret-left-icon.icon
+                                            .toggle-item__tail
+                                                .toggle-item__description
                                                     p Доброкачественная гиперплазия простаты, мочекаменная болезнь и почечная колика, скриниг рака простаты, профилактика и лечение инфекций мочевыводящих путей, все это поводы для обращения к сеейному врачу.
-                                                footer.service-item__actions
-                                                    .service-item__actionButtonWrap
-                                                        button.service-item__appointement.button.button--accent(type='button', aria-label='Записаться на прием').js-open-dialog(data-dialog-id="widget")
+                                                footer.toggle-item__actions
+                                                    .toggle-item__actionButtonWrap
+                                                        button.toggle-item__appointement.button.button--accent(type='button', aria-label='Записаться на прием').js-open-dialog(data-dialog-id="widget")
                                                             span Записаться на прием
-                                                    .service-item__actionButtonWrap
-                                                        a.service-item__contact.button.button--outlined.button--telegram.button--icon(type='button', aria-label='Написать в Telegram', href="https://t.me/MedCoupleBot",target='_blank')
+                                                    .toggle-item__actionButtonWrap
+                                                        a.toggle-item__contact.button.button--outlined.button--telegram.button--icon(type='button', aria-label='Написать в Telegram', href="https://t.me/MedCoupleBot",target='_blank')
                                                             i.icon.paste-sprite-telegram-icon
-                                                    .service-item__actionButtonWrap
-                                                        a.service-item__contact.button.button--outlined.button--whatsapp.button--icon(type='button', aria-label='Написать в WhatsApp', href="https://t.me/MedCoupleBot",target='_blank')
+                                                    .toggle-item__actionButtonWrap
+                                                        a.toggle-item__contact.button.button--outlined.button--whatsapp.button--icon(type='button', aria-label='Написать в WhatsApp', href="https://t.me/MedCoupleBot",target='_blank')
                                                             i.icon.paste-sprite-whatsapp-icon
-                                    li.services-group__services-item
-                                        .service-item(data-id='13' + index + 1)
-                                            header.service-item__header
-                                                h2.service-item__title Лечение инфекций
-                                                button.service-item__toggleBtn(type='button', aria-label='Развернуть')
-                                            .service-item__tail
-                                                .service-item__description
+                                    li.toggle-group__columns-item
+                                        .toggle-item(data-id='13' + index + 1)
+                                            header.toggle-item__header
+                                                h2.toggle-item__title Лечение инфекций
+                                                button.toggle-item__toggleBtn(type='button', aria-label='Развернуть')
+                                                    i.paste-sprite-caret-left-icon.icon
+                                            .toggle-item__tail
+                                                .toggle-item__description
                                                     p Доброкачественная гиперплазия простаты, мочекаменная болезнь и почечная колика, скриниг рака простаты, профилактика и лечение инфекций мочевыводящих путей, все это поводы для обращения к сеейному врачу.
-                                                footer.service-item__actions
-                                                    .service-item__actionButtonWrap
-                                                        button.service-item__appointement.button.button--accent(type='button', aria-label='Записаться на прием').js-open-dialog(data-dialog-id="widget")
+                                                footer.toggle-item__actions
+                                                    .toggle-item__actionButtonWrap
+                                                        button.toggle-item__appointement.button.button--accent(type='button', aria-label='Записаться на прием').js-open-dialog(data-dialog-id="widget")
                                                             span Записаться на прием
-                                                    .service-item__actionButtonWrap
-                                                        a.service-item__contact.button.button--outlined.button--telegram.button--icon(type='button', aria-label='Написать в Telegram', href="https://t.me/MedCoupleBot",target='_blank')
+                                                    .toggle-item__actionButtonWrap
+                                                        a.toggle-item__contact.button.button--outlined.button--telegram.button--icon(type='button', aria-label='Написать в Telegram', href="https://t.me/MedCoupleBot",target='_blank')
                                                             i.icon.paste-sprite-telegram-icon
-                                                    .service-item__actionButtonWrap
-                                                        a.service-item__contact.button.button--outlined.button--whatsapp.button--icon(type='button', aria-label='Написать в WhatsApp', href="https://t.me/MedCoupleBot",target='_blank')
+                                                    .toggle-item__actionButtonWrap
+                                                        a.toggle-item__contact.button.button--outlined.button--whatsapp.button--icon(type='button', aria-label='Написать в WhatsApp', href="https://t.me/MedCoupleBot",target='_blank')
                                                             i.icon.paste-sprite-whatsapp-icon
 
     include ../_callback-widget

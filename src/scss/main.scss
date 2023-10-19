@@ -525,6 +525,10 @@ img:not([src]) {
 
   &__footer {
     margin-top: 5px;
+
+    .button {
+      width: 100%;
+    }
   }
 
   @media screen and (min-width: 991px) {
@@ -599,6 +603,10 @@ img:not([src]) {
 
     &__footer {
       margin-top: 20px;
+
+      .button {
+        width: auto;
+      }
     }
   }
 }
@@ -620,6 +628,451 @@ img:not([src]) {
   &__text {
     p {
       margin: 0 0 10px;
+    }
+  }
+}
+
+.toggle-group {
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 15px;
+
+  &__header {
+    display: flex;
+    jsutify-content: space-between;
+    align-items: center;
+  }
+
+  &__toggleBtn {
+    margin-left: auto;
+    background-color: #E6EDE9;
+    flex-shrink: 0;
+
+    &.opened {
+      transition: background-color 0.3s ease-in-out;
+      background-color: transparent;
+    }
+  }
+
+  &__title {
+    transition: transform 0.2s ease-in-out;
+    transform: translateX(25px);
+    margin: 0 10px 0 0;
+    font-size: 18px;
+    cursor: pointer;
+  }
+
+  &__tail {
+    display: none;
+    padding-top: 10px;
+
+    &.opened {
+      display: block;
+
+      .toggle-group {
+        &__description {
+          opacity: 1;
+          transform: translateX(0);
+        }
+
+        &__columns {
+          &-item {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        &__actionButtonWrap {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -7.5px;
+
+    .button--outlined {
+      border-color: #fff;
+
+      &:hover {
+        background-color: #fff;
+      }
+    }
+  }
+
+
+  &__subFooter {
+    margin-top: 10px;
+
+    &-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        font-size: 18px;
+        font-weight: 600;
+        opacity: 0;
+        transform: translateX(7.5px);
+        transition: opacity 0.2s ease-in, transform 0.2s ease-in;
+      }
+
+      li + li {
+        margin-top: 10px;
+      }
+
+      a {
+        text-decoration: none;
+        opacity: 0.5;
+        transition: opacity 0.2s ease-in;
+        color: inherit;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &__appointement {
+    width: 100%;
+  }
+
+  &__actionButtonWrap {
+    opacity: 0;
+    transform: translateX(7.5px);
+    transition: opacity 0.2s ease-in, transform 0.2s ease-in;
+    margin: 7.5px;
+  }
+
+  &__description {
+    font-size: 12px;
+    line-height: 18px;
+    margin-bottom: 15px;
+    opacity: 0;
+    transform: translateX(7.5px);
+    transition: opacity 0.2s ease-in, transform 0.2s ease-in;
+
+    p {
+
+      color: #435F63;
+      margin: 0;
+    }
+  }
+
+  &__columns {
+    &-list {
+      padding: 0;
+      margin: 0 0;
+      list-style: none;
+    }
+
+    &-item {
+      opacity: 0;
+      margin: 0 0 10px;
+      transform: translateX(7.5px);
+      transition: opacity 0.2s ease-in, transform 0.2s ease-in;
+    }
+  }
+
+  &.opened {
+    .toggle-group {
+      &__title {
+        transform: translateX(0);
+      }
+
+      &__subFooter-list {
+        li {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+    }
+  }
+
+  &--indexPage {
+    border-radius: 20px;
+
+    .toggle-group {
+      &__title {
+        transform: translateX(7.5px) !important
+      }
+    }
+
+    &:not(.opened) {
+
+      .toggle-group__dot {
+        clip-path: circle(7.5px at 7.5px 26px);
+        @media screen and (min-width: 991px) {
+          clip-path: circle(10px at 10px 48px);
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 990px) {
+    &__actionButtonWrap:first-child {
+      width: 100%;
+    }
+    &__columns {
+      &-list + &-list {
+        margin-top: 10px;
+      }
+
+      &-item {
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 991px) {
+    border-radius: 40px;
+    padding: 30px;
+    &--indexPage {
+      border-radius: 20px;
+    }
+    &__title {
+      font-size: 30px;
+      margin: 0 20px 0 0;
+      transform: translateX(40px);
+    }
+    &__toggleBtn {
+      &.opened {
+        transition: background-color 0.5s ease-in-out;
+      }
+    }
+    &__tail {
+      padding-top: 20px;
+    }
+    &__description {
+      font-size: 18px;
+      line-height: 30px;
+      margin-bottom: 20px;
+      transform: translateX(15px);
+    }
+    &__actions {
+      margin: -15px;
+
+    }
+    &__subFooter {
+      display: none;
+    }
+    &__actionButtonWrap {
+      margin: 15px;
+      transform: translateX(15px);
+    }
+    &__columns {
+      display: flex;
+      margin: 0 -10px 0;
+
+      &-list {
+        flex: 1 0 calc(50% - 20px);
+        margin: 0 10px;
+      }
+
+      &-item {
+        margin: 0 0 20px;
+        transform: translateX(15px);
+      }
+    }
+  }
+}
+
+.toggle-item {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+
+  &__header {
+    display: flex;
+  }
+
+  &__title {
+    cursor: pointer;
+    margin: 0 10px 0 0;
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  &__toggleBtn {
+    margin-left: auto;
+    flex-shrink: 0;
+    background-color: transparent;
+    appearance: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: inherit;
+    font-family: inherit;
+    color: inherit;
+
+    .icon {
+      width: 7px;
+      height: 14px;
+      transform: rotate(90deg);
+    }
+
+    &.opened {
+      .icon {
+        transform: rotate(-90deg);
+      }
+    }
+  }
+
+  &__tail {
+    display: none;
+    padding-top: 10px;
+
+    &.opened {
+      display: block;
+
+      .toggle-item {
+        &__description {
+          opacity: 1;
+          transform: translateX(0);
+        }
+
+        &__actionButtonWrap {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 5px -7.5px -5px;
+  }
+
+  &__actionButtonWrap {
+    opacity: 0;
+    margin: 5px 7.5px;
+    transform: translateX(7.5px);
+    transition: opacity 0.2s ease-in, transform 0.2s ease-in;
+  }
+
+  &__appointement {
+    width: 100%;
+  }
+
+  &__description {
+    opacity: 0;
+    transform: translateX(7.5px);
+    transition: opacity 0.2s ease-in, transform 0.2s ease-in;
+    font-size: 12px;
+    line-height: 18px;
+
+    p {
+      opacity: 0.7;
+      margin: 0;
+    }
+  }
+
+  @media screen and (max-width: 990px) {
+    &__actionButtonWrap:first-child {
+      width: 100%;
+    }
+  }
+
+  @media screen and (min-width: 991px) {
+    border-radius: 20px;
+    padding: 20px;
+
+    &__tail {
+      padding-top: 20px;
+    }
+    &__title {
+      margin: 0 20px 0 0;
+      font-size: 18px;
+    }
+    &__actions {
+      margin: -5px -15px -15px;
+    }
+
+    &__actionButtonWrap {
+      margin: 15px;
+      transform: translateX(15px);
+    }
+
+    &__description {
+      font-size: 18px;
+      line-height: 30px;
+      transform: translateX(15px);
+    }
+  }
+}
+
+.plus-expand {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid #fff;
+  appearance: none;
+  cursor: pointer;
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    background-color: $font-color;
+    transition: transform 0.25s ease-out;
+    border-radius: 2px;
+  }
+
+  /* Vertical line */
+  &:before {
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    left: 50%;
+    width: 2px;
+    height: 12px;
+  }
+
+  /* horizontal line */
+  &:after {
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    width: 12px;
+    height: 2px;
+  }
+
+  &.opened {
+    cursor: pointer;
+
+    &:before {
+      transform: translate3d(-50%, -50%, 0) rotate(90deg);
+    }
+
+    &:after {
+      transform: translate3d(-50%, -50%, 0) rotate(180deg);
+    }
+  }
+
+  @media screen and (min-width: 991px) {
+
+    width: 60px;
+    height: 60px;
+    border: 2px solid #fff;
+
+    /* Vertical line */
+    &:before {
+      height: 16px;
+    }
+
+    /* horizontal line */
+    &:after {
+      width: 16px;
     }
   }
 }

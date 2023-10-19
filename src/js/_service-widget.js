@@ -1,31 +1,29 @@
 export function AnimatedExpand(
-  rootEl,
-  itemEl,
-  triggerEl,
-  tailEl,
-  animatedItemsQuery,
   options
 ) {
-  console.log('AnimatedExpand init');
   var transitionStep = 50;
   var that = this;
   this.options = options || {};
-  this.rootEl = rootEl;
-  this.itemEl = itemEl;
-  this.trigger$ = $(triggerEl);
-  this.tailEl$ = $(tailEl);
-  this.animatedItems$ = $(animatedItemsQuery);
+  this.rootEl = options.rootEl;
+  this.itemEl = options.itemEl;
+  this.trigger = options.triggerEl;
+  this.tailEl = options.tailEl;
+  this.animatedItems = options.animatedItemsQuery;
 
   if ($(this.rootEl).length) {
-    this.trigger$.on('click', function (e) {
+    var animate = this.options.animate !== false;
+    $(this.rootEl).find(this.trigger).on('click', function (e) {
       that.open.call(that, e.target);
     });
-    $(this.itemEl).each(function (i, el) {
-      var items = $(el).find(animatedItemsQuery);
-      items.each(function (itemIndex, item) {
-        $(item).css('transition-delay', itemIndex * transitionStep + 'ms');
-      })
-    });
+
+    if (animate) {
+      $(this.rootEl).find(this.itemEl).each(function (i, el) {
+        var items = $(el).find(that.animatedItems);
+        items.each(function (itemIndex, item) {
+          $(item).css('transition-delay', itemIndex * transitionStep + 'ms');
+        })
+      });
+    }
   }
 }
 
@@ -51,9 +49,9 @@ AnimatedExpand.prototype.openById = function (id) {
   if (closeOthers) {
     this.close(root$.find(this.itemEl).not($el));
   }
-  var $serviceCardTail = $el.find(this.tailEl$);
+  var $serviceCardTail = $el.find(this.tailEl);
 
-  $el.find(this.trigger$).addClass('opened');
+  $el.find(this.trigger).addClass('opened');
   $el.addClass('opened');
   $serviceCardTail.slideDown(300);
   setTimeout(function () {
@@ -68,9 +66,9 @@ AnimatedExpand.prototype.openById = function (id) {
 AnimatedExpand.prototype.close = function (target) {
   var $item = $(target).closest(this.itemEl);
   $item.removeClass('opened');
-  $item.find(this.tailEl$).slideUp(300);
-  $item.find(this.tailEl$).removeClass('opened');
-  $item.find(this.trigger$).removeClass('opened');
+  $item.find(this.tailEl).slideUp(300);
+  $item.find(this.tailEl).removeClass('opened');
+  $item.find(this.trigger).removeClass('opened');
 
   var autoCloseNested = this.options.autoCloseNested !== false;
   if (autoCloseNested && this.options.nested) {

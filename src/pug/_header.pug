@@ -24,11 +24,13 @@ header.header.js-sticky-header
                         .nav__bottom-element
                             a(href="https://t.me/MedCoupleBot",target='_blank').contact-link
                                 i.contact-link__icon.icon.paste-sprite-telegram-icon
-                                span.contact-link__label Telegram-бот
+                                .contact-link__tail
+                                    span.contact-link__label Telegram-бот
                         .nav__bottom-element
                             a(href="mailto:example@mail.com").contact-link
                                 i.contact-link__icon.icon.paste-sprite-email-icon
-                                span.contact-link__label example@mail.com
+                                .contact-link__tail
+                                    span.contact-link__label example@mail.com
                         .nav__bottom-element
                             button(type='button').button.button--outlined.js-open-dialog(data-dialog-id="widget")
                                 span Записаться на прием
@@ -38,7 +40,8 @@ header.header.js-sticky-header
             section.header__phone
                 a(href="https://t.me/MedCoupleBot",target='_blank').contact-link
                     i.contact-link__icon.icon.paste-sprite-telegram-icon
-                    span.contact-link__label Telegram-бот
+                    .contact-link__tail
+                        span.contact-link__label Telegram-бот
 
             section.header__splitButton
                 .split-button
