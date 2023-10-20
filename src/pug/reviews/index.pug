@@ -45,6 +45,24 @@ html(lang="ru")
                                                 p Сегодня к нам с визитом на дом приходил доктор Иван Проценко.  Вызов был для ребёнка 12 лет. Пунктуальный, доброжелательный, компетентный и сразу расположил к себе.Внимательно выслушал  наши симптомы, осмотрел, вежливо прокомментировал наши самостоятельные попытки лечения и по совокупности, доктор дал  все необходимые рекомендации и назначил лечение.
                                             button.review-card__expandBtn.expandable__button.button.button--outlined(type='button')
 
+                            .feedbacks-lib__pagination
+                                section.pagination
+                                    a.pagination__prevBtn.pagination__arrowBtn(href="#")
+                                        i.icon.paste-sprite-caret-left-icon
+                                        span Предыдущая cтраница
+                                    ul.pagination__list
+                                        li.pagination__item
+                                            a.pagination__link(href="#") 1
+                                        li.pagination__item
+                                            a.pagination__link(href="#") 2
+                                        li.pagination__rest ...
+                                        li.pagination__item
+                                            a.pagination__link(href="#") 8
+                                        li.pagination__item
+                                            a.pagination__link(href="#") 9
+                                    a.pagination__nextBtn.pagination__arrowBtn(href="#")
+                                        span Следующая cтраница
+                                        i.icon.paste-sprite-caret-left-icon
                 include ../_callback-widget
             include ../_footer
         include ../_dialogs

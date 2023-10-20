@@ -1078,6 +1078,169 @@ img:not([src]) {
   }
 }
 
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+
+  &__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__arrowBtn {
+    flex-shrink: 0;
+    padding: 0;
+    text-decoration: none;
+    color: inherit;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    margin: 0 5px;
+    justify-content: center;
+    border: 1.5px solid #fff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+
+    &:hover {
+      background-color: $accent-color;
+      border-color: $accent-color;
+
+      path {
+        stroke: #fff
+      }
+    }
+
+    &.disabled {
+      opacity: .5;
+      pointer-events: none;
+    }
+
+    .icon {
+      width: 14px;
+      height: 14px;
+    }
+
+    span {
+      display: none;
+    }
+  }
+
+  &__prevBtn {
+    .icon {
+      transform: rotate(180deg) translateX(1px);
+    }
+  }
+
+  &__nextBtn {
+    .icon {
+      transform: translateX(1px);
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #fff;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+
+    &.disabled,
+    &.active {
+      opacity: .5;
+      pointer-events: none;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    &.active {
+      background-color: $accent-color;
+      color: #fff;
+    }
+
+    &:hover {
+      background-color: $accent-color;
+      color: #fff;
+    }
+  }
+
+  &__rest {
+    opacity: .5;
+    margin: 0 5px;
+  }
+
+  @media screen and (min-width: 991px) {
+
+    font-size: 18px;
+
+    &__list {
+      margin: 0 20px;
+    }
+
+    &__arrowBtn {
+      margin: 0;
+
+      border: none;
+      border-radius: 0;
+      width: auto;
+      height: auto;
+
+      .icon {
+        width: 16px;
+        height: 16px;
+      }
+
+      span {
+        display: block;
+      }
+
+
+      &:hover {
+        background-color: transparent;
+        border-color: transparent;
+        color: $accent-color;
+
+        path {
+          stroke: $accent-color;
+        }
+      }
+    }
+
+    &__prevBtn {
+      .icon {
+        margin-right: 10px;
+      }
+    }
+
+    &__nextBtn {
+      .icon {
+        margin-left: 10px;
+      }
+    }
+
+
+    &__item {
+      width: 62px;
+      height: 62px;
+    }
+  }
+}
+
 @import "forms";
 @import "dialog";
 @import "header";

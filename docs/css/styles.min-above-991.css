@@ -295,6 +295,54 @@ body {
   width: 16px;
 }
 
+.pagination {
+  font-size: 18px;
+}
+
+.pagination__list {
+  margin: 0 20px;
+}
+
+.pagination__arrowBtn {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  width: auto;
+  height: auto;
+}
+
+.pagination__arrowBtn .icon {
+  width: 16px;
+  height: 16px;
+}
+
+.pagination__arrowBtn span {
+  display: block;
+}
+
+.pagination__arrowBtn:hover {
+  background-color: transparent;
+  border-color: transparent;
+  color: #d56a5d;
+}
+
+.pagination__arrowBtn:hover path {
+  stroke: #d56a5d;
+}
+
+.pagination__prevBtn .icon {
+  margin-right: 10px;
+}
+
+.pagination__nextBtn .icon {
+  margin-left: 10px;
+}
+
+.pagination__item {
+  width: 62px;
+  height: 62px;
+}
+
 .popup__inner {
   border-radius: 40px;
   padding: 30px;
@@ -620,6 +668,10 @@ body {
 
 .feedbacks-lib__item {
   margin-bottom: 30px;
+}
+
+.feedbacks-lib__pagination {
+  margin-top: 40px;
 }
 
 .team-slider {

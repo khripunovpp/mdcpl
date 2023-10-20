@@ -383,10 +383,14 @@
 
 
 .feedbacks-lib {
-  padding-bottom: 0;
+  padding-bottom: 30px;
 
   &__item {
     margin-bottom: 20px;
+  }
+
+  &__pagination {
+    margin-top: 20px;
   }
 
   @media screen and (min-width: 991px) {
@@ -395,6 +399,10 @@
     &__item {
       margin-bottom: 30px;
     }
+    &__pagination {
+      margin-top: 40px;
+    }
+
   }
 }
 
