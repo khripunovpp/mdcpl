@@ -11,7 +11,6 @@ html(lang="ru")
         section.overflow
             include ../_header
             section.tail
-
                 section.lead
                     .container
                         .lead__inner
@@ -23,12 +22,91 @@ html(lang="ru")
                                         i.icon.paste-sprite-arrow-left-icon
                                         span Назад
                                     h1.lead__title Специалисты <br>семейной <br>медицины
+
+                section.team-lib
+                    .container
+                        .team-lib__inner
+                            .team-lib__list
+                                - for (let i = 0; i < 5; i++)
+                                    section.team-lib__item.doc-card
+                                        .doc-card__desktopImage
+                                            img.lazy(data-src=`../img/doc-pic-big-${i + 1}.jpg`, alt='Имя')
+                                        .doc-card__content
+                                            header.doc-card__header
+                                                .doc-card__profile
+                                                    .doc-card__ava
+                                                        img.lazy(data-src=`../img/doc-pic-${i + 1}.jpg`, alt='Имя')
+                                                    .doc-card__description
+                                                        p.doc-card__name Имя Фамилия
+                                                        p.doc-card__location
+                                                            i.icon.paste-sprite-location-icon
+                                                            | Сетубал, Лиссабон
+                                                .doc-card__button
+                                                    button.doc-card__appointment.button.button--accent(type='button', aria-label='Записаться на прием').js-open-dialog(data-dialog-id="widget")
+                                                        span Записаться на прием
+                                            section.doc-card__sections
+                                                section.doc-card__toggle-item.toggle-item(data-id=`${i + 1}1`).opened
+                                                    header.toggle-item__header
+                                                        h3.toggle-item__title
+                                                            span Биография
+                                                        button.toggle-item__toggleBtn(type='button')
+                                                            i.paste-sprite-caret-left-icon.icon
+                                                    .toggle-item__tail.opened(style='display: block;')
+                                                        p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus atque culpa cupiditate doloremque eaque eius enim et
+
+                                                        ul
+                                                            li Факультет фундаментальной медицины МГУ, специальность Лечебное дело 2008−2014 гг.
+                                                            li Ординатура по общей хирургии в Москве 2014−2016 гг.
+                                                            li Один год общей интернатуры в Португалии с практиками в хирургическом, терапевтическом, педиатрическом и приемном отделениях в 2019 г.
+                                                            li Более двух лет интернатуры по общей и семейной медицине в Португалии, начиная с 2020 г.
+                                                            li Работа в детском приемном отделении госпиталя в г. Сетубал с июля 2021 г.
+
+                                                section.doc-card__toggle-item.toggle-item(data-id=`${i + 1}2`).doc-card__toggle-item--diplomas
+                                                    header.toggle-item__header
+                                                        h3.toggle-item__title
+                                                            span Дипломы / Награды
+                                                        button.toggle-item__toggleBtn(type='button')
+                                                            i.paste-sprite-caret-left-icon.icon
+                                                    .toggle-item__tail
+                                                        p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus atque culpa cupiditate doloremque eaque eius enim et
+
+                                                        ul
+                                                            li Факультет фундаментальной медицины МГУ, специальность Лечебное дело 2008−2014 гг.
+                                                            li Ординатура по общей хирургии в Москве 2014−2016 гг.
+                                                            li Один год общей интернатуры в Португалии с практиками в хирургическом, терапевтическом, педиатрическом и приемном отделениях в 2019 г.
+                                                            li Более двух лет интернатуры по общей и семейной медицине в Португалии, начиная с 2020 г.
+                                                            li Работа в детском приемном отделении госпиталя в г. Сетубал с июля 2021 г.
+
+                                                section.doc-card__toggle-item.doc-card__toggle-item--service.toggle-item(data-id=`${i + 1}3`)
+                                                    header.toggle-item__header
+                                                        h3.toggle-item__title
+                                                            span Услуги
+                                                        button.toggle-item__toggleBtn(type='button')
+                                                            i.paste-sprite-caret-left-icon.icon
+                                                    .toggle-item__tail
+                                                        ul
+                                                            li
+                                                                i.icon.paste-sprite-caret-left-icon
+                                                                | Факультет фундаментальной медицины МГУ, специальность Лечебное дело 2008−2014 гг.
+                                                            li
+                                                                i.icon.paste-sprite-caret-left-icon
+                                                                | Ординатура по общей хирургии в Москве 2014−2016 гг.
+                                                            li
+                                                                i.icon.paste-sprite-caret-left-icon
+                                                                | Один год общей интернатуры в Португалии с практиками в хирургическом, терапевтическом, педиатрическом и приемном отделениях в 2019 г.
+                                                            li
+                                                                i.icon.paste-sprite-caret-left-icon
+                                                                | Более двух лет интернатуры по общей и семейной медицине в Португалии, начиная с 2020 г.
+                                                            li
+                                                                i.icon.paste-sprite-caret-left-icon
+                                                                | Работа в детском приемном отделении госпиталя в г. Сетубал с июля 2021 г.
+
+                include ../_callback-widget
             include ../_footer
         include ../_dialogs
         .sprite(aria-hidden="true", style="display: none;")
             include ../../img/sprite.svg
-
-
         include ../_footer-scripts.html
         script(defer,src='./js/main.js')
+        script(defer,src='./js/team-page.js')
         script(defer,src='./js/libs.min.js',onload="libLoaded()")

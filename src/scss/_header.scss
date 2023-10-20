@@ -183,14 +183,10 @@
     margin-bottom: 25px;
 
     a {
-      color: inherit;
+      color: currentColor;
       text-decoration: none;
       font-weight: 600;
       transition: color 0.2s ease-in;
-
-      &:hover {
-        color: $accent-color;
-      }
     }
 
     li + li {
@@ -199,6 +195,10 @@
 
     li {
       transition: transform 0.2s ease-in, opacity 0.2s ease-in-out;
+       &:hover,
+      &.active {
+        color: $accent-color;
+      }
     }
   }
 
