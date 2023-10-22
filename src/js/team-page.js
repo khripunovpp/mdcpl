@@ -1,6 +1,19 @@
 import {AnimatedExpand} from "./_service-widget";
 
-$(function () {
+window.libLoaded = function () {
+  window.loadLazy();
+
+  var galleries$ = $('.diplomas-gallery');
+
+  galleries$.each(function (i, gallery) {
+    var galelry = lightGallery(gallery, {
+      speed: 500,
+      download: false,
+      // ... other settings
+    });
+  });
+
+
   var groupItems = new AnimatedExpand(
     {
       rootEl: '.team-lib',
@@ -9,8 +22,10 @@ $(function () {
       tailEl: '.toggle-item__tail',
       toggleBehavior: true,
       closeOthers: false,
+      onExpand: function (el) {
+        console.log(window.lazyInstance);
+        window.lazyInstance.update();
+      },
     }
   );
-
-  console.log({groupItems});
-})
+}

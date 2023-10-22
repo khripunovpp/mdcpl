@@ -10,9 +10,10 @@
   }
   window.loadLazy = function () {
     $(function () {
-      var lazy = $('.lazy').Lazy({
+      window.lazyInstance = $('.lazy').Lazy({
         effect: 'fadeIn',
         effectTime: 500,
+        chainable: false,
         threshold: 0,
         afterLoad: function (element) {
           $(element).closest('.lazy-wrapper').addClass('is-loaded');

@@ -39,6 +39,7 @@
   };
 
   AnimatedExpand.prototype.openById = function (id) {
+    var that = this;
     var $el = $(this.rootEl).find(this.itemEl).filter('[data-id="' + id + '"]');
     var root$ = $el.closest(this.rootEl);
     var closeOthers = this.options.closeOthers !== false;
@@ -58,14 +59,16 @@
 
     $el.find(this.trigger).addClass('opened');
     $el.addClass('opened');
-    $serviceCardTail.slideDown(300);
+    $serviceCardTail.slideDown(300, function () {
+
+      if (typeof that.options.onExpand === 'function') {
+        that.options.onExpand($el[0]);
+      }
+    });
     setTimeout(function () {
       $serviceCardTail.addClass('opened');
     }, 200);
 
-    if (typeof this.options.onExpand === 'function') {
-      this.options.onExpand($el[0]);
-    }
   };
 
   AnimatedExpand.prototype.openNestedById = function (id) {
@@ -91,7 +94,20 @@
     this.close($items);
   };
 
-  $(function () {
+  window.libLoaded = function () {
+    window.loadLazy();
+
+    var galleries$ = $('.diplomas-gallery');
+
+    galleries$.each(function (i, gallery) {
+      var galelry = lightGallery(gallery, {
+        speed: 500,
+        download: false,
+        // ... other settings
+      });
+    });
+
+
     var groupItems = new AnimatedExpand(
       {
         rootEl: '.team-lib',
@@ -100,10 +116,12 @@
         tailEl: '.toggle-item__tail',
         toggleBehavior: true,
         closeOthers: false,
+        onExpand: function (el) {
+          console.log(window.lazyInstance);
+          window.lazyInstance.update();
+        },
       }
     );
-
-    console.log({groupItems});
-  });
+  };
 
 }));

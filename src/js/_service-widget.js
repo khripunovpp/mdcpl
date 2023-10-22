@@ -34,6 +34,7 @@ AnimatedExpand.prototype.open = function (target) {
 }
 
 AnimatedExpand.prototype.openById = function (id) {
+  var that = this;
   var $el = $(this.rootEl).find(this.itemEl).filter('[data-id="' + id + '"]');
   var root$ = $el.closest(this.rootEl);
   var closeOthers = this.options.closeOthers !== false;
@@ -53,14 +54,16 @@ AnimatedExpand.prototype.openById = function (id) {
 
   $el.find(this.trigger).addClass('opened');
   $el.addClass('opened');
-  $serviceCardTail.slideDown(300);
+  $serviceCardTail.slideDown(300, function () {
+
+    if (typeof that.options.onExpand === 'function') {
+      that.options.onExpand($el[0]);
+    }
+  });
   setTimeout(function () {
     $serviceCardTail.addClass('opened');
   }, 200);
 
-  if (typeof this.options.onExpand === 'function') {
-    this.options.onExpand($el[0]);
-  }
 }
 
 AnimatedExpand.prototype.openNestedById = function (id) {

@@ -268,11 +268,12 @@
     background-color: #EBE2DD;
     margin-bottom: 10px;
 
+
     .toggle-item {
       &__tail {
-        opacity: .7;
         font-size: 12px;
         line-height: 20px;
+        color: #546A6C;
 
         & > *:first-child {
           margin-top: 0
@@ -399,5 +400,115 @@
       }
     }
 
+  }
+}
+
+.lg-outer .lg-item:not(.lg-start-end-progress) {
+  background: url(../img/loading.gif) no-repeat scroll center center transparent !important
+}
+
+.lg-close {
+  opacity: .7;
+  transition: opacity .2s ease-in;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+
+  &::after {
+    background-image: url(../img/cross-icon-white.svg);
+    content: '';
+    width: 20px;
+    height: 20px;
+    display: block;
+    background-size: cover;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.lg-prev,
+.lg-next {
+  transition: opacity .2s ease-in;
+  padding: 0;
+  width: 60px;
+  height: 60px;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  border: 2px solid #fff !important;
+
+  .lg-show-in & {
+    opacity: 0.7 !important;
+  }
+
+  &::after {
+    background-image: url(../img/caret-left-icon-white.svg);
+    content: '';
+    width: 9px;
+    height: 16px;
+    display: block;
+    background-size: cover;
+  }
+
+  &:hover {
+    opacity: 1 !important;
+  }
+}
+
+.lg-prev {
+  &::after {
+    transform: rotate(180deg) translateX(2px);
+  }
+}
+
+.lg-next {
+  &::before {
+    display: none;
+  }
+
+  &::after {
+    transform: translateX(2px);
+  }
+}
+
+.diplomas-gallery {
+  display: flex;
+  margin: -5px;
+  flex-wrap: wrap;
+
+  &__item {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    padding: 5px;
+    background-color: #fff;
+    transition: background-color 0.2s ease-in;
+    margin: 5px;
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    &:hover {
+      background-color: $light-green;
+    }
+  }
+
+  @media screen and (min-width: 991px) {
+    margin: -10px;
+    &__item {
+      padding: 10px;
+      width: 200px;
+      height: 200px;
+      margin: 10px;
+    }
   }
 }

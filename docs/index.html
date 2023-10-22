@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="./css/styles.min-above-991.css" media="screen and (min-width: 991px)"/>
     <link rel="stylesheet" href="./css/splide.min.css"/>
     <link rel="stylesheet" href="./css/splide-default.min.css"/>
+    <link rel="stylesheet" href="./css/lightgallery.min.css"/>
     <link rel="icon" href="./img/favicon.ico" sizes="any" type="image/x-icon"/>
     <link rel="icon" href="./img/brand-logo.svg" type="image/svg+xml"/><link rel="mask-icon" href="./img/brand-logo.svg" color="#5bbad5">
 <link rel="apple-touch-icon" sizes="180x180" href="./img/apple-touch-icon.png">
@@ -796,9 +797,10 @@ var rubitimeIframeIsLoaded = true;</script>
   }
   window.loadLazy = function () {
     $(function () {
-      var lazy = $('.lazy').Lazy({
+      window.lazyInstance = $('.lazy').Lazy({
         effect: 'fadeIn',
         effectTime: 500,
+        chainable: false,
         threshold: 0,
         afterLoad: function (element) {
           $(element).closest('.lazy-wrapper').addClass('is-loaded');

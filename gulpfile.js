@@ -40,6 +40,7 @@ function stylesRaw() {
   return src([
     'src/css/splide.min.css',
     'src/css/splide-default.min.css',
+    'src/css/lightgallery.min.css',
   ])
     .pipe(dest('docs/css/')) // Выгружаем готовый файл в папку назначения
     .pipe(browserSync.stream()) // Триггерим Browsersync для обновления страницы
@@ -68,6 +69,7 @@ function libsscripts() {
     'src/js/splide.min.js',
     'src/js/jquery.lazy.js',
     'src/js/sticky-sidebar.min.js',
+    'src/js/lightgallery.min.js',
   ];
   return src(entries)
     .pipe(concat('libs.min.js')) // Конкатенируем в один файл
