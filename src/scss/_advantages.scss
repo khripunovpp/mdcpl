@@ -2,6 +2,25 @@
   background-color: #fff;
   padding: 50px 0;
 
+  &--about {
+    background-color: transparent;
+    padding: 0 0 50px;
+
+    .advantages {
+      &__title {
+        font-size: 18px;
+        line-height: 23px;
+      }
+
+      &__item {
+        &-icon {
+          border-radius: 50%;
+          box-shadow: 0 0 0 2px #fff;
+        }
+      }
+    }
+  }
+
   &__title {
     text-align: center;
     margin: 0 0 20px;
@@ -54,7 +73,16 @@
 
   @media screen and (min-width: 991px) {
     padding: 150px 0;
+    &--about {
+      padding: 0 0 100px;
 
+      .advantages {
+        &__title {
+          font-size: 40px;
+          line-height: 52px;
+        }
+      }
+    }
 
     &__list {
       margin-left: -15px;

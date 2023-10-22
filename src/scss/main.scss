@@ -641,6 +641,7 @@ img:not([src]) {
     display: flex;
     jsutify-content: space-between;
     align-items: center;
+    cursor: pointer;
   }
 
   &__toggleBtn {
@@ -648,10 +649,6 @@ img:not([src]) {
     background-color: #E6EDE9;
     flex-shrink: 0;
 
-    &.opened {
-      transition: background-color 0.3s ease-in-out;
-      background-color: transparent;
-    }
   }
 
   &__title {
@@ -659,7 +656,6 @@ img:not([src]) {
     transform: translateX(25px);
     margin: 0 10px 0 0;
     font-size: 18px;
-    cursor: pointer;
   }
 
   &__tail {
@@ -792,6 +788,10 @@ img:not([src]) {
         transform: translateX(0);
       }
 
+      &__toggleBtn {
+        transition: background-color 0.3s ease-in-out;
+        background-color: transparent;
+      }
     }
   }
 
@@ -892,10 +892,10 @@ img:not([src]) {
 
   &__header {
     display: flex;
+    cursor: pointer;
   }
 
   &__title {
-    cursor: pointer;
     margin: 0 10px 0 0;
     font-size: 12px;
     line-height: 15px;
@@ -920,11 +920,6 @@ img:not([src]) {
       transform: rotate(90deg);
     }
 
-    &.opened {
-      .icon {
-        transform: rotate(-90deg);
-      }
-    }
   }
 
   &__tail {
@@ -978,6 +973,16 @@ img:not([src]) {
     }
   }
 
+  &.opened {
+    .toggle-item {
+      &__toggleBtn {
+        .icon {
+          transform: rotate(-90deg);
+        }
+      }
+    }
+  }
+
   @media screen and (max-width: 990px) {
     &__actionButtonWrap:first-child {
       width: 100%;
@@ -1017,7 +1022,7 @@ img:not([src]) {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border:2px solid #fff;
+  border: 2px solid #fff;
   appearance: none;
   cursor: pointer;
 
@@ -1048,7 +1053,7 @@ img:not([src]) {
     height: 2px;
   }
 
-  &.opened {
+  .opened & {
     cursor: pointer;
 
     &:before {

@@ -99,7 +99,7 @@
       {
         rootEl: '.faq-lib .toggle-group',
         itemEl: '.toggle-item',
-        triggerEl: '.toggle-item__toggleBtn,.toggle-item__title',
+       triggerEl: '.toggle-item__header',
         tailEl: '.toggle-item__tail',
         animatedItemsQuery: '.toggle-item__actionButtonWrap, .toggle-item__description',
         toggleBehavior: true,
@@ -111,7 +111,7 @@
       {
         rootEl: '.faq-lib',
         itemEl: '.toggle-group',
-        triggerEl: '.toggle-group__toggleBtn,.toggle-group__title',
+        triggerEl: '.toggle-group__header',
         tailEl: '.toggle-group__tail',
         animatedItemsQuery: '.toggle-group__actionButtonWrap, .toggle-group__columns-item,.toggle-group__description,.toggle-group__title',
         toggleBehavior: true,

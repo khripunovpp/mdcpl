@@ -18,7 +18,7 @@ window.libLoaded = function () {
     {
       rootEl: '.team-lib',
       itemEl: '.toggle-item',
-      triggerEl: '.toggle-item__toggleBtn,.toggle-item__title',
+      triggerEl: '.toggle-item__header',
       tailEl: '.toggle-item__tail',
       toggleBehavior: true,
       closeOthers: false,
