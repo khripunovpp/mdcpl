@@ -1412,55 +1412,57 @@
                 </div>
               </section>
               <section class="callback-widget__contentPart">
-                <h2 class="callback-widget__title title">Обратная связь</h2>
-                <section class="callback-widget__form">
-                  <form class="form" id="callback-form">
-                    <section class="form__field has-error">
-                      <label class="form__label">Имя</label>
-                      <input class="form__control error" type="text" name="name"/>
-                      <p class="form__field-errorText">Обязательное поле</p>
-                    </section>
-                    <section class="form__field form__field--select"><i class="form__caretDown paste-sprite-caret-left-icon icon"></i>
-                      <select class="form__control">
-                        <option value="Порто">Порто</option>
-                        <option value="Лиссабон">Лиссабон</option>
-                        <option value="Сетубал">Сетубал</option>
-                      </select>
-                      <p class="form__field-errorText">Обязательное поле</p>
-                    </section>
-                    <section class="form__field">
-                      <label class="form__label">Телефон</label>
-                      <input class="form__control" type="tel" name="phone"/>
-                      <p class="form__field-errorText">Обязательное поле</p>
-                    </section>
-                    <section class="form__field">
-                      <label class="form__label">Email</label>
-                      <input class="form__control" type="email" name="email"/>
-                      <p class="form__field-errorText">Обязательное поле</p>
-                    </section>
-                    <section class="form__field form__field--fluid form__field--textarea">
-                      <label class="form__label">Ваше обращение</label>
-                      <textarea class="form__control" name="msg" rows="3"></textarea>
-                      <p class="form__field-errorText">Обязательное поле</p>
-                    </section>
-                    <section class="form__section form__section--files">
-                      <p class="form__info">Скан назначения врача или другие документы (.pdf, .doc, .docx, .jpg, .jpeg, .png, .zip, .rar):</p>
-                      <input class="form__control" type="file" name="file" multiple="multiple" accept=".pdf, .doc, .docx, .jpg, .jpeg, .png, .zip, .rar"/>
-                      <div class="form__files">
-                        <button class="form__uploadBtn button button--outlined" type="button">Прикрепить файл</button>
-                        <ul class="form__filesList"></ul>
-                      </div>
-                    </section>
-                    <footer class="form__footer">
-                      <div class="form__checkbox">
-                        <label class="form__checkboxContainer"><span>Я согласен на обработку&nbsp;<a href="#" target="_blank">персональных данных</a></span>
-                          <input type="checkbox" name="agree" id="agree"/><span class="form__checkboxMark"><span class="form__checkboxMark-icon paste-sprite-check-icon icon"></span></span>
-                        </label>
-                      </div>
-                      <button class="form__submit button button--outlined" type="button">Отправить</button>
-                    </footer>
-                  </form>
-                </section>
+                <div class="callback-widget__formPart">
+                  <h2 class="callback-widget__title title">Обратная связь</h2>
+                  <section class="callback-widget__form">
+                    <form class="form" id="callback-form">
+                      <section class="form__field has-error">
+                        <label class="form__label">Имя</label>
+                        <input class="form__control error" type="text" name="name"/>
+                        <p class="form__field-errorText">Обязательное поле</p>
+                      </section>
+                      <section class="form__field form__field--select"><i class="form__caretDown paste-sprite-caret-left-icon icon"></i>
+                        <select class="form__control">
+                          <option value="Порто">Порто</option>
+                          <option value="Лиссабон">Лиссабон</option>
+                          <option value="Сетубал">Сетубал</option>
+                        </select>
+                        <p class="form__field-errorText">Обязательное поле</p>
+                      </section>
+                      <section class="form__field">
+                        <label class="form__label">Телефон</label>
+                        <input class="form__control" type="tel" name="phone"/>
+                        <p class="form__field-errorText">Обязательное поле</p>
+                      </section>
+                      <section class="form__field">
+                        <label class="form__label">Email</label>
+                        <input class="form__control" type="email" name="email"/>
+                        <p class="form__field-errorText">Обязательное поле</p>
+                      </section>
+                      <section class="form__field form__field--fluid form__field--textarea">
+                        <label class="form__label">Ваше обращение</label>
+                        <textarea class="form__control" name="msg" rows="3"></textarea>
+                        <p class="form__field-errorText">Обязательное поле</p>
+                      </section>
+                      <section class="form__section form__section--files">
+                        <p class="form__info">Скан назначения врача или другие документы (.pdf, .doc, .docx, .jpg, .jpeg, .png, .zip, .rar):</p>
+                        <input class="form__control" type="file" name="file" multiple="multiple" accept=".pdf, .doc, .docx, .jpg, .jpeg, .png, .zip, .rar"/>
+                        <div class="form__files">
+                          <button class="form__uploadBtn button button--outlined" type="button">Прикрепить файл</button>
+                          <ul class="form__filesList"></ul>
+                        </div>
+                      </section>
+                      <footer class="form__footer">
+                        <div class="form__checkbox">
+                          <label class="form__checkboxContainer"><span>Я согласен на обработку&nbsp;<a href="#" target="_blank">персональных данных</a></span>
+                            <input type="checkbox" name="agree" id="agree"/><span class="form__checkboxMark"><span class="form__checkboxMark-icon paste-sprite-check-icon icon"></span></span>
+                          </label>
+                        </div>
+                        <button class="form__submit button button--outlined" type="button">Отправить</button>
+                      </footer>
+                    </form>
+                  </section>
+                </div>
               </section>
             </div>
           </div>
@@ -1495,19 +1497,13 @@
               <li><a class="contact-link" href="mailto:info@medcouple.pt"><i class="contact-link__icon icon paste-sprite-email-icon"></i>
                   <div class="contact-link__tail"><span class="contact-link__label">info@medcouple.pt</span></div></a></li>
               <li><a class="contact-link" href="https://facebook.com/medcouplept"><i class="contact-link__icon icon paste-sprite-facebook-icon"></i>
-                  <div class="contact-link__tail">
-                    <sspan class="contact-link__label">facebook.com/medcouplept</sspan>
-                  </div></a></li>
+                  <div class="contact-link__tail"><span class="contact-link__label">facebook.com/medcouplept</span></div></a></li>
             </ul>
             <ul class="footer__contactsList">
               <li><a class="contact-link" href="https://t.me/medcouplept"><i class="contact-link__icon icon paste-sprite-telegram-circle-icon"></i>
-                  <div class="contact-link__tail">
-                    <sspan class="contact-link__description">Канал в телеграм:</sspan><span class="contact-link__label">t.me/medcouplept</span>
-                  </div></a></li>
+                  <div class="contact-link__tail"><span class="contact-link__description">Канал в телеграм:</span><span class="contact-link__label">t.me/medcouplept</span></div></a></li>
               <li><a class="contact-link" href="https://t.me/MedCoupleBot"><i class="contact-link__icon icon paste-sprite-telegram-circle-icon"></i>
-                  <div class="contact-link__tail">
-                    <sspan class="contact-link__description">Бот для записи:</sspan><span class="contact-link__label">t.me/MedCoupleBot</span>
-                  </div></a></li>
+                  <div class="contact-link__tail"><span class="contact-link__description">Бот для записи:</span><span class="contact-link__label">t.me/MedCoupleBot</span></div></a></li>
             </ul>
           </section>
         </div>

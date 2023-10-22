@@ -1,12 +1,40 @@
-section.callback-widget(data-id='callback-widget')
+section.callback-widget(data-id='callback-widget').callback-widget--contacts-page
     .container
         .callback-widget__inner
             section.callback-widget__mapPart
                 .callback-widget__map
                     #callback-widget-map
             section.callback-widget__contentPart
+                .callback-widget__contactPart
+                    ul.callback-widget__contacts
+                        li
+                            span.contact-link
+                                i.contact-link__icon.icon.paste-sprite-location-icon
+                                .contact-link__tail
+                                    span.contact-link__label Edificio espelho do tejo, <br>Rua da Ilha dos Amores nº 26A, 1990-118&nbsp;Lisboa
+                        li
+                            a(href="mailto:info@medcouple.pt").contact-link
+                                i.contact-link__icon.icon.paste-sprite-email-icon
+                                .contact-link__tail
+                                    span.contact-link__label info@medcouple.pt
+                        li
+                            a(href="https://facebook.com/medcouplept").contact-link
+                                i.contact-link__icon.icon.paste-sprite-facebook-icon
+                                .contact-link__tail
+                                    span.contact-link__label facebook.com/medcouplept
+                        li
+                            a(href="https://t.me/medcouplept").contact-link
+                                i.contact-link__icon.icon.paste-sprite-telegram-circle-icon
+                                .contact-link__tail
+                                    span.contact-link__description Канал в телеграм:
+                                    span.contact-link__label t.me/medcouplept
+                        li
+                            a(href="https://t.me/MedCoupleBot").contact-link
+                                i.contact-link__icon.icon.paste-sprite-telegram-circle-icon
+                                .contact-link__tail
+                                    span.contact-link__description Бот для записи:
+                                    span.contact-link__label t.me/MedCoupleBot
                 .callback-widget__formPart
-                    h2.callback-widget__title.title Обратная связь
                     section.callback-widget__form
                         form.form#callback-form
                             section.form__field.has-error

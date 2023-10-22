@@ -7,7 +7,7 @@ html(lang="ru")
         block scripts
             include ../_head-scripts
 
-    body
+    body(style="background-color: #EBE2DD;")
         section.overflow
             include ../_header
             section.tail
@@ -25,6 +25,8 @@ html(lang="ru")
                                     h1.lead__title Контакты
                                 .lead__text
                                     p Мы - семейные врачи и врачи общей практики и работаем с пациентами любого возраста и помогаем вам в решении самого широкого круга вопросов.
+
+                include ../_callback-widget-contacts-page
             include ../_footer
         include ../_dialogs
         .sprite(aria-hidden="true", style="display: none;")
