@@ -80,10 +80,30 @@
       border: 2px solid $light-green;
     }
     &:not(&--big):not(&--icon) {
+      font-size: 18px;
+      padding: 14px 23px;
+    }
+
+    &--big {
+      font-size: 24px;
+      padding: 14px 44px;
+    }
+
+    &--icon {
+      padding: 13px;
+    }
+
+    &--telegram {
+      padding-left: 12px;
+      padding-right: 14px;
+    }
+  }
+
+  @media screen and (min-width: 1500px) {
+    &:not(&--big):not(&--icon) {
       font-size: 20px;
       padding: 18px 26px;
     }
-
     &--big {
       font-size: 30px;
       padding: 18px 50px;
@@ -91,18 +111,9 @@
     &--icon {
       padding: 16px;
     }
-
     &--telegram {
       padding-left: 15px;
       padding-right: 17px;
     }
-
-    &--whatsapp {
-      padding-left: 17px;
-      padding-right: 15px;
-    }
-
-
   }
-
 }

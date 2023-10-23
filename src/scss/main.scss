@@ -28,6 +28,11 @@ body {
   }
 
   @media screen and (min-width: 991px) {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  @media screen and (min-width: 1500px) {
     font-size: 18px;
   }
 
@@ -103,6 +108,12 @@ img {
 
   @media screen and (min-width: 991px) {
 
+    width: 20px;
+    height: 20px;
+  }
+
+  @media screen and (min-width: 1500px) {
+
     width: 24px;
     height: 24px;
   }
@@ -170,9 +181,6 @@ img {
     transition: color 0.2s ease-in-out;
   }
 
-  @media screen and (min-width: 991px) {
-    font-size: 18px;
-  }
 
 }
 
@@ -214,6 +222,9 @@ a.contact-link:hover {
   clip-path: circle(7.5px at 22.5px 35px);
   transition: clip-path 0.4s ease-in-out;
   @media screen and (min-width: 991px) {
+    clip-path: circle(8px at 27px 45px);
+  }
+  @media screen and (min-width: 1500px) {
     clip-path: circle(10px at 40px 60px);
   }
 
@@ -248,12 +259,27 @@ img:not([src]) {
   visibility: hidden;
 }
 
+.section {
+  padding: 50px 0;
+  @media screen and (min-width: 991px) {
+    padding: 100px 0;
+  }
+  @media screen and (min-width: 1500px) {
+    padding: 150px 0;
+  }
+}
+
 .title {
   font-size: 24px;
   line-height: 31px;
   margin: 0 0 30px;
   text-transform: uppercase;
   @media screen and (min-width: 991px) {
+    font-size: 45px;
+    margin-bottom: 30px;
+    line-height: 70px;
+  }
+  @media screen and (min-width: 1500px) {
     font-size: 60px;
     margin-bottom: 50px;
     line-height: 91px;
@@ -314,12 +340,29 @@ img:not([src]) {
 
   @media screen and (min-width: 991px) {
     .splide__arrow {
-      padding: 20px;
+      padding: 15px;
 
       .icon {
         width: 16px;
         height: 16px;
       }
+
+    }
+
+    .splide__arrow--prev {
+      padding-left: 14px;
+      padding-right: 16px;
+    }
+
+    .splide__arrow--next {
+      padding-left: 16px;
+      padding-right: 14px;
+    }
+  }
+
+  @media screen and (min-width: 1500px) {
+    .splide__arrow {
+      padding: 20px;
 
     }
 
@@ -590,8 +633,8 @@ img:not([src]) {
     }
 
     &__title {
-      font-size: 60px;
-      line-height: 78px;
+      font-size: 55px;
+      line-height: 70px;
 
       br {
         display: inline-block;
@@ -609,6 +652,15 @@ img:not([src]) {
         width: auto;
       }
     }
+  }
+
+  @media screen and (min-width: 1500px) {
+
+    &__title {
+      font-size: 60px;
+      line-height: 78px;
+    }
+
   }
 }
 
@@ -808,11 +860,13 @@ img:not([src]) {
     }
 
     &:not(.opened) {
-
       .toggle-group__dot {
         clip-path: circle(7.5px at 7.5px 26px);
         @media screen and (min-width: 991px) {
-          clip-path: circle(10px at 10px 48px);
+          clip-path: circle(8px at 8px 39px);
+        }
+        @media screen and (min-width: 1500px) {
+          clip-path: circle(10px at 10px 53px);
         }
       }
     }
@@ -836,15 +890,15 @@ img:not([src]) {
   }
 
   @media screen and (min-width: 991px) {
-    border-radius: 40px;
-    padding: 30px;
+    border-radius: 30px;
+    padding: 20px;
     &--indexPage {
       border-radius: 20px;
     }
     &__title {
-      font-size: 30px;
-      margin: 0 20px 0 0;
-      transform: translateX(40px);
+      font-size: 26px;
+      margin: 0 15px 0 0;
+      transform: translateX(30px);
     }
     &__toggleBtn {
       &.opened {
@@ -855,8 +909,8 @@ img:not([src]) {
       padding-top: 20px;
     }
     &__description {
-      font-size: 18px;
-      line-height: 30px;
+      font-size: inherit;
+      line-height: 1.5;
       margin-bottom: 20px;
       transform: translateX(15px);
     }
@@ -884,6 +938,16 @@ img:not([src]) {
         margin: 0 0 20px;
         transform: translateX(15px);
       }
+    }
+  }
+
+  @media screen and (min-width: 1500px) {
+    padding: 30px;
+    border-radius: 40px;
+    &__title {
+      font-size: 30px;
+      margin: 0 20px 0 0;
+      transform: translateX(40px);
     }
   }
 }
@@ -1001,7 +1065,7 @@ img:not([src]) {
     }
     &__title {
       margin: 0 20px 0 0;
-      font-size: 18px;
+      font-size: inherit;
     }
     &__actions {
       margin: -5px -15px -15px;
@@ -1013,8 +1077,8 @@ img:not([src]) {
     }
 
     &__description {
-      font-size: 18px;
-      line-height: 30px;
+      font-size: inherit;
+      line-height: 1.5;
       transform: translateX(15px);
     }
   }
@@ -1038,7 +1102,6 @@ img:not([src]) {
     border-radius: 2px;
   }
 
-  /* Vertical line */
   &:before {
     top: 50%;
     transform: translate3d(-50%, -50%, 0);
@@ -1047,7 +1110,6 @@ img:not([src]) {
     height: 12px;
   }
 
-  /* horizontal line */
   &:after {
     top: 50%;
     left: 50%;
@@ -1069,17 +1131,27 @@ img:not([src]) {
   }
 
   @media screen and (min-width: 991px) {
-
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     border: 2px solid #fff;
 
-    /* Vertical line */
     &:before {
       height: 16px;
     }
 
-    /* horizontal line */
+    &:after {
+      width: 16px;
+    }
+  }
+  @media screen and (min-width: 1500px) {
+
+    width: 60px;
+    height: 60px;
+
+    &:before {
+      height: 16px;
+    }
+
     &:after {
       width: 16px;
     }
@@ -1194,7 +1266,7 @@ img:not([src]) {
 
   @media screen and (min-width: 991px) {
 
-    font-size: 18px;
+    font-size: inherit;
 
     &__list {
       margin: 0 20px;
@@ -1247,6 +1319,7 @@ img:not([src]) {
       height: 62px;
     }
   }
+
 }
 
 @import "forms";

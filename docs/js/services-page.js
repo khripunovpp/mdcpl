@@ -39,6 +39,7 @@
   };
 
   AnimatedExpand.prototype.openById = function (id) {
+    var that = this;
     var $el = $(this.rootEl).find(this.itemEl).filter('[data-id="' + id + '"]');
     var root$ = $el.closest(this.rootEl);
     var closeOthers = this.options.closeOthers !== false;
@@ -58,14 +59,16 @@
 
     $el.find(this.trigger).addClass('opened');
     $el.addClass('opened');
-    $serviceCardTail.slideDown(300);
+    $serviceCardTail.slideDown(300, function () {
+
+      if (typeof that.options.onExpand === 'function') {
+        that.options.onExpand($el[0]);
+      }
+    });
     setTimeout(function () {
       $serviceCardTail.addClass('opened');
     }, 200);
 
-    if (typeof this.options.onExpand === 'function') {
-      this.options.onExpand($el[0]);
-    }
   };
 
   AnimatedExpand.prototype.openNestedById = function (id) {
@@ -96,7 +99,7 @@
       {
         rootEl: '.services-lib .toggle-group',
         itemEl: '.toggle-item',
-        triggerEl: '.toggle-item__toggleBtn,.toggle-item__title',
+        triggerEl: '.toggle-item__header',
         tailEl: '.toggle-item__tail',
         animatedItemsQuery: '.toggle-item__actionButtonWrap, .toggle-item__description',
         toggleBehavior: true,
@@ -107,7 +110,7 @@
       {
         rootEl: '.services-lib',
         itemEl: '.toggle-group',
-        triggerEl: '.toggle-group__toggleBtn,.toggle-group__title',
+        triggerEl: '.toggle-group__header',
         tailEl: '.toggle-group__tail',
         animatedItemsQuery: '.toggle-group__actionButtonWrap, .toggle-group__columns-item,.toggle-group__description,.toggle-group__title',
         toggleBehavior: true,

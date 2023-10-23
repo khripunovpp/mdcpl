@@ -42,10 +42,14 @@
                   <li><a href="./contacts/index.html">Контакты</a></li>
                 </ul>
                 <div class="nav__bottom">
-                  <div class="nav__bottom-element"><a class="contact-link" href="https://t.me/MedCoupleBot" target="_blank"><i class="contact-link__icon icon paste-sprite-telegram-icon"></i>
-                      <div class="contact-link__tail"><span class="contact-link__label">Telegram-бот</span></div></a></div>
+                  <div class="nav__bottom-element"><a class="contact-link" href="./contacts/index.html"><i class="contact-link__icon icon paste-sprite-location-icon"></i>
+                      <div class="contact-link__tail"><span class="contact-link__label">Edificio espelho do tejo, <br>Rua da Ilha dos Amores nº 26A, 1990-118&nbsp;Lisboa</span></div></a></div>
                   <div class="nav__bottom-element"><a class="contact-link" href="mailto:example@mail.com"><i class="contact-link__icon icon paste-sprite-email-icon"></i>
                       <div class="contact-link__tail"><span class="contact-link__label">example@mail.com</span></div></a></div>
+                  <div class="nav__bottom-element"><a class="contact-link" href="https://t.me/medcouplept"><i class="contact-link__icon icon paste-sprite-telegram-circle-icon"></i>
+                      <div class="contact-link__tail"><span class="contact-link__label">Канал в телеграм</span></div></a></div>
+                  <div class="nav__bottom-element"><a class="contact-link" href="https://t.me/MedCoupleBot"><i class="contact-link__icon icon paste-sprite-telegram-circle-icon"></i>
+                      <div class="contact-link__tail"><span class="contact-link__label">Бот для записи</span></div></a></div>
                   <div class="nav__bottom-element">
                     <button class="button button--outlined js-open-dialog" type="button" data-dialog-id="widget"><span>Записаться на прием</span></button>
                   </div>
@@ -57,11 +61,8 @@
             </section>
             <section class="header__phone"><a class="contact-link" href="https://t.me/MedCoupleBot" target="_blank"><i class="contact-link__icon icon paste-sprite-telegram-icon"></i>
                 <div class="contact-link__tail"><span class="contact-link__label">Telegram-бот</span></div></a></section>
-            <section class="header__splitButton">
-              <div class="split-button">
-                <button class="js-open-dialog" type="button" data-dialog-id="widget"><span>Записаться</span></button>
-                <button class="js-open-dialog" type="button" data-dialog-id="home-call"><i class="icon paste-sprite-plus-icon"></i><span>Выезд на дом</span></button>
-              </div>
+            <section class="header__buttons">
+              <button class="js-open-dialog button button--outlined button--accent" type="button" data-dialog-id="home-call"><span>Выезд на дом</span></button>
             </section>
             <button class="header__burger burger" type="button" aria-label="Открыть меню">
               <div class="burger__icon"><span></span><span></span><span></span><span></span></div>
@@ -92,20 +93,38 @@
               <div class="services-widget__servicesListContainer-inner">
                 <h2 class="services-widget__title title">Наши услуги</h2>
                 <ul class="services-widget__list">
-                  <li class="services-widget__item toggle-group dot-holder toggle-group--indexPage" data-color="#F3D6C6" data-id="0">
+                  <li class="services-widget__item toggle-group dot-holder toggle-group--indexPage" data-color="#C1D3C8" data-id="0">
+                    <div class="toggle-group__dot dot" style="background-color: #C1D3C8"></div>
+                    <h3 class="toggle-group__title">Вызов на дом</h3>
+                    <section class="toggle-group__tail">
+                      <footer class="toggle-group__actions">
+                        <div class="toggle-group__actionButtonWrap toggle-group__actionButtonWrap--appointement">
+                          <button class="toggle-group__appointement button button--accent js-open-dialog" type="button" aria-label="Записаться на прием" data-dialog-id="widget"><span>Записаться на прием</span></button>
+                        </div>
+                        <div class="toggle-group__actionButtonWrap toggle-group__actionButtonWrap--details"><a class="toggle-group__details button button--outlined" type="button" aria-label="Подробнее" href="./services/index.html"><span>Подробнее</span></a></div>
+                        <div class="toggle-group__actionButtonWrap toggle-group__actionButtonWrap--contact"><a class="toggle-group__contact button button--outlined button--telegram button--icon" type="button" aria-label="Написать в Telegram" href="https://t.me/MedCoupleBot" target="_blank"><i class="icon paste-sprite-telegram-icon"></i></a></div>
+                      </footer>
+                      <section class="toggle-group__subFooter">
+                        <div class="to-clone">
+                          <p>Мы выезжаем на дом при острой болезни и для плановых осмотров к детям и взрослым. Если по какой-то причине вы не можете или не хотите ехать в Услуги 2 больницу - это прекрасный вариант для вас.</p>
+                          <p>Мы выезжаем на дом при острой болезни и для плановых осмотров к детям и взрослым. Если по какой-то причине вы не можете или не хотите ехать в Услуги 2 больницу - это прекрасный вариант для вас.</p>
+                        </div>
+                      </section>
+                    </section>
+                  </li>
+                  <li class="services-widget__item toggle-group dot-holder toggle-group--indexPage" data-color="#F3D6C6" data-id="1">
                     <div class="toggle-group__dot dot" style="background-color: #F3D6C6"></div>
                     <h3 class="toggle-group__title">Педиатрия</h3>
                     <section class="toggle-group__tail">
                       <footer class="toggle-group__actions">
                         <div class="toggle-group__actionButtonWrap toggle-group__actionButtonWrap--appointement">
-                          <button class="toggle-group__appointement button button--accent js-open-dialog" type="button" aria-label="Записаться на прием" data-dialog-id="widget"><span>Записаться</span></button>
+                          <button class="toggle-group__appointement button button--accent js-open-dialog" type="button" aria-label="Записаться на прием" data-dialog-id="widget"><span>Записаться на прием</span></button>
                         </div>
                         <div class="toggle-group__actionButtonWrap toggle-group__actionButtonWrap--details"><a class="toggle-group__details button button--outlined" type="button" aria-label="Подробнее" href="./services/index.html"><span>Подробнее</span></a></div>
                         <div class="toggle-group__actionButtonWrap toggle-group__actionButtonWrap--contact"><a class="toggle-group__contact button button--outlined button--telegram button--icon" type="button" aria-label="Написать в Telegram" href="https://t.me/MedCoupleBot" target="_blank"><i class="icon paste-sprite-telegram-icon"></i></a></div>
-                        <div class="toggle-group__actionButtonWrap toggle-group__actionButtonWrap--contact"><a class="toggle-group__contact button button--outlined button--whatsapp button--icon" type="button" aria-label="Написать в WhatsApp" href="https://t.me/MedCoupleBot" target="_blank"><i class="icon paste-sprite-whatsapp-icon"></i></a></div>
                       </footer>
                       <section class="toggle-group__subFooter">
-                        <ul class="toggle-group__subFooter-list">
+                        <ul class="toggle-group__subFooter-list to-clone">
                           <li><a href="./services/index.html">Организация вакцинации  в клиниках Португалии</a></li>
                           <li><a href="./services/index.html">Программы годового сопровождения семей с детьми</a></li>
                           <li><a href="./services/index.html">Программы годового сопровождения семей с детьми</a></li>
@@ -114,20 +133,19 @@
                       </section>
                     </section>
                   </li>
-                  <li class="services-widget__item toggle-group dot-holder toggle-group--indexPage" data-color="#EBE2DD" data-id="1">
+                  <li class="services-widget__item toggle-group dot-holder toggle-group--indexPage" data-color="#EBE2DD" data-id="2">
                     <div class="toggle-group__dot dot" style="background-color: #EBE2DD"></div>
                     <h3 class="toggle-group__title">Рецепты / Вакцинация</h3>
                     <section class="toggle-group__tail">
                       <footer class="toggle-group__actions">
                         <div class="toggle-group__actionButtonWrap toggle-group__actionButtonWrap--appointement">
-                          <button class="toggle-group__appointement button button--accent js-open-dialog" type="button" aria-label="Записаться на прием" data-dialog-id="widget"><span>Записаться</span></button>
+                          <button class="toggle-group__appointement button button--accent js-open-dialog" type="button" aria-label="Записаться на прием" data-dialog-id="widget"><span>Записаться на прием</span></button>
                         </div>
                         <div class="toggle-group__actionButtonWrap toggle-group__actionButtonWrap--details"><a class="toggle-group__details button button--outlined" type="button" aria-label="Подробнее" href="./services/index.html"><span>Подробнее</span></a></div>
                         <div class="toggle-group__actionButtonWrap toggle-group__actionButtonWrap--contact"><a class="toggle-group__contact button button--outlined button--telegram button--icon" type="button" aria-label="Написать в Telegram" href="https://t.me/MedCoupleBot" target="_blank"><i class="icon paste-sprite-telegram-icon"></i></a></div>
-                        <div class="toggle-group__actionButtonWrap toggle-group__actionButtonWrap--contact"><a class="toggle-group__contact button button--outlined button--whatsapp button--icon" type="button" aria-label="Написать в WhatsApp" href="https://t.me/MedCoupleBot" target="_blank"><i class="icon paste-sprite-whatsapp-icon"></i></a></div>
                       </footer>
                       <section class="toggle-group__subFooter">
-                        <ul class="toggle-group__subFooter-list">
+                        <ul class="toggle-group__subFooter-list to-clone">
                           <li><a href="./services/index.html">Организация вакцинации  в клиниках Португалии</a></li>
                           <li><a href="./services/index.html">Программы годового сопровождения семей с детьми</a></li>
                           <li><a href="./services/index.html">Программы годового сопровождения семей с детьми</a></li>
@@ -136,20 +154,19 @@
                       </section>
                     </section>
                   </li>
-                  <li class="services-widget__item toggle-group dot-holder toggle-group--indexPage" data-color="#C1D3C8" data-id="2">
+                  <li class="services-widget__item toggle-group dot-holder toggle-group--indexPage" data-color="#C1D3C8" data-id="3">
                     <div class="toggle-group__dot dot" style="background-color: #C1D3C8"></div>
                     <h3 class="toggle-group__title">Справки</h3>
                     <section class="toggle-group__tail">
                       <footer class="toggle-group__actions">
                         <div class="toggle-group__actionButtonWrap toggle-group__actionButtonWrap--appointement">
-                          <button class="toggle-group__appointement button button--accent js-open-dialog" type="button" aria-label="Записаться на прием" data-dialog-id="widget"><span>Записаться</span></button>
+                          <button class="toggle-group__appointement button button--accent js-open-dialog" type="button" aria-label="Записаться на прием" data-dialog-id="widget"><span>Записаться на прием</span></button>
                         </div>
                         <div class="toggle-group__actionButtonWrap toggle-group__actionButtonWrap--details"><a class="toggle-group__details button button--outlined" type="button" aria-label="Подробнее" href="./services/index.html"><span>Подробнее</span></a></div>
                         <div class="toggle-group__actionButtonWrap toggle-group__actionButtonWrap--contact"><a class="toggle-group__contact button button--outlined button--telegram button--icon" type="button" aria-label="Написать в Telegram" href="https://t.me/MedCoupleBot" target="_blank"><i class="icon paste-sprite-telegram-icon"></i></a></div>
-                        <div class="toggle-group__actionButtonWrap toggle-group__actionButtonWrap--contact"><a class="toggle-group__contact button button--outlined button--whatsapp button--icon" type="button" aria-label="Написать в WhatsApp" href="https://t.me/MedCoupleBot" target="_blank"><i class="icon paste-sprite-whatsapp-icon"></i></a></div>
                       </footer>
                       <section class="toggle-group__subFooter">
-                        <ul class="toggle-group__subFooter-list">
+                        <ul class="toggle-group__subFooter-list to-clone">
                           <li><a href="./services/index.html">Организация вакцинации  в клиниках Португалии</a></li>
                           <li><a href="./services/index.html">Программы годового сопровождения семей с детьми</a></li>
                           <li><a href="./services/index.html">Программы годового сопровождения семей с детьми</a></li>
@@ -158,20 +175,19 @@
                       </section>
                     </section>
                   </li>
-                  <li class="services-widget__item toggle-group dot-holder toggle-group--indexPage" data-color="#F3D6C6" data-id="3">
+                  <li class="services-widget__item toggle-group dot-holder toggle-group--indexPage" data-color="#F3D6C6" data-id="4">
                     <div class="toggle-group__dot dot" style="background-color: #F3D6C6"></div>
                     <h3 class="toggle-group__title">Ассистанс</h3>
                     <section class="toggle-group__tail">
                       <footer class="toggle-group__actions">
                         <div class="toggle-group__actionButtonWrap toggle-group__actionButtonWrap--appointement">
-                          <button class="toggle-group__appointement button button--accent js-open-dialog" type="button" aria-label="Записаться на прием" data-dialog-id="widget"><span>Записаться</span></button>
+                          <button class="toggle-group__appointement button button--accent js-open-dialog" type="button" aria-label="Записаться на прием" data-dialog-id="widget"><span>Записаться на прием</span></button>
                         </div>
                         <div class="toggle-group__actionButtonWrap toggle-group__actionButtonWrap--details"><a class="toggle-group__details button button--outlined" type="button" aria-label="Подробнее" href="./services/index.html"><span>Подробнее</span></a></div>
                         <div class="toggle-group__actionButtonWrap toggle-group__actionButtonWrap--contact"><a class="toggle-group__contact button button--outlined button--telegram button--icon" type="button" aria-label="Написать в Telegram" href="https://t.me/MedCoupleBot" target="_blank"><i class="icon paste-sprite-telegram-icon"></i></a></div>
-                        <div class="toggle-group__actionButtonWrap toggle-group__actionButtonWrap--contact"><a class="toggle-group__contact button button--outlined button--whatsapp button--icon" type="button" aria-label="Написать в WhatsApp" href="https://t.me/MedCoupleBot" target="_blank"><i class="icon paste-sprite-whatsapp-icon"></i></a></div>
                       </footer>
                       <section class="toggle-group__subFooter">
-                        <ul class="toggle-group__subFooter-list">
+                        <ul class="toggle-group__subFooter-list to-clone">
                           <li><a href="./services/index.html">Организация вакцинации  в клиниках Португалии</a></li>
                           <li><a href="./services/index.html">Программы годового сопровождения семей с детьми</a></li>
                           <li><a href="./services/index.html">Программы годового сопровождения семей с детьми</a></li>
@@ -180,20 +196,19 @@
                       </section>
                     </section>
                   </li>
-                  <li class="services-widget__item toggle-group dot-holder toggle-group--indexPage" data-color="#F4D8D5" data-id="4">
+                  <li class="services-widget__item toggle-group dot-holder toggle-group--indexPage" data-color="#F4D8D5" data-id="5">
                     <div class="toggle-group__dot dot" style="background-color: #F4D8D5"></div>
                     <h3 class="toggle-group__title">Справки</h3>
                     <section class="toggle-group__tail">
                       <footer class="toggle-group__actions">
                         <div class="toggle-group__actionButtonWrap toggle-group__actionButtonWrap--appointement">
-                          <button class="toggle-group__appointement button button--accent js-open-dialog" type="button" aria-label="Записаться на прием" data-dialog-id="widget"><span>Записаться</span></button>
+                          <button class="toggle-group__appointement button button--accent js-open-dialog" type="button" aria-label="Записаться на прием" data-dialog-id="widget"><span>Записаться на прием</span></button>
                         </div>
                         <div class="toggle-group__actionButtonWrap toggle-group__actionButtonWrap--details"><a class="toggle-group__details button button--outlined" type="button" aria-label="Подробнее" href="./services/index.html"><span>Подробнее</span></a></div>
                         <div class="toggle-group__actionButtonWrap toggle-group__actionButtonWrap--contact"><a class="toggle-group__contact button button--outlined button--telegram button--icon" type="button" aria-label="Написать в Telegram" href="https://t.me/MedCoupleBot" target="_blank"><i class="icon paste-sprite-telegram-icon"></i></a></div>
-                        <div class="toggle-group__actionButtonWrap toggle-group__actionButtonWrap--contact"><a class="toggle-group__contact button button--outlined button--whatsapp button--icon" type="button" aria-label="Написать в WhatsApp" href="https://t.me/MedCoupleBot" target="_blank"><i class="icon paste-sprite-whatsapp-icon"></i></a></div>
                       </footer>
                       <section class="toggle-group__subFooter">
-                        <ul class="toggle-group__subFooter-list">
+                        <ul class="toggle-group__subFooter-list to-clone">
                           <li><a href="./services/index.html">Организация вакцинации  в клиниках Португалии</a></li>
                           <li><a href="./services/index.html">Программы годового сопровождения семей с детьми</a></li>
                           <li><a href="./services/index.html">Программы годового сопровождения семей с детьми</a></li>
@@ -202,20 +217,19 @@
                       </section>
                     </section>
                   </li>
-                  <li class="services-widget__item toggle-group dot-holder toggle-group--indexPage" data-color="#F0C7AE" data-id="5">
+                  <li class="services-widget__item toggle-group dot-holder toggle-group--indexPage" data-color="#F0C7AE" data-id="6">
                     <div class="toggle-group__dot dot" style="background-color: #F0C7AE"></div>
                     <h3 class="toggle-group__title">Организация скринингов</h3>
                     <section class="toggle-group__tail">
                       <footer class="toggle-group__actions">
                         <div class="toggle-group__actionButtonWrap toggle-group__actionButtonWrap--appointement">
-                          <button class="toggle-group__appointement button button--accent js-open-dialog" type="button" aria-label="Записаться на прием" data-dialog-id="widget"><span>Записаться</span></button>
+                          <button class="toggle-group__appointement button button--accent js-open-dialog" type="button" aria-label="Записаться на прием" data-dialog-id="widget"><span>Записаться на прием</span></button>
                         </div>
                         <div class="toggle-group__actionButtonWrap toggle-group__actionButtonWrap--details"><a class="toggle-group__details button button--outlined" type="button" aria-label="Подробнее" href="./services/index.html"><span>Подробнее</span></a></div>
                         <div class="toggle-group__actionButtonWrap toggle-group__actionButtonWrap--contact"><a class="toggle-group__contact button button--outlined button--telegram button--icon" type="button" aria-label="Написать в Telegram" href="https://t.me/MedCoupleBot" target="_blank"><i class="icon paste-sprite-telegram-icon"></i></a></div>
-                        <div class="toggle-group__actionButtonWrap toggle-group__actionButtonWrap--contact"><a class="toggle-group__contact button button--outlined button--whatsapp button--icon" type="button" aria-label="Написать в WhatsApp" href="https://t.me/MedCoupleBot" target="_blank"><i class="icon paste-sprite-whatsapp-icon"></i></a></div>
                       </footer>
                       <section class="toggle-group__subFooter">
-                        <ul class="toggle-group__subFooter-list">
+                        <ul class="toggle-group__subFooter-list to-clone">
                           <li><a href="./services/index.html">Организация вакцинации  в клиниках Португалии</a></li>
                           <li><a href="./services/index.html">Программы годового сопровождения семей с детьми</a></li>
                           <li><a href="./services/index.html">Программы годового сопровождения семей с детьми</a></li>
@@ -224,20 +238,19 @@
                       </section>
                     </section>
                   </li>
-                  <li class="services-widget__item toggle-group dot-holder toggle-group--indexPage" data-color="#E2E6ED" data-id="6">
+                  <li class="services-widget__item toggle-group dot-holder toggle-group--indexPage" data-color="#E2E6ED" data-id="7">
                     <div class="toggle-group__dot dot" style="background-color: #E2E6ED"></div>
                     <h3 class="toggle-group__title">Педиатрия</h3>
                     <section class="toggle-group__tail">
                       <footer class="toggle-group__actions">
                         <div class="toggle-group__actionButtonWrap toggle-group__actionButtonWrap--appointement">
-                          <button class="toggle-group__appointement button button--accent js-open-dialog" type="button" aria-label="Записаться на прием" data-dialog-id="widget"><span>Записаться</span></button>
+                          <button class="toggle-group__appointement button button--accent js-open-dialog" type="button" aria-label="Записаться на прием" data-dialog-id="widget"><span>Записаться на прием</span></button>
                         </div>
                         <div class="toggle-group__actionButtonWrap toggle-group__actionButtonWrap--details"><a class="toggle-group__details button button--outlined" type="button" aria-label="Подробнее" href="./services/index.html"><span>Подробнее</span></a></div>
                         <div class="toggle-group__actionButtonWrap toggle-group__actionButtonWrap--contact"><a class="toggle-group__contact button button--outlined button--telegram button--icon" type="button" aria-label="Написать в Telegram" href="https://t.me/MedCoupleBot" target="_blank"><i class="icon paste-sprite-telegram-icon"></i></a></div>
-                        <div class="toggle-group__actionButtonWrap toggle-group__actionButtonWrap--contact"><a class="toggle-group__contact button button--outlined button--whatsapp button--icon" type="button" aria-label="Написать в WhatsApp" href="https://t.me/MedCoupleBot" target="_blank"><i class="icon paste-sprite-whatsapp-icon"></i></a></div>
                       </footer>
                       <section class="toggle-group__subFooter">
-                        <ul class="toggle-group__subFooter-list">
+                        <ul class="toggle-group__subFooter-list to-clone">
                           <li><a href="./services/index.html">Организация вакцинации  в клиниках Португалии</a></li>
                           <li><a href="./services/index.html">Программы годового сопровождения семей с детьми</a></li>
                           <li><a href="./services/index.html">Программы годового сопровождения семей с детьми</a></li>
@@ -246,20 +259,19 @@
                       </section>
                     </section>
                   </li>
-                  <li class="services-widget__item toggle-group dot-holder toggle-group--indexPage" data-color="#AECDBE" data-id="7">
+                  <li class="services-widget__item toggle-group dot-holder toggle-group--indexPage" data-color="#AECDBE" data-id="8">
                     <div class="toggle-group__dot dot" style="background-color: #AECDBE"></div>
                     <h3 class="toggle-group__title">Рецепты / Вакцинация</h3>
                     <section class="toggle-group__tail">
                       <footer class="toggle-group__actions">
                         <div class="toggle-group__actionButtonWrap toggle-group__actionButtonWrap--appointement">
-                          <button class="toggle-group__appointement button button--accent js-open-dialog" type="button" aria-label="Записаться на прием" data-dialog-id="widget"><span>Записаться</span></button>
+                          <button class="toggle-group__appointement button button--accent js-open-dialog" type="button" aria-label="Записаться на прием" data-dialog-id="widget"><span>Записаться на прием</span></button>
                         </div>
                         <div class="toggle-group__actionButtonWrap toggle-group__actionButtonWrap--details"><a class="toggle-group__details button button--outlined" type="button" aria-label="Подробнее" href="./services/index.html"><span>Подробнее</span></a></div>
                         <div class="toggle-group__actionButtonWrap toggle-group__actionButtonWrap--contact"><a class="toggle-group__contact button button--outlined button--telegram button--icon" type="button" aria-label="Написать в Telegram" href="https://t.me/MedCoupleBot" target="_blank"><i class="icon paste-sprite-telegram-icon"></i></a></div>
-                        <div class="toggle-group__actionButtonWrap toggle-group__actionButtonWrap--contact"><a class="toggle-group__contact button button--outlined button--whatsapp button--icon" type="button" aria-label="Написать в WhatsApp" href="https://t.me/MedCoupleBot" target="_blank"><i class="icon paste-sprite-whatsapp-icon"></i></a></div>
                       </footer>
                       <section class="toggle-group__subFooter">
-                        <ul class="toggle-group__subFooter-list">
+                        <ul class="toggle-group__subFooter-list to-clone">
                           <li><a href="./services/index.html">Организация вакцинации  в клиниках Португалии</a></li>
                           <li><a href="./services/index.html">Программы годового сопровождения семей с детьми</a></li>
                           <li><a href="./services/index.html">Программы годового сопровождения семей с детьми</a></li>
@@ -268,20 +280,19 @@
                       </section>
                     </section>
                   </li>
-                  <li class="services-widget__item toggle-group dot-holder toggle-group--indexPage" data-color="#E8BFAF" data-id="8">
+                  <li class="services-widget__item toggle-group dot-holder toggle-group--indexPage" data-color="#E8BFAF" data-id="9">
                     <div class="toggle-group__dot dot" style="background-color: #E8BFAF"></div>
                     <h3 class="toggle-group__title">Справки</h3>
                     <section class="toggle-group__tail">
                       <footer class="toggle-group__actions">
                         <div class="toggle-group__actionButtonWrap toggle-group__actionButtonWrap--appointement">
-                          <button class="toggle-group__appointement button button--accent js-open-dialog" type="button" aria-label="Записаться на прием" data-dialog-id="widget"><span>Записаться</span></button>
+                          <button class="toggle-group__appointement button button--accent js-open-dialog" type="button" aria-label="Записаться на прием" data-dialog-id="widget"><span>Записаться на прием</span></button>
                         </div>
                         <div class="toggle-group__actionButtonWrap toggle-group__actionButtonWrap--details"><a class="toggle-group__details button button--outlined" type="button" aria-label="Подробнее" href="./services/index.html"><span>Подробнее</span></a></div>
                         <div class="toggle-group__actionButtonWrap toggle-group__actionButtonWrap--contact"><a class="toggle-group__contact button button--outlined button--telegram button--icon" type="button" aria-label="Написать в Telegram" href="https://t.me/MedCoupleBot" target="_blank"><i class="icon paste-sprite-telegram-icon"></i></a></div>
-                        <div class="toggle-group__actionButtonWrap toggle-group__actionButtonWrap--contact"><a class="toggle-group__contact button button--outlined button--whatsapp button--icon" type="button" aria-label="Написать в WhatsApp" href="https://t.me/MedCoupleBot" target="_blank"><i class="icon paste-sprite-whatsapp-icon"></i></a></div>
                       </footer>
                       <section class="toggle-group__subFooter">
-                        <ul class="toggle-group__subFooter-list">
+                        <ul class="toggle-group__subFooter-list to-clone">
                           <li><a href="./services/index.html">Организация вакцинации  в клиниках Португалии</a></li>
                           <li><a href="./services/index.html">Программы годового сопровождения семей с детьми</a></li>
                           <li><a href="./services/index.html">Программы годового сопровождения семей с детьми</a></li>
@@ -290,20 +301,19 @@
                       </section>
                     </section>
                   </li>
-                  <li class="services-widget__item toggle-group dot-holder toggle-group--indexPage" data-color="#c9dadf" data-id="9">
+                  <li class="services-widget__item toggle-group dot-holder toggle-group--indexPage" data-color="#c9dadf" data-id="10">
                     <div class="toggle-group__dot dot" style="background-color: #c9dadf"></div>
                     <h3 class="toggle-group__title">Организация скринингов</h3>
                     <section class="toggle-group__tail">
                       <footer class="toggle-group__actions">
                         <div class="toggle-group__actionButtonWrap toggle-group__actionButtonWrap--appointement">
-                          <button class="toggle-group__appointement button button--accent js-open-dialog" type="button" aria-label="Записаться на прием" data-dialog-id="widget"><span>Записаться</span></button>
+                          <button class="toggle-group__appointement button button--accent js-open-dialog" type="button" aria-label="Записаться на прием" data-dialog-id="widget"><span>Записаться на прием</span></button>
                         </div>
                         <div class="toggle-group__actionButtonWrap toggle-group__actionButtonWrap--details"><a class="toggle-group__details button button--outlined" type="button" aria-label="Подробнее" href="./services/index.html"><span>Подробнее</span></a></div>
                         <div class="toggle-group__actionButtonWrap toggle-group__actionButtonWrap--contact"><a class="toggle-group__contact button button--outlined button--telegram button--icon" type="button" aria-label="Написать в Telegram" href="https://t.me/MedCoupleBot" target="_blank"><i class="icon paste-sprite-telegram-icon"></i></a></div>
-                        <div class="toggle-group__actionButtonWrap toggle-group__actionButtonWrap--contact"><a class="toggle-group__contact button button--outlined button--whatsapp button--icon" type="button" aria-label="Написать в WhatsApp" href="https://t.me/MedCoupleBot" target="_blank"><i class="icon paste-sprite-whatsapp-icon"></i></a></div>
                       </footer>
                       <section class="toggle-group__subFooter">
-                        <ul class="toggle-group__subFooter-list">
+                        <ul class="toggle-group__subFooter-list to-clone">
                           <li><a href="./services/index.html">Организация вакцинации  в клиниках Португалии</a></li>
                           <li><a href="./services/index.html">Программы годового сопровождения семей с детьми</a></li>
                           <li><a href="./services/index.html">Программы годового сопровождения семей с детьми</a></li>
@@ -324,7 +334,7 @@
             </div>
           </div>
         </section>
-        <section class="team-slider splide" id="team-slider">
+        <section class="team-slider splide section" id="team-slider">
           <div class="container">
             <div class="team-slider__inner">
               <h2 class="team-slider__title title">Специалисты семейной медицины</h2>
@@ -412,7 +422,7 @@
             </div>
           </div>
         </section>
-        <section class="advantages">
+        <section class="advantages section">
           <div class="container">
             <div class="advantages__inner">
               <h2 class="advantages__title title">Почему мы?</h2>
@@ -437,7 +447,7 @@
             </div>
           </div>
         </section>
-        <section class="reviews-widget splide" id="reviews-slider">
+        <section class="reviews-widget splide section" id="reviews-slider">
           <div class="container">
             <div class="reviews-widget__inner">
               <h2 class="reviews-widget__title title">Отзывы пациентов</h2>
@@ -544,7 +554,7 @@
             </div>
           </div>
         </section>
-        <section class="companies">
+        <section class="companies section">
           <div class="container">
             <div class="companies__inner">
               <h2 class="companies__title title">С нами уже сотрудничают</h2>
@@ -644,11 +654,8 @@
                 </ul>
               </nav>
             </section>
-            <section class="footer__splitButton">
-              <div class="split-button">
-                <button class="js-open-dialog" type="button" data-dialog-id="widget"><span>Записаться</span></button>
-                <button class="js-open-dialog" type="button" data-dialog-id="home-call"><i class="icon paste-sprite-plus-icon"></i><span>Выезд на дом</span></button>
-              </div>
+            <section class="footer__buttons">
+              <button class="js-open-dialog button button--outlined button--accent" type="button" data-dialog-id="home-call"><span>Выезд на дом</span></button>
             </section>
           </section>
           <section class="footer__middlePart">
@@ -882,102 +889,6 @@ var rubitimeIframeIsLoaded = true;</script>
 
   window.libLoaded = function () {
     window.loadLazy();
-  }
-</script><script>
-
-  window.libLoaded = function () {
-    window.loadLazy();
-
-    var teamSplide = new Splide('#team-slider', {
-      type: 'loop',
-      perPage: 5,
-      arrowPath: '',
-      perMove: 1,
-      lazyLoad: 'nearby',
-      breakpoints: {
-        1200: {
-          perPage: 4,
-        },
-        990: {
-          destroy: true,
-        },
-      }
-    });
-    teamSplide.mount();
-    var reviewsSplide = new Splide('#reviews-slider', {
-      type: 'loop',
-      perPage: 2,
-      arrowPath: '',
-      perMove: 1,
-      lazyLoad: 'nearby',
-      gap: 30,
-      breakpoints: {
-        1100: {
-          perPage: 1,
-        },
-      }
-    });
-    reviewsSplide.mount();
-    reviewsSplide.on('move', function (newIndex, prevIndex) {
-      // find all expaned items and close them
-      $('.expandable.expanded').find('.expandable__button').trigger('click');
-      // updateHeight(newIndex);
-    });
-
-
-    function updateHeight(newIndex) {
-      var isMob = window.matchMedia("only screen and (max-width: 1100px)").matches;
-      if (!isMob) return;
-      let slide = reviewsSplide.Components.Slides.getAt(typeof (newIndex) == 'number' ? newIndex : reviewsSplide.index).slide;
-      var h = slide.querySelector('.review-card').offsetHeight;
-
-      slide.parentElement.parentElement.style.height = (h ? h : 80) + 'px';
-    }
-
-    var slidingHover = $('.team-slider__slidingHover');
-    var scale = 0.9;
-    slidingHover.css({
-      transform: 'scale(' + scale + ')',
-    });
-    var lastTranslate = 0;
-    $('.team-slider__item').on('mouseenter', function (e) {
-      if (window.isMobile()) return;
-      var el = $(e.target).closest('.team-slider__item');
-      if (!el.hasClass('is-visible')) return;
-      var elOffset = el.offset();
-      var parentOffset = el.closest('.splide__track').offset();
-      var positionInsideParent = elOffset.left - parentOffset.left;
-      lastTranslate = positionInsideParent;
-      slidingHover.css({
-        'transform': 'translateX(' + lastTranslate + 'px) scale(1)',
-        opacity: 1,
-      });
-    });
-    $('.splide__track').on('mouseleave', function (e) {
-      if (window.isMobile()) return;
-      slidingHover.css({
-        opacity: 0,
-        transform: 'translateX(' + lastTranslate + 'px)' + ' scale(' + scale + ')',
-      });
-    });
-    $(window).on('resize', function () {
-      slidingHover.css({
-        opacity: 0,
-      });
-    });
-    //
-    //  var stickySidebar = new StickySidebar('.sticky-block', {
-    //   // bottomSpacing: 20,
-    //   containerSelector: '.services-widget__desktopScrollerListContainer',
-    //   innerWrapperSelector: '.services-widget__desktopScrollerListContainer-list',
-    // });
-
-    // var sticky = new Sticky('.sticky-block');
-  }
-
-  //listen all errors
-  window.onerror = function (message, url, linenumber) {
-    alert('JavaScript error: ' + message + ' on line ' + linenumber + ' for ' + url);
   }
 </script>
     <script defer="defer" src="./js/main.js"></script>

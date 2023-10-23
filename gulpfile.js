@@ -53,6 +53,7 @@ function scripts() {
     './src/js/faq-page.js',
     './src/js/reviews-page.js',
     './src/js/team-page.js',
+    './src/js/services-page.js',
   ];
   return src(entries)
     .pipe(rollup({

@@ -218,6 +218,10 @@
     width: 100%;
   }
 
+  &.finished {
+    opacity: .5;
+  }
+
   @media (min-width: 991px) {
     margin-left: -15px;
     margin-right: -15px;
@@ -229,7 +233,6 @@
       height: 16px;
     }
     &__field {
-
       border-radius: 10px;
       margin: 0 15px 20px;
       padding: 18px 30px;
@@ -271,9 +274,7 @@
       font-size: 18px;
       height: 25px;
     }
-    &__info {
-      font-size: 18px;
-    }
+
     &__files {
       flex-direction: row;
       align-items: baseline;
@@ -283,16 +284,13 @@
 
       li {
         margin: 5px 15px;
-        font-size: 18px;
       }
     }
-    &__checkboxContainer {
-      font-size: 18px;
-    }
+
   }
 
-  &.finished {
-    opacity: .5;
+  @media screen and (min-width: 1500px) {
+
   }
 }
 

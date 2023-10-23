@@ -1,7 +1,6 @@
 @use 'vars' as *;
 
 .companies {
-  padding: 50px 0;
   background-color: #fff;
 
   &__title {
@@ -26,24 +25,29 @@
   }
 
   @media screen and (min-width: 991px) {
-    padding: 150px 0;
     &__list {
-      margin-left: -60px;
-      margin-right: -60px;
+      margin-left: -30px;
+      margin-right: -30px;
       margin-bottom: -30px;
       align-items: center;
       justify-content: center;
     }
     &__item {
       flex: 0 1 calc(33.333% - 120px);
+      margin: 0 30px 30px;
+    }
+  }
+  @media screen and (min-width: 1500px) {
+    &__list {
+      margin-left: -60px;
+      margin-right: -60px;
+      margin-bottom: -30px;
+    }
+    &__item {
+      flex: 0 1 calc(20% - 120px);
       margin: 0 60px 30px;
     }
   }
-   @media screen and (min-width: 1200px) {
-    &__item {
-      flex: 0 1 calc(20% - 120px);
-    }
-   }
 }
 
 .company-card {
@@ -83,8 +87,10 @@
     }
     &__name {
       margin: 35px 0 0 0;
-      font-size: 18px;
-      line-height: 27px;
+      font-size: inherit;
+      line-height: normal;
     }
+  }
+  @media screen and (min-width: 1500px) {
   }
 }

@@ -63,7 +63,6 @@
     width: 100%;
   }
 
-
   @media screen and (min-width: 991px) {
 
     &__title {
@@ -78,8 +77,8 @@
     &__desktopScrollerListContainer {
       width: 50%;
       display: flex;
-      padding-top: 100px;
-      padding-bottom: 100px;
+      padding-top: 80px;
+      padding-bottom: 80px;
 
       &-inner {
         width: math.div($desktop-container-width, 2);
@@ -92,7 +91,7 @@
       margin: 0;
 
       &-inner {
-        padding-right: 60px;
+        padding-right: 40px;
       }
     }
     &__desktopScrollerListContainer {
@@ -101,9 +100,12 @@
       align-items: center;
       justify-content: flex-start;
       transition: background-color 0.2s ease-in-out;
+      font-size: 25px;
+      line-height: 1.6;
 
       &-inner {
-        padding-left: 60px;
+        padding-left: 40px;
+        opacity: 0.5;
       }
 
       &-list {
@@ -112,7 +114,8 @@
         margin: 0;
 
         li {
-          font-size: 40px;
+          font-size: 30px;
+          line-height: inherit;
           font-weight: 600;
           opacity: 0;
           transform: translateX(15px);
@@ -125,12 +128,11 @@
         }
 
         li + li {
-          margin-top: 40px;
+          margin-top: 20px;
         }
 
         a {
           text-decoration: none;
-          opacity: 0.5;
           transition: opacity 0.2s ease-in;
           color: inherit;
 
@@ -138,216 +140,82 @@
             opacity: 1;
           }
         }
-
       }
     }
-
 
     &__showMore {
       width: auto;
     }
+
+    &__item {
+      margin-bottom: -20px;
+
+      &:first-child {
+        margin-top: -20px;
+      }
+
+      &.opened {
+        &:last-child {
+          margin-bottom: 20px;
+        }
+
+        .services-widget__item + & {
+          margin-top: 20px;
+        }
+      }
+    }
   }
 
+  @media screen and (min-width: 1500px) {
+    &__servicesListContainer,
+    &__desktopScrollerListContainer {
+      padding-top: 100px;
+      padding-bottom: 100px;
+    }
+    &__servicesListContainer {
+      &-inner {
+        padding-right: 60px;
+      }
+    }
+    &__desktopScrollerListContainer {
+      font-size: 30px;
 
+      &-inner {
+        padding-left: 60px;
+      }
+
+      &-list {
+
+        li {
+          font-size: 40px;
+        }
+
+        li + li {
+          margin-top: 40px;
+        }
+      }
+    }
+
+
+    &__item {
+      margin-bottom: -30px;
+
+      &:first-child {
+        margin-top: -30px;
+      }
+
+      &.opened {
+        &:last-child {
+          margin-bottom: 30px;
+        }
+
+        .services-widget__item + & {
+          margin-top: 30px;
+        }
+      }
+    }
+  }
 }
-
-//.service-card.toggle-group {
-//  border-radius: 20px;
-//  transition: padding 0.2s ease-in-out, margin 0.2s ease-in-out;
-//  margin-bottom: -10px;
-//
-//  &:last-child {
-//    margin-bottom: 0;
-//  }
-//
-//  &:first-child {
-//    margin-top: -10px;
-//  }
-//
-//  &__dot {
-//    clip-path: circle(7.5px at 7.5px 26px);
-//    @media screen and (min-width: 991px) {
-//      clip-path: circle(10px at 10px 48px);
-//    }
-//  }
-//
-//  &__tail {
-//    display: none;
-//    padding-top: 15px;
-//
-//    &.opened {
-//      display: block;
-//
-//      .service-card {
-//        &__actionButtonWrap {
-//          opacity: 1;
-//          transform: translateX(0);
-//        }
-//
-//        &__list {
-//          li {
-//            opacity: 1;
-//            transform: translateX(0);
-//          }
-//        }
-//      }
-//    }
-//  }
-//
-//  &__title {
-//    font-size: 18px;
-//    font-weight: 600;
-//    margin: 0;
-//    transition: transform 0.2s ease-in-out;
-//    transform: translateX(7.5px);
-//    cursor: pointer;
-//  }
-//
-//  &__actions {
-//    display: flex;
-//    justify-content: space-between;
-//    flex-wrap: wrap;
-//
-//    .button--outlined {
-//      border-color: #fff;
-//
-//      &:hover {
-//        background-color: #fff;
-//      }
-//    }
-//  }
-//
-//  &__actionButtonWrap {
-//    opacity: 0;
-//    transform: translateX(7.5px);
-//    transition: opacity 0.2s ease-in, transform 0.2s ease-in;
-//
-//    &--appointement {
-//      flex: 100%;
-//      margin-bottom: 10px;
-//    }
-//
-//    &--contact {
-//      flex-grow: 0;
-//      margin-left: 10px;
-//    }
-//
-//    &--details {
-//      flex-grow: 1;
-//    }
-//
-//    .button {
-//      width: 100%;
-//    }
-//  }
-//
-//
-//  &__list {
-//    list-style: none;
-//    padding: 0;
-//    margin: 0;
-//
-//    li {
-//      font-size: 18px;
-//      font-weight: 600;
-//      opacity: 0;
-//      transform: translateX(7.5px);
-//      transition: opacity 0.2s ease-in, transform 0.2s ease-in;
-//    }
-//
-//    li + li {
-//      margin-top: 10px;
-//    }
-//
-//    a {
-//      text-decoration: none;
-//      opacity: 0.5;
-//      transition: opacity 0.2s ease-in;
-//      color: inherit;
-//
-//      &:hover {
-//        opacity: 1;
-//      }
-//    }
-//  }
-//
-//  &.opened {
-//    margin-bottom: 0;
-//
-//    &:last-child {
-//      margin-bottom: 10px;
-//    }
-//
-//    &:first-child {
-//      margin-top: 0;
-//    }
-//
-//    & + .service-card {
-//      //margin-top: 20px;
-//    }
-//
-//    .service-card + & {
-//      margin-top: 10px;
-//    }
-//
-//    .service-card {
-//      &__title {
-//        transform: translateX(0);
-//      }
-//    }
-//  }
-//
-//  @media screen and (min-width: 991px) {
-//    margin-bottom: -20px;
-//    padding: 30px;
-//    &:first-child {
-//      margin-top: -20px;
-//    }
-//    &__services {
-//      display: none;
-//    }
-//    &__title {
-//      font-size: 30px;
-//      transform: translateX(15px);
-//    }
-//    &__actions {
-//      gap: 30px;
-//      padding-bottom: 15px;
-//      justify-content: flex-start;
-//    }
-//    &__actionButtonWrap {
-//      transform: translateX(15px);
-//      margin-bottom: -15px !important;
-//
-//      &--appointement {
-//        flex: auto;
-//        margin: 0;
-//      }
-//
-//      &--contact {
-//        max-width: 60px;
-//        margin: 0;
-//      }
-//
-//      &--details {
-//      }
-//    }
-//    &__list {
-//      li {
-//        transform: translateX(15px);
-//      }
-//    }
-//    &.opened {
-//      &:last-child {
-//        margin-bottom: 20px;
-//      }
-//
-//      .service-card + & {
-//        margin-top: 20px;
-//      }
-//    }
-//  }
-//}
 
 .services-lib {
   padding-bottom: 0;

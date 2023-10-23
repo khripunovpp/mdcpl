@@ -22,15 +22,25 @@ header.header.js-sticky-header
                             a(href="./contacts/index.html") Контакты
                     .nav__bottom
                         .nav__bottom-element
-                            a(href="https://t.me/MedCoupleBot",target='_blank').contact-link
-                                i.contact-link__icon.icon.paste-sprite-telegram-icon
+                            a(href="./contacts/index.html").contact-link
+                                i.contact-link__icon.icon.paste-sprite-location-icon
                                 .contact-link__tail
-                                    span.contact-link__label Telegram-бот
+                                    span.contact-link__label Edificio espelho do tejo, <br>Rua da Ilha dos Amores nº 26A, 1990-118&nbsp;Lisboa
                         .nav__bottom-element
                             a(href="mailto:example@mail.com").contact-link
                                 i.contact-link__icon.icon.paste-sprite-email-icon
                                 .contact-link__tail
                                     span.contact-link__label example@mail.com
+                        .nav__bottom-element
+                            a(href="https://t.me/medcouplept").contact-link
+                                i.contact-link__icon.icon.paste-sprite-telegram-circle-icon
+                                .contact-link__tail
+                                    span.contact-link__label Канал в телеграм
+                        .nav__bottom-element
+                            a(href="https://t.me/MedCoupleBot").contact-link
+                                i.contact-link__icon.icon.paste-sprite-telegram-circle-icon
+                                .contact-link__tail
+                                    span.contact-link__label Бот для записи
                         .nav__bottom-element
                             button(type='button').button.button--outlined.js-open-dialog(data-dialog-id="widget")
                                 span Записаться на прием
@@ -43,13 +53,9 @@ header.header.js-sticky-header
                     .contact-link__tail
                         span.contact-link__label Telegram-бот
 
-            section.header__splitButton
-                .split-button
-                    button(type='button').js-open-dialog(data-dialog-id="widget")
-                        span Записаться
-                    button(type='button').js-open-dialog(data-dialog-id="home-call")
-                        i.icon.paste-sprite-plus-icon
-                        span Выезд на дом
+            section.header__buttons
+                button(type='button').js-open-dialog(data-dialog-id="home-call").button.button--outlined.button--accent
+                    span Выезд на дом
 
             button.header__burger.burger(type='button',aria-label='Открыть меню')
                 .burger__icon

@@ -98,7 +98,7 @@
       }
 
       .contact-link {
-        font-size: 30px;
+        font-size: 25px;
 
         .icon {
           width: 32px;
@@ -154,6 +154,16 @@
     &__formPart {
       margin-top: 0;
       padding: 0 0 0 30px;
+    }
+  }
+
+  @media (min-width: 1500px) {
+
+    &__contacts {
+
+      .contact-link {
+        font-size: 30px;
+      }
     }
   }
 }

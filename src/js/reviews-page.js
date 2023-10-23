@@ -1,5 +1,5 @@
 import {ExpandableComponent} from "./_expandable";
 
 $(function () {
-  new ExpandableComponent();
+  new ExpandableComponent('.review-card');
 })

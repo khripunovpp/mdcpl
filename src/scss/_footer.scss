@@ -22,7 +22,7 @@
     }
   }
 
-  &__splitButton {
+  &__buttons {
     order: 2;
   }
 
@@ -111,30 +111,18 @@
     }
   }
 
-  .split-button {
-    button {
-      &:first-child, &:last-child {
-        border-color: #fff;
-      }
+  &__buttons {
+    .button--outlined {
+      padding: 6px 13px !important;
+      border-color: #fff;
+      color: #fff;
 
-      &:first-child {
-        &:hover {
-          border-color: $light-green;
-          color: $font-color;
-        }
-      }
-
-      &:last-child {
+      &:hover {
+        background-color: #ffffff;
         color: $font-color;
-
-        &:hover {
-          border-color: #fff;
-          color: #fff;
-        }
       }
     }
   }
-
 
   @media screen and (min-width: 991px) {
     &__topPart {
@@ -146,8 +134,12 @@
       max-width: none;
     }
 
-    &__splitButton {
+    &__buttons {
       order: initial;
+
+      .button--outlined {
+        padding: 12px 20px !important;
+      }
     }
 
     &__nav {
@@ -162,7 +154,6 @@
     &__about {
       flex: 0 1 30%;
       order: initial;
-      font-size: 18px;
     }
     &__contactsList {
       margin: 0 0 0 20px;

@@ -73,7 +73,7 @@
   }
 
   $(function () {
-    new ExpandableComponent();
+    new ExpandableComponent('.review-card');
   });
 
 }));

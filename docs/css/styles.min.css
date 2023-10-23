@@ -185,6 +185,10 @@ img:not([src]) {
   visibility: hidden;
 }
 
+.section {
+  padding: 50px 0;
+}
+
 .title {
   font-size: 24px;
   line-height: 31px;
@@ -1492,14 +1496,18 @@ img:not([src]) {
   position: relative;
 }
 
-.header__phone,
-.header__splitButton {
+.header__buttons,
+.header__phone {
   -webkit-transition: opacity .2s ease-in-out,-webkit-transform .2s ease-in;
   transition: opacity .2s ease-in-out,-webkit-transform .2s ease-in;
   transition: transform .2s ease-in,opacity .2s ease-in-out;
   transition: transform .2s ease-in,opacity .2s ease-in-out,-webkit-transform .2s ease-in;
   -webkit-transition-delay: .3s;
   transition-delay: .3s;
+}
+
+.header__buttons .button--outlined {
+  padding: 6px 13px!important;
 }
 
 .header__mobileBg {
@@ -1673,71 +1681,6 @@ img:not([src]) {
 
 .nav__bottom .button {
   width: 100%;
-}
-
-.split-button {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.split-button button {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background-color: transparent;
-  border: 2px solid;
-  border-radius: 50px;
-  font-family: inherit;
-  font-size: inherit;
-  font-weight: 600;
-  padding: 6px 13px;
-  line-height: 1;
-  margin: 0;
-  color: inherit;
-  position: relative;
-  cursor: pointer;
-  -webkit-transition: background-color .3s ease,color .3s ease;
-  transition: background-color .3s ease,color .3s ease;
-}
-
-.split-button button:first-child {
-  border-color: #c1d3c8;
-  font-size: 14px;
-  padding: 6px 13px;
-  padding-right: 38px;
-  margin-right: -30px;
-}
-
-.split-button button:first-child:hover {
-  background-color: #c1d3c8;
-}
-
-.split-button button:last-child {
-  z-index: 1;
-  border-color: #d56a5d;
-  background-color: #fff;
-  padding: 5px;
-}
-
-.split-button button:last-child span {
-  display: none;
-}
-
-.split-button button:last-child .icon {
-  color: #d56a5d;
-}
-
-.split-button button:last-child:hover {
-  background-color: #d56a5d;
-  color: #fff;
-}
-
-.split-button button:last-child:hover .icon svg path {
-  stroke: #fff;
 }
 
 .hero {
@@ -1963,10 +1906,6 @@ img:not([src]) {
 
 .feedbacks-lib__pagination {
   margin-top: 20px;
-}
-
-.team-slider {
-  padding: 50px 0;
 }
 
 .team-slider__list.splide__list {
@@ -2353,7 +2292,6 @@ img:not([src]) {
 
 .advantages {
   background-color: #fff;
-  padding: 50px 0;
 }
 
 .advantages--about {
@@ -2437,7 +2375,6 @@ img:not([src]) {
 }
 
 .reviews-widget {
-  padding: 50px 0;
   background-color: #f3d6c6;
 }
 
@@ -2558,7 +2495,6 @@ img:not([src]) {
 }
 
 .companies {
-  padding: 50px 0;
   background-color: #fff;
 }
 
@@ -2740,7 +2676,7 @@ img:not([src]) {
   height: auto;
 }
 
-.footer__splitButton {
+.footer__buttons {
   -webkit-box-ordinal-group: 3;
   -ms-flex-order: 2;
   order: 2;
@@ -2853,23 +2789,15 @@ img:not([src]) {
   opacity: 1;
 }
 
-.footer .split-button button:first-child,
-.footer .split-button button:last-child {
-  border-color: #fff;
-}
-
-.footer .split-button button:first-child:hover {
-  border-color: #c1d3c8;
-  color: #14373c;
-}
-
-.footer .split-button button:last-child {
-  color: #14373c;
-}
-
-.footer .split-button button:last-child:hover {
+.footer__buttons .button--outlined {
+  padding: 6px 13px!important;
   border-color: #fff;
   color: #fff;
+}
+
+.footer__buttons .button--outlined:hover {
+  background-color: #fff;
+  color: #14373c;
 }
 
 @media screen and (max-width:990px){
@@ -3003,8 +2931,8 @@ body.nav-open .header__mobileBg {
   clip-path: circle(150% at 100% 0);
 }
 
-body.nav-open .header__phone,
-body.nav-open .header__splitButton {
+body.nav-open .header__buttons,
+body.nav-open .header__phone {
   opacity: 0;
   visibility: hidden;
 }

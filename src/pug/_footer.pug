@@ -19,13 +19,9 @@ footer.footer
                         li
                             a(href="./contacts/index.html") Контакты
 
-            section.footer__splitButton
-                .split-button
-                    button(type='button').js-open-dialog(data-dialog-id="widget")
-                        span Записаться
-                    button(type='button').js-open-dialog(data-dialog-id="home-call")
-                        i.icon.paste-sprite-plus-icon
-                        span Выезд на дом
+            section.footer__buttons
+                button(type='button').js-open-dialog(data-dialog-id="home-call").button.button--outlined.button--accent
+                    span Выезд на дом
 
         section.footer__middlePart
             p.footer__about Мы знаем, как работать с русскоговорящими пациентами, но еще мы знаем, как устроена португальская семейная и госпитальная медицина изнутри

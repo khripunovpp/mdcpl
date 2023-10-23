@@ -5,26 +5,41 @@ section.services-widget
             .services-widget__servicesListContainer-inner
                 h2.services-widget__title.title Наши услуги
                 ul.services-widget__list
+                    li.services-widget__item.toggle-group(data-color='#C1D3C8', data-id='0').dot-holder.toggle-group--indexPage
+                        .toggle-group__dot.dot(style=`background-color: #C1D3C8`)
+                        h3.toggle-group__title Вызов на дом
+                        section.toggle-group__tail
+                            footer.toggle-group__actions
+                                .toggle-group__actionButtonWrap.toggle-group__actionButtonWrap--appointement
+                                    button.toggle-group__appointement.button.button--accent(type='button', aria-label='Записаться на прием').js-open-dialog(data-dialog-id="widget")
+                                        span Записаться на прием
+                                .toggle-group__actionButtonWrap.toggle-group__actionButtonWrap--details
+                                    a.toggle-group__details.button.button--outlined(type='button', aria-label='Подробнее', href='./services/index.html')
+                                        span Подробнее
+                                .toggle-group__actionButtonWrap.toggle-group__actionButtonWrap--contact
+                                    a.toggle-group__contact.button.button--outlined.button--telegram.button--icon(type='button', aria-label='Написать в Telegram', href="https://t.me/MedCoupleBot",target='_blank')
+                                        i.icon.paste-sprite-telegram-icon
+                            section.toggle-group__subFooter
+                                .to-clone
+                                    p Мы выезжаем на дом при острой болезни и для плановых осмотров к детям и взрослым. Если по какой-то причине вы не можете или не хотите ехать в Услуги 2 больницу - это прекрасный вариант для вас.
+                                    p Мы выезжаем на дом при острой болезни и для плановых осмотров к детям и взрослым. Если по какой-то причине вы не можете или не хотите ехать в Услуги 2 больницу - это прекрасный вариант для вас.
                     each service,index in services
-                        li.services-widget__item.toggle-group(data-color=service.color, data-id=index).dot-holder.toggle-group--indexPage
+                        li.services-widget__item.toggle-group(data-color=service.color, data-id=index+1).dot-holder.toggle-group--indexPage
                             .toggle-group__dot.dot(style=`background-color: ${service.color}`)
                             h3.toggle-group__title=service.title
                             section.toggle-group__tail
                                 footer.toggle-group__actions
                                     .toggle-group__actionButtonWrap.toggle-group__actionButtonWrap--appointement
                                         button.toggle-group__appointement.button.button--accent(type='button', aria-label='Записаться на прием').js-open-dialog(data-dialog-id="widget")
-                                            span Записаться
+                                            span Записаться на прием
                                     .toggle-group__actionButtonWrap.toggle-group__actionButtonWrap--details
                                         a.toggle-group__details.button.button--outlined(type='button', aria-label='Подробнее', href='./services/index.html')
                                             span Подробнее
                                     .toggle-group__actionButtonWrap.toggle-group__actionButtonWrap--contact
                                         a.toggle-group__contact.button.button--outlined.button--telegram.button--icon(type='button', aria-label='Написать в Telegram', href="https://t.me/MedCoupleBot",target='_blank')
                                             i.icon.paste-sprite-telegram-icon
-                                    .toggle-group__actionButtonWrap.toggle-group__actionButtonWrap--contact
-                                        a.toggle-group__contact.button.button--outlined.button--whatsapp.button--icon(type='button', aria-label='Написать в WhatsApp', href="https://t.me/MedCoupleBot",target='_blank')
-                                            i.icon.paste-sprite-whatsapp-icon
                                 section.toggle-group__subFooter
-                                    ul.toggle-group__subFooter-list
+                                    ul.toggle-group__subFooter-list.to-clone
                                         li
                                             a(href='./services/index.html') Организация вакцинации  в клиниках Португалии
                                         li

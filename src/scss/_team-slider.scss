@@ -1,7 +1,6 @@
 @use 'vars' as *;
 
 .team-slider {
-  padding: 50px 0;
 
   &__title {
   }
@@ -61,7 +60,6 @@
   }
 
   @media screen and (min-width: 991px) {
-    padding: 150px 0;
 
     &__title {
       text-align: center;
@@ -154,6 +152,15 @@
     }
     &__name {
       text-align: center;
+      font-size: 25px;
+      line-height: 30px;
+    }
+    &__location {
+      font-size: 16px;
+    }
+  }
+  @media screen and (min-width: 1500px) {
+    &__name {
       font-size: 30px;
       line-height: 37px;
     }
@@ -267,8 +274,6 @@
   &__toggle-item {
     background-color: #EBE2DD;
     margin-bottom: 10px;
-
-
     .toggle-item {
       &__tail {
         font-size: 12px;
@@ -355,8 +360,8 @@
 
     &__name {
 
-      font-size: 40px;
-      line-height: 49px;
+      font-size: 30px;
+      line-height: 40px;
     }
     &__button {
       margin-left: auto;
@@ -370,8 +375,8 @@
 
       .toggle-item {
         &__tail {
-          font-size: 18px;
-          line-height: 36px;
+          font-size: inherit;
+          line-height: 1.9;
 
           li {
             padding-left: 25px;
@@ -400,6 +405,14 @@
       }
     }
 
+  }
+
+  @media screen and (min-width: 1500px) {
+    &__name {
+
+      font-size: 40px;
+      line-height: 49px;
+    }
   }
 }
 
@@ -506,9 +519,15 @@
     margin: -10px;
     &__item {
       padding: 10px;
+      width: 150px;
+      height: 150px;
+      margin: 10px;
+    }
+  }
+  @media screen and (min-width: 1500px) {
+    &__item {
       width: 200px;
       height: 200px;
-      margin: 10px;
     }
   }
 }
