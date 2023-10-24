@@ -16,7 +16,8 @@ html(lang="ru")
                     .container
                         .lead__inner
                             .lead__picture
-                                img.lazy(data-src='../img/contacts-lead-pic.jpg', alt='Наши услуги')
+                                img.lazy(data-src='./img/contacts-lead-pic.jpg', alt='').only-desktop
+                                img.lazy(data-src='./img/contacts-lead-pic-m.jpg', alt='').only-mobile
                             .lead__content
                                 header.lead__header
                                     button.lead__backBtn(type='button', aria-label='Назад')

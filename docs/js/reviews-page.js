@@ -4,9 +4,9 @@
 }(function () { 'use strict';
 
   function ExpandableComponent(
-    desktopHeight, mobileHeight, signs
+    root, desktopHeight, mobileHeight, signs
   ) {
-    $('.expandable').each(function (index, target) {
+    $(root).find('.expandable').each(function (index, target) {
       var $_target = $(target);
       var $_content = $_target.find('.expandable__content');
       var $_toggleButton = $_target.find('.expandable__button');
@@ -73,7 +73,7 @@
   }
 
   $(function () {
-    new ExpandableComponent('.review-card');
+    new ExpandableComponent('.feedbacks-lib');
   });
 
 }));

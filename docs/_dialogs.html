@@ -1,6 +1,51 @@
 
 <div class="overlay"></div>
 <div class="notify"></div>
+<section class="popup popup--callback" data-dialog-id="review">
+  <div class="popup__container">
+    <div class="popup__wrapper">
+      <section class="popup__inner">
+        <button class="popup__close js-close-dialog paste-sprite-cross-icon" type="button" aria-label="Закрыть"></button>
+        <h2 class="popup__title">Оставить отзыв</h2>
+        <section class="popup__tail">
+          <form class="form" id="review">
+            <section class="form__field">
+              <label class="form__label">Имя</label>
+              <input class="form__control" type="text" name="name"/>
+              <p class="form__field-errorText">Обязательное поле</p>
+            </section>
+            <section class="form__field form__field--select"><i class="form__caretDown paste-sprite-caret-left-icon icon"></i>
+              <select class="form__control">
+                <option value="Порто">Порто</option>
+                <option value="Лиссабон">Лиссабон</option>
+                <option value="Сетубал">Сетубал</option>
+              </select>
+              <p class="form__field-errorText">Обязательное поле</p>
+            </section>
+            <section class="form__field">
+              <label class="form__label">Телефон</label>
+              <input class="form__control" type="tel" name="phone"/>
+              <p class="form__field-errorText">Обязательное поле</p>
+            </section>
+            <section class="form__field">
+              <label class="form__label">Email</label>
+              <input class="form__control" type="email" name="email"/>
+              <p class="form__field-errorText">Обязательное поле</p>
+            </section>
+            <section class="form__field form__field--fluid form__field--textarea">
+              <label class="form__label">Опишите ваше впечатление</label>
+              <textarea class="form__control" name="msg" rows="3"></textarea>
+              <p class="form__field-errorText">Обязательное поле</p>
+            </section>
+            <footer class="form__footer">
+              <button class="form__submit button button--outlined" type="button">Отправить отзыв</button>
+            </footer>
+          </form>
+        </section>
+      </section>
+    </div>
+  </div>
+</section>
 <section class="popup popup--callback" data-dialog-id="home-call">
   <div class="popup__container">
     <div class="popup__wrapper">
@@ -38,7 +83,7 @@
               <p class="form__field-errorText">Обязательное поле</p>
             </section>
             <footer class="form__footer">
-              <button class="form__submit button button--outlined" type="button">Отправить</button>
+              <button class="form__submit button button--outlined" type="button">Отправить запрос</button>
             </footer>
           </form>
         </section>

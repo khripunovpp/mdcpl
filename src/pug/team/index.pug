@@ -15,7 +15,8 @@ html(lang="ru")
                     .container
                         .lead__inner
                             .lead__picture
-                                img.lazy(data-src='../img/team-lead-pic.jpg', alt='Наши услуги')
+                                img.lazy(data-src='./img/team-lead-pic.jpg', alt='').only-desktop
+                                img.lazy(data-src='./img/team-lead-pic-m.jpg', alt='').only-mobile
                             .lead__content
                                 header.lead__header
                                     button.lead__backBtn(type='button', aria-label='Назад')
@@ -30,12 +31,12 @@ html(lang="ru")
                                 - for (let i = 0; i < 5; i++)
                                     section.team-lib__item.doc-card
                                         .doc-card__desktopImage
-                                            img.lazy(data-src=`../img/doc-pic-big-${i + 1}.jpg`, alt='Имя')
+                                            img.lazy(data-src=`./img/doc-pic-big-${i + 1}.jpg`, alt='Имя')
                                         .doc-card__content
                                             header.doc-card__header
                                                 .doc-card__profile
                                                     .doc-card__ava
-                                                        img.lazy(data-src=`../img/doc-pic-${i + 1}.jpg`, alt='Имя')
+                                                        img.lazy(data-src=`./img/doc-pic-${i + 1}.jpg`, alt='Имя')
                                                     .doc-card__description
                                                         p.doc-card__name Имя Фамилия
                                                         p.doc-card__location

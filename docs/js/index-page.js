@@ -95,9 +95,9 @@
   };
 
   function ExpandableComponent(
-    desktopHeight, mobileHeight, signs
+    root, desktopHeight, mobileHeight, signs
   ) {
-    $('.expandable').each(function (index, target) {
+    $(root).find('.expandable').each(function (index, target) {
       var $_target = $(target);
       var $_content = $_target.find('.expandable__content');
       var $_toggleButton = $_target.find('.expandable__button');
@@ -164,27 +164,41 @@
   }
 
   window.libLoaded = function () {
-    window.loadLazy();
+
+    var stickySidebar = new StickySidebar('.sticky-block', {
+      // bottomSpacing: 20,
+      containerSelector: '.services-widget__desktopScrollerListContainer',
+      innerWrapperSelector: '.services-widget__desktopScrollerListContainer-list',
+    });
+    window.loadLazy(function () {
+      setTimeout(function () {
+        stickySidebar.updateSticky();
+      }, 100);
+    });
     var desktopScrollerListContainerColor$ = $('.services-widget__desktopScrollerListContainer');
-    var desktopScrollerListContainer$ = $('.services-widget__desktopScrollerListContainer-list');
+    var desktopScrollerListContainer$ = $('.services-widget__desktopScrollerListContainer-content');
     var serviceCards = new AnimatedExpand(
       {
         rootEl: '.services-widget',
         itemEl: '.toggle-group',
         triggerEl: '.toggle-group__title',
+
         tailEl: '.toggle-group__tail',
         animatedItemsQuery: '.toggle-group__actionButtonWrap, .to-clone li, .to-clone p',
         closeOthers: true,
         toggleBehavior: false,
         onExpand: function (el) {
           var $serviceCard = $(el);
-          var $serviceCardList = $serviceCard.find('.to-clone li,.to-clone p');
+          var $serviceCardList = $serviceCard.find('.to-clone li, .to-clone p');
           var color = $serviceCard.data('color');
           var clonedList = $serviceCardList.clone();
           desktopScrollerListContainerColor$.css('background-color', color);
           desktopScrollerListContainer$.html(clonedList);
           setTimeout(function () {
             clonedList.addClass('animate');
+            setTimeout(function () {
+              stickySidebar.updateSticky();
+            }, 100);
           }, 100);
         },
       }
@@ -226,7 +240,7 @@
       // updateHeight(newIndex);
     });
 
-    new ExpandableComponent('.feedbacks-lib__item');
+    new ExpandableComponent('.reviews-widget');
 
     var slidingHover = $('.team-slider__slidingHover');
     var scale = 0.9;
@@ -260,11 +274,6 @@
       });
     });
     //
-    //  var stickySidebar = new StickySidebar('.sticky-block', {
-    //   // bottomSpacing: 20,
-    //   containerSelector: '.services-widget__desktopScrollerListContainer',
-    //   innerWrapperSelector: '.services-widget__desktopScrollerListContainer-list',
-    // });
 
     // var sticky = new Sticky('.sticky-block');
   };

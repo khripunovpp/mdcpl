@@ -117,7 +117,6 @@
         toggleBehavior: true,
         closeOthers: false,
         onExpand: function (el) {
-          console.log(window.lazyInstance);
           window.lazyInstance.update();
         },
       }

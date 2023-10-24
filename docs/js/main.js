@@ -45,6 +45,32 @@
     that.setHeaderHeight.call(that);
     that.setNavHeight.call(that);
     that.setAnimationProps.call(that);
+    var skipedContainerInViewport = false;
+
+    function handleIntersection(entries) {
+      entries.forEach(function (entry) {
+        if (entry.intersectionRatio > 0.2) {
+          skipedContainerInViewport = true;
+        } else {
+          skipedContainerInViewport = false;
+        }
+      });
+    }
+
+    if (window.IntersectionObserver) {
+      var options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.2,
+      };
+
+      var skipElementObserver = new IntersectionObserver(handleIntersection, options);
+      var elementToSkip = $('.services-widget')[0];
+
+      if (elementToSkip) {
+        skipElementObserver.observe(elementToSkip);
+      }
+    }
 
     var currentScrollPosition = $(window).scrollTop();
 
@@ -62,7 +88,7 @@
           return false;
         }
 
-        if (that._lastScrollPosition > currentScrollPosition) {
+        if (that._lastScrollPosition > currentScrollPosition && !skipedContainerInViewport) {
           that.show.call(that);
 
         } else if (that._lastScrollPosition < currentScrollPosition) {

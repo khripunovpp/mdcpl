@@ -5,9 +5,45 @@ section.services-widget
             .services-widget__servicesListContainer-inner
                 h2.services-widget__title.title Наши услуги
                 ul.services-widget__list
-                    li.services-widget__item.toggle-group(data-color='#C1D3C8', data-id='0').dot-holder.toggle-group--indexPage
-                        .toggle-group__dot.dot(style=`background-color: #C1D3C8`)
-                        h3.toggle-group__title Вызов на дом
+                    li.services-widget__item.static-service-group(style=`background-color: #C1D3C8`)
+                        header.static-service-group__header
+                            h3.static-service-group__title Вызов на дом
+                            .static-service-group__actions
+                                .static-service-group__actionButtonWrap.static-service-group__actionButtonWrap--appointement
+                                    button.static-service-group__appointement.button.button--accent(type='button', aria-label='Записаться').js-open-dialog(data-dialog-id="home-call")
+                                        span Записаться
+                                .static-service-group__actionButtonWrap.static-service-group__actionButtonWrap--details
+                                    a.static-service-group__contact.button.button--outlined.button--telegram.button--icon(type='button', aria-label='Написать в Telegram', href="https://t.me/MedCoupleBot",target='_blank')
+                                        i.icon.paste-sprite-telegram-icon
+
+                    each service,index in services
+                        li.services-widget__item.toggle-group(data-color=service.color, data-id=index).dot-holder.toggle-group--indexPage
+                            .toggle-group__dot.dot(style=`background-color: ${service.color}`)
+                            h3.toggle-group__title=service.title
+                            section.toggle-group__tail
+                                footer.toggle-group__actions
+                                    .toggle-group__actionButtonWrap.toggle-group__actionButtonWrap--appointement
+                                        button.toggle-group__appointement.button.button--accent(type='button', aria-label='Записаться на прием').js-open-dialog(data-dialog-id="widget")
+                                            span Записаться на прием
+                                    .toggle-group__actionButtonWrap.toggle-group__actionButtonWrap--details
+                                        a.toggle-group__details.button.button--outlined(type='button', aria-label='Подробнее',href=`./services/index.html#toggle-group-${index}-00`)
+                                            span Подробнее
+                                    .toggle-group__actionButtonWrap.toggle-group__actionButtonWrap--contact
+                                        a.toggle-group__contact.button.button--outlined.button--telegram.button--icon(type='button', aria-label='Написать в Telegram', href="https://t.me/MedCoupleBot",target='_blank')
+                                            i.icon.paste-sprite-telegram-icon
+                                section.toggle-group__subFooter
+                                    ul.toggle-group__subFooter-list.to-clone
+                                        li
+                                            a(href=`./services/index.html#toggle-group-${index}-${index}0`) Профилактические/плановые осмотры детей в ключевые возраста
+                                        li
+                                            a(href=`./services/index.html#toggle-group-${index}-${index}1`) Программы сопровождения семей с деть
+                                        li
+                                            a(href=`./services/index.html#toggle-group-${index}-${index}2`) Консультации при острых заболеваниях
+                                        li
+                                            a(href=`./services/index.html#toggle-group-${index}-${index}3`) Оформление справок для садиков/школ/спортивных секций.
+                    li.services-widget__item.toggle-group(data-color='#d5d5d5', data-id=4865132).dot-holder.toggle-group--indexPage
+                        .toggle-group__dot.dot(style=`background-color: #d5d5d5 `)
+                        h3.toggle-group__title Список побольше
                         section.toggle-group__tail
                             footer.toggle-group__actions
                                 .toggle-group__actionButtonWrap.toggle-group__actionButtonWrap--appointement
@@ -20,38 +56,24 @@ section.services-widget
                                     a.toggle-group__contact.button.button--outlined.button--telegram.button--icon(type='button', aria-label='Написать в Telegram', href="https://t.me/MedCoupleBot",target='_blank')
                                         i.icon.paste-sprite-telegram-icon
                             section.toggle-group__subFooter
-                                .to-clone
-                                    p Мы выезжаем на дом при острой болезни и для плановых осмотров к детям и взрослым. Если по какой-то причине вы не можете или не хотите ехать в Услуги 2 больницу - это прекрасный вариант для вас.
-                                    p Мы выезжаем на дом при острой болезни и для плановых осмотров к детям и взрослым. Если по какой-то причине вы не можете или не хотите ехать в Услуги 2 больницу - это прекрасный вариант для вас.
-                    each service,index in services
-                        li.services-widget__item.toggle-group(data-color=service.color, data-id=index+1).dot-holder.toggle-group--indexPage
-                            .toggle-group__dot.dot(style=`background-color: ${service.color}`)
-                            h3.toggle-group__title=service.title
-                            section.toggle-group__tail
-                                footer.toggle-group__actions
-                                    .toggle-group__actionButtonWrap.toggle-group__actionButtonWrap--appointement
-                                        button.toggle-group__appointement.button.button--accent(type='button', aria-label='Записаться на прием').js-open-dialog(data-dialog-id="widget")
-                                            span Записаться на прием
-                                    .toggle-group__actionButtonWrap.toggle-group__actionButtonWrap--details
-                                        a.toggle-group__details.button.button--outlined(type='button', aria-label='Подробнее', href='./services/index.html')
-                                            span Подробнее
-                                    .toggle-group__actionButtonWrap.toggle-group__actionButtonWrap--contact
-                                        a.toggle-group__contact.button.button--outlined.button--telegram.button--icon(type='button', aria-label='Написать в Telegram', href="https://t.me/MedCoupleBot",target='_blank')
-                                            i.icon.paste-sprite-telegram-icon
-                                section.toggle-group__subFooter
-                                    ul.toggle-group__subFooter-list.to-clone
-                                        li
-                                            a(href='./services/index.html') Организация вакцинации  в клиниках Португалии
-                                        li
-                                            a(href='./services/index.html') Программы годового сопровождения семей с детьми
-                                        li
-                                            a(href='./services/index.html') Программы годового сопровождения семей с детьми
-                                        li
-                                            a(href='./services/index.html') Программы годового сопровождения семей с детьми
-
+                                ul.toggle-group__subFooter-list.to-clone
+                                    li
+                                        a(href='./services/index.html') Организация вакцинации  в клиниках Португалии
+                                    li
+                                        a(href='./services/index.html') Программы годового сопровождения семей с детьми
+                                    li
+                                        a(href='./services/index.html') Программы годового сопровождения семей с детьми
+                                    li
+                                        a(href='./services/index.html') Организация вакцинации  в клиниках Португалии
+                                    li
+                                        a(href='./services/index.html') Программы годового сопровождения семей с детьми
+                                    li
+                                        a(href='./services/index.html') Программы годового сопровождения семей с детьми
+                                    li
+                                        a(href='./services/index.html') Программы годового сопровождения семей с детьми
                 a.services-widget__showMore.button.button--big(type='button', aria-label='Все услуги', href='./services/index.html')
                     span Все услуги
-        .services-widget__desktopScrollerListContainer(data-sticky-container)
+        .services-widget__desktopScrollerListContainer
             .services-widget__desktopScrollerListContainer-inner
                 .sticky-block
-                    ul.services-widget__desktopScrollerListContainer-list
+                    .services-widget__desktopScrollerListContainer-content

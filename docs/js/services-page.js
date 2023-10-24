@@ -119,7 +119,21 @@
         nested: servicesLibGroupItems,
       }
     );
-    servicesLibToggleGroup.openById(0);
+
+    var hash = window.getHashGroup();
+
+    if (hash) {
+      if (hash.groupId) {
+        servicesLibToggleGroup.openById(hash.groupId);
+         window.goToSectionById(hash.groupId,'start');
+      }
+
+      if (hash.itemId) {
+        servicesLibGroupItems.openById(hash.itemId);
+      }
+    } else {
+      servicesLibToggleGroup.openById('home');
+    }
   });
 
 }));

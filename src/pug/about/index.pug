@@ -16,7 +16,8 @@ html(lang="ru")
                     .container
                         .lead__inner
                             .lead__picture
-                                img.lazy(data-src='../img/about-lead-pic.jpg', alt='Наши услуги')
+                                img.lazy(data-src='./img/about-lead-pic.jpg', alt='').only-desktop
+                                img.lazy(data-src='./img/about-lead-pic-m.jpg', alt='').only-mobile
                             .lead__content
                                 header.lead__header
                                     button.lead__backBtn(type='button', aria-label='Назад')
@@ -46,6 +47,6 @@ html(lang="ru")
 
 
         include ../_footer-scripts.html
-        script(defer,src='../js/services-page.js')
+        script(defer,src='./js/services-page.js')
         script(defer,src='./js/main.js')
         script(defer,src='./js/libs.min.js',onload="libLoaded()")

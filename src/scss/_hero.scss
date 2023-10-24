@@ -26,9 +26,11 @@
     margin-bottom: 10px;
     display: flex;
     overflow: hidden;
+    aspect-ratio: 1.6;
+    border-radius: 20px;
+    background-color: #fff;
 
     &-img {
-
       border-radius: 20px;
     }
   }
@@ -69,6 +71,8 @@
       align-items: center;
       justify-content: center;
       margin-left: auto;
+      background-color: transparent;
+      aspect-ratio: auto;
     }
     &__content {
       padding-right: 95px;
@@ -106,7 +110,8 @@
     }
   }
   @media screen and (min-width: 1500px) {
-    padding: 40px 0 150px;  &__leadText {
+    padding: 40px 0 150px;
+    &__leadText {
       font-size: 18px;
       line-height: 30px;
     }

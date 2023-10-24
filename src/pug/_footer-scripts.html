@@ -1,14 +1,31 @@
 <script>
-  window.goToSectionById = function (id) {
+  window.getHashGroup = function () {
+    var hash = window.location.hash;
+    var toggleGroupId = hash.indexOf('#toggle-group-');
+    if (toggleGroupId > -1) {
+      var result = hash.match(/#toggle-group-(\d+)-(\d+)/);
+      var groupId = result[1];
+      var itemId = result[2];
+
+      return {
+        groupId: groupId,
+        itemId: itemId,
+      }
+    } else {
+      return null;
+    }
+  }
+  window.goToSectionById = function (id, block) {
+    var block = block || 'center';
     var targetEl = document.querySelector('[data-id="' + id + '"]');
     if (targetEl) {
       targetEl.scrollIntoView({
         behavior: 'smooth',
-        block: 'center',
+        block: block,
       });
     }
   }
-  window.loadLazy = function () {
+  window.loadLazy = function (cb) {
     $(function () {
       window.lazyInstance = $('.lazy').Lazy({
         effect: 'fadeIn',
@@ -17,6 +34,7 @@
         threshold: 0,
         afterLoad: function (element) {
           $(element).closest('.lazy-wrapper').addClass('is-loaded');
+          typeof cb === 'function' && cb();
         },
       });
     })
@@ -100,4 +118,22 @@
   window.libLoaded = function () {
     window.loadLazy();
   }
+
+  // window.onerror = function (message, source, lineno, colno, error) {
+  //   var errorMessage = "Ошибка: " + message + "\n";
+  //   errorMessage += "Файл: " + source + "\n";
+  //   errorMessage += "Строка: " + lineno + "\n";
+  //   errorMessage += "Столбец: " + colno + "\n";
+  //
+  //   // Получить стек вызовов из объекта ошибки
+  //   if (error && error.stack) {
+  //     errorMessage += "Стек вызовов: " + error.stack + "\n";
+  //   }
+  //
+  //   alert(errorMessage);
+  //
+  //   // Если нужно предотвратить дальнейшую обработку ошибки браузером,
+  //   // возвращайте true. В противном случае, верните false.
+  //   return true;
+  // };
 </script>

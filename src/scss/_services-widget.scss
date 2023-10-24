@@ -3,6 +3,7 @@
 
 .services-widget {
   background-color: #fff;
+  transition: height .2s ease-in-out;
 
   &__title {
   }
@@ -23,7 +24,7 @@
     }
 
     &:first-child {
-      margin-top: -10px;
+      margin-bottom: 0;
     }
 
     &.opened {
@@ -73,45 +74,49 @@
       justify-content: center;
       margin: 0;
     }
-    &__servicesListContainer,
-    &__desktopScrollerListContainer {
+    &__servicesListContainer {
+      justify-content: flex-end;
+      padding-left: 30px;
+      max-width: none;
+      margin: 0;
       width: 50%;
       display: flex;
       padding-top: 80px;
       padding-bottom: 80px;
 
       &-inner {
+        padding-right: 40px;
         width: math.div($desktop-container-width, 2);
       }
     }
-    &__servicesListContainer {
-      justify-content: flex-end;
-      padding-left: 30px;
-      max-width: none;
-      margin: 0;
-
-      &-inner {
-        padding-right: 40px;
-      }
-    }
     &__desktopScrollerListContainer {
-      padding-right: 30px;
       display: flex;
-      align-items: center;
-      justify-content: flex-start;
+      width: 50%;
       transition: background-color 0.2s ease-in-out;
       font-size: 25px;
+      padding-top: 0;
+      padding-bottom: 0;
       line-height: 1.6;
 
       &-inner {
-        padding-left: 40px;
         opacity: 0.5;
+        width: math.div($desktop-container-width, 2);
       }
 
-      &-list {
+      &-content {
         list-style: none;
         padding: 0;
         margin: 0;
+        padding-top: 80px;
+        padding-bottom: 80px;
+        padding-right: 30px;
+        padding-left: 40px;
+        transform: translate3d(0, 0, 0);
+        will-change: position, transform;
+
+        p {
+          margin: 0;
+        }
 
         li {
           font-size: 30px;
@@ -150,10 +155,6 @@
     &__item {
       margin-bottom: -20px;
 
-      &:first-child {
-        margin-top: -20px;
-      }
-
       &.opened {
         &:last-child {
           margin-bottom: 20px;
@@ -167,12 +168,10 @@
   }
 
   @media screen and (min-width: 1500px) {
-    &__servicesListContainer,
-    &__desktopScrollerListContainer {
+    &__servicesListContainer {
       padding-top: 100px;
       padding-bottom: 100px;
-    }
-    &__servicesListContainer {
+
       &-inner {
         padding-right: 60px;
       }
@@ -180,11 +179,10 @@
     &__desktopScrollerListContainer {
       font-size: 30px;
 
-      &-inner {
+      &-content {
         padding-left: 60px;
-      }
-
-      &-list {
+        padding-top: 100px;
+        padding-bottom: 100px;
 
         li {
           font-size: 40px;
@@ -196,13 +194,9 @@
       }
     }
 
-
     &__item {
       margin-bottom: -30px;
 
-      &:first-child {
-        margin-top: -30px;
-      }
 
       &.opened {
         &:last-child {
